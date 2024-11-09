@@ -10,9 +10,7 @@ var alert_enabled = true;
 func _ready() -> void:
 	icon.visible = alert_enabled;
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
+func update_position() -> void:
 	self.global_position = lerp(
 		machine.global_position,
 		 player.global_position,

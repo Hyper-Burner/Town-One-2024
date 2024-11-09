@@ -33,7 +33,7 @@ icon = ExtResource("3_n7ar1")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Reactor"]
 shape = SubResource("RectangleShape2D_hof2x")
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Reactor"]
+[node name="VisibleOnScreenNotifier2D2" type="VisibleOnScreenNotifier2D" parent="Reactor"]
 
 [node name="OverWorld" parent="." instance=ExtResource("3_hgkqc")]
 position = Vector2(0, 3)
