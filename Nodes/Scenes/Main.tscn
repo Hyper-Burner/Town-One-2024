@@ -1,12 +1,12 @@
 [gd_scene load_steps=11 format=3 uid="uid://rvbeg2ssa60"]
 
-[ext_resource type="Script" path="res://Nodes/Scenes/main.gd" id="1_loay8"]
-[ext_resource type="PackedScene" uid="uid://bwr5ah1mhh0u5" path="res://Nodes/Scenes/GUI/UI.tscn" id="4_c7gbd"]
 [ext_resource type="PackedScene" uid="uid://bj8jhcos6u8hu" path="res://Nodes/Scenes/Player.tscn" id="1_4kupe"]
+[ext_resource type="Script" path="res://Nodes/Scenes/main.gd" id="1_loay8"]
 [ext_resource type="PackedScene" path="res://Nodes/Scenes/game_over.tscn" id="1_s38xt"]
 [ext_resource type="PackedScene" uid="uid://ur5o0tlurmxs" path="res://Nodes/Scenes/Reactor.tscn" id="2_2wstb"]
 [ext_resource type="PackedScene" path="res://Nodes/Scenes/lives_counter.tscn" id="2_su0ge"]
 [ext_resource type="PackedScene" uid="uid://c7dtb2c0jcio" path="res://Nodes/Scenes/Map/over_world.tscn" id="3_hgkqc"]
+[ext_resource type="PackedScene" uid="uid://bwr5ah1mhh0u5" path="res://Nodes/Scenes/GUI/AlertElement.tscn" id="4_c7gbd"]
 [ext_resource type="Texture2D" uid="uid://4nn8ua2nuvx2" path="res://icon.svg" id="6_3s31c"]
 [ext_resource type="Script" path="res://Nodes/Scenes/button.gd" id="7_qvcks"]
 
@@ -24,10 +24,13 @@ unique_name_in_owner = true
 motion_mode = 1
 
 [node name="Reactor" parent="." instance=ExtResource("2_2wstb")]
+unique_name_in_owner = true
 position = Vector2(8, 22)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Reactor"]
 shape = SubResource("RectangleShape2D_hof2x")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Reactor"]
 
 [node name="OverWorld" parent="." instance=ExtResource("3_hgkqc")]
 position = Vector2(0, 3)
@@ -39,5 +42,7 @@ offset_right = 468.0
 offset_bottom = -120.0
 icon = ExtResource("6_3s31c")
 script = ExtResource("7_qvcks")
+
+[node name="IconRoot" parent="." instance=ExtResource("4_c7gbd")]
 
 [connection signal="pressed" from="Button" to="LivesCounter" method="_on_button_pressed"]

@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://bwr5ah1mhh0u5"]
 
-[ext_resource type="Script" path="res://Nodes/Scenes/GUI/ui.gd" id="1_hcnm6"]
+[ext_resource type="Script" path="res://Nodes/Scenes/GUI/alertElement.gd" id="1_hcnm6"]
 [ext_resource type="Texture2D" uid="uid://dmvg1giijn1xl" path="res://Assets/Textures/warning.svg" id="2_2244v"]
 
-[node name="Control" type="Control"]
+[node name="IconRoot" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
