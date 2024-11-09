@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpwnmdonrj5ws"]
+
+[ext_resource type="Script" path="res://Nodes/Scenes/ReactorMinigame.gd" id="1_oyhfg"]
+
+[node name="ReactorMinigame" type="Panel"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_oyhfg")
+
+[node name="1" type="TextureButton" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="2" type="TextureButton" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="3" type="TextureButton" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="4" type="TextureButton" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
