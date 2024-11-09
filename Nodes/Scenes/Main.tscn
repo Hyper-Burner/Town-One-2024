@@ -10,3 +10,5 @@ motion_mode = 1
 
 [node name="Reactor" parent="." instance=ExtResource("2_2wstb")]
 position = Vector2(264, 158)
+
+[connection signal="inminigame" from="Reactor" to="Player" method="_on_reactor_inminigame"]

@@ -5,7 +5,6 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4vw4f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n5hin"]
-size = Vector2(22, 22)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_iiljm"]
 
