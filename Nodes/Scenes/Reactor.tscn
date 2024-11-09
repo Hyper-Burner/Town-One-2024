@@ -1,8 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://ur5o0tlurmxs"]
-
-[ext_resource type="Script" path="res://Nodes/Scenes/machine.gd" id="1_6uewv"]
-[ext_resource type="PackedScene" uid="uid://clkwvexcvccxm" path="res://Nodes/Scenes/ReactorMinigame.tscn" id="2_svp07"]
-
-[node name="Machine" type="Area2D"]
-script = ExtResource("1_6uewv")
-minigame = ExtResource("2_svp07")

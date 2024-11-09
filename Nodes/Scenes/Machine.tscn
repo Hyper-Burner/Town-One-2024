@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://ur5o0tlurmxs"]
+
+[ext_resource type="Script" path="res://Nodes/Scenes/machine.gd" id="1_6uewv"]
+[ext_resource type="PackedScene" uid="uid://bwr5ah1mhh0u5" path="res://Nodes/Scenes/GUI/AlertElement.tscn" id="2_2hsmm"]
+
+[node name="Machine" type="Area2D"]
+script = ExtResource("1_6uewv")
+
+[node name="IconRoot" parent="." instance=ExtResource("2_2hsmm")]
+unique_name_in_owner = true
