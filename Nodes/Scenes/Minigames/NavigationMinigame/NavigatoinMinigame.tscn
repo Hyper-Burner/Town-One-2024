@@ -1,0 +1,121 @@
+[gd_scene load_steps=9 format=3 uid="uid://dqfkb057sph4e"]
+
+[ext_resource type="Script" path="res://Nodes/Scenes/Minigames/NavigationMinigame/area_2d.gd" id="1_a4kch"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6mo1g"]
+size = Vector2(1, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_pj4ta"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o55cg"]
+size = Vector2(333, 139)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1exb5"]
+size = Vector2(147, 161.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vvngs"]
+size = Vector2(117, 100.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5v47i"]
+size = Vector2(186, 160.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0c4dx"]
+size = Vector2(117, 199)
+
+[node name="NavigatoinMinigame" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(427, 211)
+scale = Vector2(450, 300)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-2.98023e-07, -1.19209e-07)
+shape = SubResource("RectangleShape2D_6mo1g")
+
+[node name="Silhouette" type="Sprite2D" parent="Area2D"]
+texture = SubResource("CanvasTexture_pj4ta")
+
+[node name="Pieces" type="Node2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="Pieces"]
+script = ExtResource("1_a4kch")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pieces/Area2D"]
+position = Vector2(358, 505)
+shape = SubResource("RectangleShape2D_o55cg")
+
+[node name="Sprite2D" type="Sprite2D" parent="Pieces/Area2D"]
+
+[node name="Area2D2" type="Area2D" parent="Pieces"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pieces/Area2D2"]
+position = Vector2(881, 192)
+shape = SubResource("RectangleShape2D_1exb5")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Pieces/Area2D2"]
+
+[node name="Area2D3" type="Area2D" parent="Pieces"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pieces/Area2D3"]
+position = Vector2(819, 498)
+shape = SubResource("RectangleShape2D_vvngs")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Pieces/Area2D3"]
+
+[node name="Area2D4" type="Area2D" parent="Pieces"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pieces/Area2D4"]
+position = Vector2(634, 502)
+shape = SubResource("RectangleShape2D_5v47i")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Pieces/Area2D4"]
+
+[node name="Area2D5" type="Area2D" parent="Pieces"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pieces/Area2D5"]
+position = Vector2(729, 303)
+shape = SubResource("RectangleShape2D_0c4dx")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Pieces/Area2D5"]
+
+[node name="CorrectPlacement" type="Node2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="CorrectPlacement" groups=["Droppable"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CorrectPlacement/Area2D"]
+position = Vector2(368.5, 291.5)
+shape = SubResource("RectangleShape2D_o55cg")
+
+[node name="Sprite2D" type="Sprite2D" parent="CorrectPlacement/Area2D"]
+
+[node name="Area2D2" type="Area2D" parent="CorrectPlacement" groups=["Droppable"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CorrectPlacement/Area2D2"]
+position = Vector2(275.5, 141.25)
+shape = SubResource("RectangleShape2D_1exb5")
+
+[node name="Sprite2D2" type="Sprite2D" parent="CorrectPlacement/Area2D2"]
+
+[node name="Area2D3" type="Area2D" parent="CorrectPlacement" groups=["Droppable"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CorrectPlacement/Area2D3"]
+position = Vector2(593.5, 310.75)
+shape = SubResource("RectangleShape2D_vvngs")
+
+[node name="Sprite2D3" type="Sprite2D" parent="CorrectPlacement/Area2D3"]
+
+[node name="Area2D4" type="Area2D" parent="CorrectPlacement" groups=["Droppable"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CorrectPlacement/Area2D4"]
+position = Vector2(442, 141.75)
+shape = SubResource("RectangleShape2D_5v47i")
+
+[node name="Sprite2D4" type="Sprite2D" parent="CorrectPlacement/Area2D4"]
+
+[node name="Area2D5" type="Area2D" parent="CorrectPlacement" groups=["Droppable"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CorrectPlacement/Area2D5"]
+position = Vector2(593.5, 161)
+shape = SubResource("RectangleShape2D_0c4dx")
+
+[node name="Sprite2D5" type="Sprite2D" parent="CorrectPlacement/Area2D5"]

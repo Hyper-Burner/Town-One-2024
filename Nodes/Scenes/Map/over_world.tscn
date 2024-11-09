@@ -1,7 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://c7dtb2c0jcio"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jldsg"]
-distance = -1648.0
+normal = Vector2(-8.74228e-08, -1)
+distance = -1676.95
 
 [node name="OverWorld" type="Node2D"]
 
