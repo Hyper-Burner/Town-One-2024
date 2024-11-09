@@ -1,14 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://rvbeg2ssa60"]
+[gd_scene load_steps=9 format=3 uid="uid://rvbeg2ssa60"]
 
-[ext_resource type="PackedScene" uid="uid://cw1hhcj5dog24" path="res://Nodes/Scenes/Player.tscn" id="1_4kupe"]
-[ext_resource type="PackedScene" uid="uid://dxn7g3ubexnnk" path="res://Nodes/Scenes/Reactor.tscn" id="2_2wstb"]
 [ext_resource type="PackedScene" uid="uid://bj8jhcos6u8hu" path="res://Nodes/Scenes/Player.tscn" id="1_4kupe"]
-[ext_resource type="PackedScene" uid="uid://dm2ewmqb15nwr" path="res://Nodes/Scenes/game_over.tscn" id="1_s38xt"]
+[ext_resource type="PackedScene" path="res://Nodes/Scenes/game_over.tscn" id="1_s38xt"]
 [ext_resource type="PackedScene" uid="uid://ur5o0tlurmxs" path="res://Nodes/Scenes/Reactor.tscn" id="2_2wstb"]
-[ext_resource type="PackedScene" uid="uid://bnp04keovej0h" path="res://Nodes/Scenes/lives_counter.tscn" id="2_su0ge"]
+[ext_resource type="PackedScene" path="res://Nodes/Scenes/lives_counter.tscn" id="2_su0ge"]
 [ext_resource type="PackedScene" uid="uid://c7dtb2c0jcio" path="res://Nodes/Scenes/Map/over_world.tscn" id="3_hgkqc"]
 [ext_resource type="Texture2D" uid="uid://4nn8ua2nuvx2" path="res://icon.svg" id="6_3s31c"]
 [ext_resource type="Script" path="res://Nodes/Scenes/button.gd" id="7_qvcks"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hof2x"]
 
 [node name="Main" type="Node"]
 
@@ -22,6 +22,9 @@ motion_mode = 1
 [node name="Reactor" parent="." instance=ExtResource("2_2wstb")]
 position = Vector2(8, 22)
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Reactor"]
+shape = SubResource("RectangleShape2D_hof2x")
+
 [node name="OverWorld" parent="." instance=ExtResource("3_hgkqc")]
 position = Vector2(0, 3)
 
@@ -33,5 +36,4 @@ offset_bottom = -120.0
 icon = ExtResource("6_3s31c")
 script = ExtResource("7_qvcks")
 
-[connection signal="inminigame" from="Reactor" to="Player" method="_on_reactor_inminigame"]
 [connection signal="pressed" from="Button" to="LivesCounter" method="_on_button_pressed"]
