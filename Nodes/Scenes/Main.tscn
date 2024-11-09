@@ -1,13 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://rvbeg2ssa60"]
+[gd_scene load_steps=8 format=3 uid="uid://rvbeg2ssa60"]
 
+[ext_resource type="PackedScene" uid="uid://cw1hhcj5dog24" path="res://Nodes/Scenes/Player.tscn" id="1_4kupe"]
+[ext_resource type="PackedScene" uid="uid://dxn7g3ubexnnk" path="res://Nodes/Scenes/Reactor.tscn" id="2_2wstb"]
 [ext_resource type="PackedScene" uid="uid://bj8jhcos6u8hu" path="res://Nodes/Scenes/Player.tscn" id="1_4kupe"]
-[ext_resource type="PackedScene" path="res://Nodes/game_over.tscn" id="1_s38xt"]
+[ext_resource type="PackedScene" uid="uid://dm2ewmqb15nwr" path="res://Nodes/Scenes/game_over.tscn" id="1_s38xt"]
 [ext_resource type="PackedScene" uid="uid://ur5o0tlurmxs" path="res://Nodes/Scenes/Reactor.tscn" id="2_2wstb"]
+[ext_resource type="PackedScene" uid="uid://bnp04keovej0h" path="res://Nodes/Scenes/lives_counter.tscn" id="2_su0ge"]
 [ext_resource type="PackedScene" uid="uid://c7dtb2c0jcio" path="res://Nodes/Scenes/Map/over_world.tscn" id="3_hgkqc"]
+[ext_resource type="Texture2D" uid="uid://4nn8ua2nuvx2" path="res://icon.svg" id="6_3s31c"]
+[ext_resource type="Script" path="res://Nodes/Scenes/button.gd" id="7_qvcks"]
 
 [node name="Main" type="Node"]
 
 [node name="GameOver" parent="." instance=ExtResource("1_s38xt")]
+
+[node name="LivesCounter" parent="." instance=ExtResource("2_su0ge")]
 
 [node name="Player" parent="." instance=ExtResource("1_4kupe")]
 motion_mode = 1
@@ -16,6 +23,15 @@ motion_mode = 1
 position = Vector2(8, 22)
 
 [node name="OverWorld" parent="." instance=ExtResource("3_hgkqc")]
-position = Vector2(1, -4)
+position = Vector2(0, 3)
+
+[node name="Button" type="Button" parent="."]
+offset_left = 332.0
+offset_top = -256.0
+offset_right = 468.0
+offset_bottom = -120.0
+icon = ExtResource("6_3s31c")
+script = ExtResource("7_qvcks")
 
 [connection signal="inminigame" from="Reactor" to="Player" method="_on_reactor_inminigame"]
+[connection signal="pressed" from="Button" to="LivesCounter" method="_on_button_pressed"]
