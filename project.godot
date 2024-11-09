@@ -15,9 +15,15 @@ run/main_scene="res://Nodes/Scenes/Main.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Global="*res://Globals/Global.gd"
+
 [display]
 
-window/size/initial_position=Vector2i(0, 100)
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
 
 [input]
 

@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://ur5o0tlurmxs"]
+[gd_scene load_steps=4 format=3 uid="uid://dxn7g3ubexnnk"]
 
-[ext_resource type="Script" path="res://Nodes/Scenes/MinigamePopup.gd" id="1_xtap6"]
+[ext_resource type="Script" path="res://Nodes/Scenes/Player.gd" id="1_vcov2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3l6ww"]
 size = Vector2(100, 150)
@@ -8,12 +8,10 @@ size = Vector2(100, 150)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rjqdv"]
 size = Vector2(100, 100)
 
-[node name="Reactor" type="Node2D"]
-script = ExtResource("1_xtap6")
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_vcov2")
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 25)
 shape = SubResource("RectangleShape2D_3l6ww")
 
@@ -21,6 +19,3 @@ shape = SubResource("RectangleShape2D_3l6ww")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_rjqdv")
-
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
