@@ -4,23 +4,28 @@ extends CharacterBody2D
 
 var near_minigame = false
 var in_minigame = false
-var minigame
+var minigame_scene
+var minigame_instance
 
 func _physics_process(delta: float) -> void:
+	if near_minigame and !in_minigame and Input.is_action_just_pressed("Interact"):
+		minigame_instance = minigame_scene.instantiate()
+		$Camera2D.add_child(minigame_instance)
+		in_minigame = true
+	elif in_minigame and Input.is_action_just_pressed("Interact"):
+		minigame_instance.queue_free()
+		in_minigame = false
+
 	if(!in_minigame):
 		var direction = Input.get_vector("Left", "Right", "Up", "Down")
 		velocity = direction * speed
 		move_and_slide()
 
-	if near_minigame and Input.is_action_just_pressed("Interact"):
-		print("button pressed") #freeze player
-		in_minigame = !in_minigame
-		print(minigame)
-		var instance = minigame.instantiate()
-		$Camera2D.add_child(instance)
-
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	print(area.minigame)
 	if area is Machine:
 		near_minigame = true
-		minigame = area.get_machine()
+		minigame_scene = area.get_machine()
+
+func _on_area_2d_area_exited(area: Area2D) -> void:
+	if area is Machine:
+		near_minigame = false
