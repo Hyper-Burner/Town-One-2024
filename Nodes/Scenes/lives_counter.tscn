@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bnp04keovej0h"]
+
+[ext_resource type="Script" path="res://Nodes/Scenes/lives_counter.gd" id="1_86tsj"]
+
+[node name="LivesCounter" type="Node"]
+script = ExtResource("1_86tsj")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -501.0
+offset_top = -274.0
+offset_right = -321.0
+offset_bottom = -204.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Lives: "

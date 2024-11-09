@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bj8jhcos6u8hu"]
+[gd_scene load_steps=6 format=3 uid="uid://cw1hhcj5dog24"]
 
 [ext_resource type="Script" path="res://Nodes/Scenes/Player.gd" id="1_m1u4p"]
 [ext_resource type="Script" path="res://Nodes/Scenes/Camera.gd" id="2_tmqhp"]
@@ -6,6 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4vw4f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n5hin"]
+size = Vector2(22, 22)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_iiljm"]
 
@@ -16,6 +17,7 @@ script = ExtResource("1_m1u4p")
 shape = SubResource("RectangleShape2D_4vw4f")
 
 [node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(1.61719, 1.80044)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_n5hin")
