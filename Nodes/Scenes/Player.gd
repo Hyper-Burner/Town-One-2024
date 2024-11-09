@@ -1,7 +1,16 @@
 extends CharacterBody2D
 
-const SPEED = 300.0
+
+var SPEED = 300.0
+
+var inminigame = false;
 
 func _physics_process(delta: float) -> void:
-	velocity = Input.get_vector("Left", "Right", "Up", "Down") * SPEED
-	move_and_slide()
+	if(!inminigame):
+		var direction = Input.get_vector("Left", "Right", "Up", "Down")
+		velocity = direction * SPEED
+		move_and_slide()
+
+
+func _on_reactor_inminigame() -> void:
+	inminigame = !inminigame 
