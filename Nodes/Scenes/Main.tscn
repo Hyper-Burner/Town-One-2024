@@ -1,14 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://rvbeg2ssa60"]
+[gd_scene load_steps=5 format=3 uid="uid://rvbeg2ssa60"]
 
 [ext_resource type="PackedScene" uid="uid://bj8jhcos6u8hu" path="res://Nodes/Scenes/Player.tscn" id="1_4kupe"]
+[ext_resource type="Script" path="res://Nodes/Scenes/main.gd" id="1_loay8"]
 [ext_resource type="PackedScene" uid="uid://ur5o0tlurmxs" path="res://Nodes/Scenes/Reactor.tscn" id="2_2wstb"]
+[ext_resource type="PackedScene" uid="uid://bwr5ah1mhh0u5" path="res://Nodes/Scenes/GUI/UI.tscn" id="4_c7gbd"]
 
 [node name="Main" type="Node"]
+script = ExtResource("1_loay8")
 
 [node name="Player" parent="." instance=ExtResource("1_4kupe")]
+unique_name_in_owner = true
 motion_mode = 1
 
 [node name="Reactor" parent="." instance=ExtResource("2_2wstb")]
+unique_name_in_owner = true
 position = Vector2(264, 158)
+
+[node name="UI" parent="." instance=ExtResource("4_c7gbd")]
+unique_name_in_owner = true
 
 [connection signal="inminigame" from="Reactor" to="Player" method="_on_reactor_inminigame"]
