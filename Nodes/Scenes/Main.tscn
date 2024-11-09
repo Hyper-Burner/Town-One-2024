@@ -1,10 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://rvbeg2ssa60"]
 
 [ext_resource type="PackedScene" uid="uid://bj8jhcos6u8hu" path="res://Nodes/Scenes/Player.tscn" id="1_4kupe"]
+[ext_resource type="PackedScene" uid="uid://dm2ewmqb15nwr" path="res://Nodes/game_over.tscn" id="1_s38xt"]
 [ext_resource type="PackedScene" uid="uid://ur5o0tlurmxs" path="res://Nodes/Scenes/Reactor.tscn" id="2_2wstb"]
 [ext_resource type="PackedScene" uid="uid://c7dtb2c0jcio" path="res://Nodes/Scenes/Map/over_world.tscn" id="3_hgkqc"]
 
 [node name="Main" type="Node"]
+
+[node name="GameOver" parent="." instance=ExtResource("1_s38xt")]
 
 [node name="Player" parent="." instance=ExtResource("1_4kupe")]
 motion_mode = 1
