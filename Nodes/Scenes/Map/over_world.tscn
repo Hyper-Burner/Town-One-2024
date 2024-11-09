@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7dtb2c0jcio"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jldsg"]
+distance = -1648.0
+
+[node name="OverWorld" type="Node2D"]
+
+[node name="world_border" type="StaticBody2D" parent="."]
+
+[node name="Left" type="CollisionShape2D" parent="world_border"]
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_jldsg")
+one_way_collision = true
+
+[node name="Up" type="CollisionShape2D" parent="world_border"]
+rotation = 3.14159
+shape = SubResource("WorldBoundaryShape2D_jldsg")
+one_way_collision = true
+
+[node name="Right" type="CollisionShape2D" parent="world_border"]
+rotation = 4.71239
+shape = SubResource("WorldBoundaryShape2D_jldsg")
+one_way_collision = true
+
+[node name="Down" type="CollisionShape2D" parent="world_border"]
+shape = SubResource("WorldBoundaryShape2D_jldsg")
+one_way_collision = true
+
+[node name="ShipBody" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ShipBody"]
+build_mode = 1
+polygon = PackedVector2Array(-203, -1289, 230, -1295, 507, -927, 498, -277, 1178, -293, 1146, 472, 521, 476, 502, 1084, 1168, 1079, 1144, 1547, 526, 1514, 517, 1284, -532, 1278, -523, 1601, -1260, 1565, -1271, 1054, -537, 1071, -514, 374, -1311, 352, -1272, -269, -521, -280, -495, -981)
