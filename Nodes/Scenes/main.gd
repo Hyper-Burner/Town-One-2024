@@ -11,7 +11,7 @@ var SPAWN_CHANCE_DELTA = 0.05
 
 func _ready() -> void:
 	#uncomment to start timer
-	$Timer.start()
+	#$Timer.start()
 	#add all minigames to inactive array
 	inactive_minigames.append("Engine")
 	inactive_minigames.append("nav_system")
