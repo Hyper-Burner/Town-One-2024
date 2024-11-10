@@ -11,6 +11,7 @@ func check_answer(input, answer):
 		print("correct")
 	else:
 		get_node("/root/Main/LivesCounter").lose_life()
+	queue_free()
 
 func _on_circle_pressed() -> void:
 	check_answer(0, answer)
@@ -23,3 +24,8 @@ func _on_triangle_pressed() -> void:
 
 func _on_diamond_pressed() -> void:
 	check_answer(3, answer)
+
+func _on_cover_button_pressed() -> void:
+	$CoverTexture.texture.region = Rect2(493, 449, 238, 389)
+	$CoverButton.queue_free()
+	$StickyNote.queue_free()

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsa56rl228t2h"]
+
+[ext_resource type="Script" path="res://Nodes/Scenes/machine.gd" id="1_6uewv"]
+
+[node name="Machine" type="Area2D"]
+script = ExtResource("1_6uewv")

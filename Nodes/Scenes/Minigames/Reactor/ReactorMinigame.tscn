@@ -1,43 +1,60 @@
-[gd_scene load_steps=12 format=3 uid="uid://dpwnmdonrj5ws"]
+[gd_scene load_steps=18 format=3 uid="uid://dpwnmdonrj5ws"]
 
 [ext_resource type="Script" path="res://Nodes/Scenes/ReactorMinigame.gd" id="1_oyhfg"]
-[ext_resource type="Texture2D" uid="uid://cr20346yi2o4d" path="res://Assets/Textures/ReactorMinigame.png" id="2_hdbew"]
+[ext_resource type="Texture2D" uid="uid://b0xyws2cyjvgj" path="res://Assets/Textures/ReactorMinigame.png" id="2_hdbew"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_y6nkp"]
+load_path = "res://.godot/imported/ReactorMinigame.png-81cab7ef7aaad0bedd88036bcf70b417.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p7cx2"]
-atlas = ExtResource("2_hdbew")
+atlas = SubResource("CompressedTexture2D_y6nkp")
 region = Rect2(0, 839, 294, 288)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bni4q"]
-atlas = ExtResource("2_hdbew")
+atlas = SubResource("CompressedTexture2D_y6nkp")
 region = Rect2(0, 0, 96, 111)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pgcmo"]
-atlas = ExtResource("2_hdbew")
+atlas = SubResource("CompressedTexture2D_y6nkp")
 region = Rect2(96, 0, 96, 111)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u8p5q"]
-atlas = ExtResource("2_hdbew")
+atlas = SubResource("CompressedTexture2D_y6nkp")
 region = Rect2(1, 112, 96, 111)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1yt75"]
-atlas = ExtResource("2_hdbew")
+atlas = SubResource("CompressedTexture2D_y6nkp")
 region = Rect2(97, 112, 96, 111)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dthyh"]
-atlas = ExtResource("2_hdbew")
+atlas = SubResource("CompressedTexture2D_y6nkp")
 region = Rect2(0, 224, 96, 111)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kdeut"]
-atlas = ExtResource("2_hdbew")
+atlas = SubResource("CompressedTexture2D_y6nkp")
 region = Rect2(96, 224, 96, 111)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d1514"]
-atlas = ExtResource("2_hdbew")
+atlas = SubResource("CompressedTexture2D_y6nkp")
 region = Rect2(0, 336, 96, 111)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dmxuh"]
-atlas = ExtResource("2_hdbew")
+atlas = SubResource("CompressedTexture2D_y6nkp")
 region = Rect2(96, 336, 96, 111)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7l61"]
+atlas = ExtResource("2_hdbew")
+region = Rect2(10, 449, 249, 389)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qhbj3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1etmy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gspc2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nfiy7"]
+atlas = ExtResource("2_hdbew")
+region = Rect2(0, 1127, 142, 123)
 
 [node name="ReactorMinigame" type="TextureRect"]
 offset_left = -147.0
@@ -46,13 +63,6 @@ offset_right = 147.0
 offset_bottom = 144.0
 texture = SubResource("AtlasTexture_p7cx2")
 script = ExtResource("1_oyhfg")
-
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = -20.3167
-offset_top = -36.7401
-offset_right = 19.6833
-offset_bottom = -13.7401
 
 [node name="Circle" type="TextureButton" parent="."]
 layout_mode = 0
@@ -90,7 +100,36 @@ offset_bottom = 258.0
 texture_normal = SubResource("AtlasTexture_d1514")
 texture_pressed = SubResource("AtlasTexture_dmxuh")
 
+[node name="CoverTexture" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 22.0
+offset_top = -127.0
+offset_right = 271.0
+offset_bottom = 262.0
+mouse_filter = 2
+texture = SubResource("AtlasTexture_h7l61")
+
+[node name="CoverButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 23.0
+offset_right = 271.0
+offset_bottom = 273.0
+theme_override_styles/hover = SubResource("StyleBoxEmpty_qhbj3")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_1etmy")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gspc2")
+
+[node name="StickyNote" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 61.5
+offset_right = 213.0
+offset_bottom = 184.5
+mouse_filter = 2
+texture = SubResource("AtlasTexture_nfiy7")
+
 [connection signal="pressed" from="Circle" to="." method="_on_circle_pressed"]
 [connection signal="pressed" from="Square" to="." method="_on_square_pressed"]
 [connection signal="pressed" from="Triangle" to="." method="_on_triangle_pressed"]
 [connection signal="pressed" from="Diamond" to="." method="_on_diamond_pressed"]
+[connection signal="pressed" from="CoverButton" to="." method="_on_cover_button_pressed"]
