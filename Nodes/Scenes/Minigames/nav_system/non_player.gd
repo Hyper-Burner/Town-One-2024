@@ -1,17 +1,20 @@
 extends Node2D
-const SPEED = 10
+const SPEED = 5
 @onready var machine: Machine = get_node("/root/Global").active_game_machine
 var starting = false
 
 var label = Label
 var time = Timer
 var victory_label = Label
+var map_hard = Node2D
 
 func _ready():
-	label = $Label/Label
-	time = $Label/game_time
-	victory_label = $Label/Victory
-	print(label)
+	label = $"../Node2D/Label/Label"
+	time = $"../Node2D/Label/game_time"
+	victory_label = $end_portal/Victory
+	victory_label.set_visible(false)
+	
+	map_hard = $MapHard
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

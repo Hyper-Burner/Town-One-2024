@@ -1,15 +1,19 @@
-[gd_scene load_steps=18 format=3 uid="uid://rvbeg2ssa60"]
+[gd_scene load_steps=13 format=3 uid="uid://rvbeg2ssa60"]
 
 [ext_resource type="PackedScene" uid="uid://bj8jhcos6u8hu" path="res://Nodes/Scenes/Player.tscn" id="1_4kupe"]
 [ext_resource type="Script" path="res://Nodes/Scenes/main.gd" id="1_loay8"]
 [ext_resource type="PackedScene" uid="uid://dr3e6fwronjxo" path="res://Nodes/Scenes/game_over.tscn" id="1_s38xt"]
-[ext_resource type="PackedScene" uid="uid://dw0xhlussm6id" path="res://Nodes/Scenes/Machine.tscn" id="2_2wstb"]
-[ext_resource type="PackedScene" uid="uid://bnp04keovej0h" path="res://Nodes/Scenes/lives_counter.tscn" id="2_su0ge"]
+[ext_resource type="PackedScene" uid="uid://ur5o0tlurmxs" path="res://Nodes/Scenes/Machine.tscn" id="2_2wstb"]
+[ext_resource type="PackedScene" path="res://Nodes/Scenes/lives_counter.tscn" id="2_su0ge"]
 [ext_resource type="PackedScene" uid="uid://c7dtb2c0jcio" path="res://Nodes/Scenes/Map/over_world.tscn" id="3_hgkqc"]
 [ext_resource type="PackedScene" uid="uid://dqfkb057sph4e" path="res://Nodes/Scenes/Minigames/Engine/EngineMinigame.tscn" id="6_oissh"]
+[ext_resource type="PackedScene" uid="uid://cck2mkdkkwbf5" path="res://Nodes/Scenes/Minigames/nav_system/nav_system_main.tscn" id="9_i17ia"]
+[ext_resource type="Texture2D" uid="uid://dmvg1giijn1xl" path="res://Assets/Textures/warning.svg" id="10_2w7ow"]
 [ext_resource type="Texture2D" uid="uid://cywdyjygw58gm" path="res://Assets/Textures/info.svg" id="12_4fv4p"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a6ion"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nxa1v"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_loay8")
@@ -42,9 +46,20 @@ time_to_fail = 30
 shape = SubResource("CapsuleShape2D_a6ion")
 debug_color = Color(0.436426, 0.598913, 0.0847095, 0.42)
 
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Engine/Engine"]
+[node name="Engine_Engine#CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_a6ion")
 debug_color = Color(0.436426, 0.598913, 0.0847095, 0.42)
+
+[node name="Machine" parent="." instance=ExtResource("2_2wstb")]
+position = Vector2(336, 127)
+minigame = ExtResource("9_i17ia")
+icon = ExtResource("10_2w7ow")
+min_occurance = 1
+max_occurance = 5
+time_to_fail = 20
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Machine"]
+shape = SubResource("CircleShape2D_nxa1v")
+debug_color = Color(0.697933, 0.454611, 0.521543, 0.42)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
