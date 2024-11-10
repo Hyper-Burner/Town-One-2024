@@ -24,11 +24,10 @@ z_index = 10
 
 [node name="Player" parent="." instance=ExtResource("1_4kupe")]
 unique_name_in_owner = true
-position = Vector2(-71, -15)
 motion_mode = 1
 
 [node name="OverWorld" parent="." instance=ExtResource("3_hgkqc")]
-position = Vector2(0, 3)
+z_index = -2
 
 [node name="Engine" parent="." instance=ExtResource("2_2wstb")]
 position = Vector2(-640, 295)

@@ -1,14 +1,94 @@
-[gd_scene load_steps=4 format=3 uid="uid://c7dtb2c0jcio"]
+[gd_scene load_steps=16 format=3 uid="uid://c7dtb2c0jcio"]
+
+[ext_resource type="Texture2D" uid="uid://vcvavq34ajk6" path="res://Assets/Sprites/Map3.png" id="1_ddx0m"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jldsg"]
 normal = Vector2(-8.74228e-08, -1)
-distance = -872.0
+distance = -830.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_becxr"]
-distance = -497.0
+distance = -448.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4x1fu"]
-distance = -474.0
+distance = -444.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1kp3e"]
+atlas = ExtResource("1_ddx0m")
+region = Rect2(0, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04cry"]
+atlas = ExtResource("1_ddx0m")
+region = Rect2(1920, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1sf6"]
+atlas = ExtResource("1_ddx0m")
+region = Rect2(3840, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2x1yc"]
+atlas = ExtResource("1_ddx0m")
+region = Rect2(5760, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukp4s"]
+atlas = ExtResource("1_ddx0m")
+region = Rect2(0, 1080, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52oho"]
+atlas = ExtResource("1_ddx0m")
+region = Rect2(1920, 1080, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1sdmj"]
+atlas = ExtResource("1_ddx0m")
+region = Rect2(3840, 1080, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mehn6"]
+atlas = ExtResource("1_ddx0m")
+region = Rect2(5760, 1080, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkljm"]
+atlas = ExtResource("1_ddx0m")
+region = Rect2(0, 2160, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8vvkw"]
+atlas = ExtResource("1_ddx0m")
+region = Rect2(1920, 2160, 1920, 1080)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ey7yy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1kp3e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_04cry")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a1sf6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2x1yc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ukp4s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_52oho")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1sdmj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mehn6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jkljm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8vvkw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [node name="OverWorld" type="Node2D"]
 
@@ -36,3 +116,7 @@ one_way_collision = true
 [node name="ShipBody" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ShipBody"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ey7yy")
+frame_progress = 0.73405
