@@ -200,17 +200,6 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_a6ion")
 debug_color = Color(0.436426, 0.598913, 0.0847095, 0.42)
 
-
-[node name="Machine" parent="." instance=ExtResource("2_2wstb")]
-
-[node name="Machine" parent="." instance=ExtResource("2_2wstb")]
-position = Vector2(336, 127)
-minigame = ExtResource("9_i17ia")
-icon = ExtResource("10_2w7ow")
-min_occurance = 1
-max_occurance = 5
-time_to_fail = 20
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Machine"]
 shape = SubResource("CircleShape2D_nxa1v")
 debug_color = Color(0.697933, 0.454611, 0.521543, 0.42)
