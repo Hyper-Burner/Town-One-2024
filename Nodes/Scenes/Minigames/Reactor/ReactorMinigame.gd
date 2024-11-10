@@ -7,8 +7,9 @@ func _ready():
 	answer = rng.randi_range(0, 3)
 
 func check_answer(input, answer):
+	Global.in_minigame = false
 	if input == answer:
-		print("correct")
+		queue_free()
 	else:
 		get_node("/root/Main/LivesCounter").lose_life()
 	queue_free()

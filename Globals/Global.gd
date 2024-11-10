@@ -5,6 +5,8 @@ extends Node
 
 var is_dragging = false
 
+var in_minigame = false
+
 var engine_minigame_counter = 0
 
 var active_game_machine = null;
