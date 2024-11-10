@@ -28,12 +28,6 @@ func _physics_process(_delta: float) -> void:
 		velocity = direction * speed
 		move_and_slide()
 
-	# if(Global.engine_minigame_counter == 5):
-	# 	Global.in_minigame = false
-	# 	minigame_instance.queue_free()
-	# 	Global.engine_minigame_counter = 0
-	# 	active_minigame_machine.Repaired.emit();
-
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area is Machine and area.damaged:
 		globals.active_game_machine = area;
