@@ -1,7 +1,17 @@
-[gd_scene load_steps=18 format=3 uid="uid://dpwnmdonrj5ws"]
+[gd_scene load_steps=22 format=3 uid="uid://dpwnmdonrj5ws"]
 
 [ext_resource type="Script" path="res://Nodes/Scenes/Minigames/Reactor/ReactorMinigame.gd" id="1_5r75a"]
-[ext_resource type="Texture2D" uid="uid://b0xyws2cyjvgj" path="res://Assets/Textures/ReactorMinigame.png" id="2_hdbew"]
+[ext_resource type="Texture2D" uid="uid://gxgedquk121b" path="res://Assets/Textures/MinigameBordersAndTimer.png" id="1_odt6l"]
+[ext_resource type="Texture2D" uid="uid://b0xyws2cyjvgj" path="res://Assets/Sprites/ReactorMinigame.png" id="2_hdbew"]
+[ext_resource type="Texture2D" uid="uid://c5e34oyn3lc8f" path="res://Assets/Textures/ReactorMinigameBackground.png" id="2_vvqbe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4mod"]
+atlas = ExtResource("1_odt6l")
+region = Rect2(0.006, 0, 1678, 942)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nt0e1"]
+atlas = ExtResource("2_vvqbe")
+region = Rect2(182, 185, 1558, 715)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_y6nkp"]
 load_path = "res://.godot/imported/ReactorMinigame.png-81cab7ef7aaad0bedd88036bcf70b417.ctex"
@@ -56,15 +66,52 @@ region = Rect2(10, 449, 249, 389)
 atlas = ExtResource("2_hdbew")
 region = Rect2(0, 1127, 142, 123)
 
-[node name="ReactorMinigame" type="TextureRect"]
+[node name="Border" type="TextureRect"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -839.0
+offset_top = -471.0
+offset_right = 839.0
+offset_bottom = 471.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_l4mod")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -779.0
+offset_top = -408.0
+offset_right = 779.0
+offset_bottom = 306.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_nt0e1")
+
+[node name="ReactorMinigame" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 offset_left = -147.0
-offset_top = -144.0
+offset_top = -175.0
 offset_right = 147.0
-offset_bottom = 144.0
+offset_bottom = 115.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = SubResource("AtlasTexture_p7cx2")
 script = ExtResource("1_5r75a")
 
-[node name="Circle" type="TextureButton" parent="."]
+[node name="Circle" type="TextureButton" parent="ReactorMinigame"]
 layout_mode = 0
 offset_left = 38.0
 offset_top = 25.0
@@ -73,7 +120,7 @@ offset_bottom = 136.0
 texture_normal = SubResource("AtlasTexture_bni4q")
 texture_pressed = SubResource("AtlasTexture_pgcmo")
 
-[node name="Square" type="TextureButton" parent="."]
+[node name="Square" type="TextureButton" parent="ReactorMinigame"]
 layout_mode = 0
 offset_left = 155.0
 offset_top = 24.0
@@ -82,7 +129,7 @@ offset_bottom = 135.0
 texture_normal = SubResource("AtlasTexture_u8p5q")
 texture_pressed = SubResource("AtlasTexture_1yt75")
 
-[node name="Triangle" type="TextureButton" parent="."]
+[node name="Triangle" type="TextureButton" parent="ReactorMinigame"]
 layout_mode = 0
 offset_left = 39.0
 offset_top = 145.0
@@ -91,7 +138,7 @@ offset_bottom = 256.0
 texture_normal = SubResource("AtlasTexture_dthyh")
 texture_pressed = SubResource("AtlasTexture_kdeut")
 
-[node name="Diamond" type="TextureButton" parent="."]
+[node name="Diamond" type="TextureButton" parent="ReactorMinigame"]
 layout_mode = 0
 offset_left = 154.0
 offset_top = 147.0
@@ -100,7 +147,7 @@ offset_bottom = 258.0
 texture_normal = SubResource("AtlasTexture_d1514")
 texture_pressed = SubResource("AtlasTexture_dmxuh")
 
-[node name="CoverTexture" type="TextureRect" parent="."]
+[node name="CoverTexture" type="TextureRect" parent="ReactorMinigame"]
 layout_mode = 0
 offset_left = 22.0
 offset_top = -127.0
@@ -109,7 +156,7 @@ offset_bottom = 262.0
 mouse_filter = 2
 texture = SubResource("AtlasTexture_h7l61")
 
-[node name="CoverButton" type="Button" parent="."]
+[node name="CoverButton" type="Button" parent="ReactorMinigame"]
 layout_mode = 0
 offset_left = 21.0
 offset_top = 23.0
@@ -119,7 +166,7 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_qhbj3")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_1etmy")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_gspc2")
 
-[node name="StickyNote" type="TextureRect" parent="."]
+[node name="StickyNote" type="TextureRect" parent="ReactorMinigame"]
 layout_mode = 0
 offset_left = 71.0
 offset_top = 61.5
@@ -128,8 +175,16 @@ offset_bottom = 184.5
 mouse_filter = 2
 texture = SubResource("AtlasTexture_nfiy7")
 
-[connection signal="pressed" from="Circle" to="." method="_on_circle_pressed"]
-[connection signal="pressed" from="Square" to="." method="_on_square_pressed"]
-[connection signal="pressed" from="Triangle" to="." method="_on_triangle_pressed"]
-[connection signal="pressed" from="Diamond" to="." method="_on_diamond_pressed"]
-[connection signal="pressed" from="CoverButton" to="." method="_on_cover_button_pressed"]
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 122.0
+offset_top = 884.0
+offset_right = 163.0
+offset_bottom = 907.0
+text = "00:00"
+
+[connection signal="pressed" from="ReactorMinigame/Circle" to="ReactorMinigame" method="_on_circle_pressed"]
+[connection signal="pressed" from="ReactorMinigame/Square" to="ReactorMinigame" method="_on_square_pressed"]
+[connection signal="pressed" from="ReactorMinigame/Triangle" to="ReactorMinigame" method="_on_triangle_pressed"]
+[connection signal="pressed" from="ReactorMinigame/Diamond" to="ReactorMinigame" method="_on_diamond_pressed"]
+[connection signal="pressed" from="ReactorMinigame/CoverButton" to="ReactorMinigame" method="_on_cover_button_pressed"]
