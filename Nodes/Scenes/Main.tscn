@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://rvbeg2ssa60"]
+[gd_scene load_steps=18 format=3 uid="uid://rvbeg2ssa60"]
 
 [ext_resource type="PackedScene" uid="uid://bj8jhcos6u8hu" path="res://Nodes/Scenes/Player.tscn" id="1_4kupe"]
 [ext_resource type="Script" path="res://Nodes/Scenes/main.gd" id="1_loay8"]
@@ -27,7 +27,6 @@
 script = ExtResource("1_loay8")
 
 [node name="Timer" type="Timer" parent="."]
-script = ExtResource("2_uks48")
 
 [node name="GameOver" parent="." instance=ExtResource("1_s38xt")]
 visible = false
