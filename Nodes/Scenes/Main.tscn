@@ -1,22 +1,27 @@
-[gd_scene load_steps=12 format=3 uid="uid://rvbeg2ssa60"]
+[gd_scene load_steps=14 format=3 uid="uid://rvbeg2ssa60"]
 
 [ext_resource type="PackedScene" uid="uid://bj8jhcos6u8hu" path="res://Nodes/Scenes/Player.tscn" id="1_4kupe"]
 [ext_resource type="Script" path="res://Nodes/Scenes/main.gd" id="1_loay8"]
-[ext_resource type="PackedScene" path="res://Nodes/Scenes/game_over.tscn" id="1_s38xt"]
-[ext_resource type="PackedScene" uid="uid://ur5o0tlurmxs" path="res://Nodes/Scenes/Machine.tscn" id="2_2wstb"]
+[ext_resource type="PackedScene" uid="uid://dr3e6fwronjxo" path="res://Nodes/Scenes/game_over.tscn" id="1_s38xt"]
+[ext_resource type="PackedScene" uid="uid://dw0xhlussm6id" path="res://Nodes/Scenes/Machine.tscn" id="2_2wstb"]
 [ext_resource type="PackedScene" path="res://Nodes/Scenes/lives_counter.tscn" id="2_su0ge"]
 [ext_resource type="PackedScene" uid="uid://c7dtb2c0jcio" path="res://Nodes/Scenes/Map/over_world.tscn" id="3_hgkqc"]
 [ext_resource type="Texture2D" uid="uid://dmvg1giijn1xl" path="res://Assets/Textures/warning.svg" id="3_n7ar1"]
 [ext_resource type="Texture2D" uid="uid://4nn8ua2nuvx2" path="res://icon.svg" id="6_3s31c"]
-[ext_resource type="PackedScene" uid="uid://dqfkb057sph4e" path="res://Nodes/Scenes/Minigames/NavigationMinigame/NavigatoinMinigame.tscn" id="6_oissh"]
+[ext_resource type="PackedScene" uid="uid://dpwnmdonrj5ws" path="res://Nodes/Scenes/ReactorMinigame.tscn" id="6_bq507"]
 [ext_resource type="Script" path="res://Nodes/Scenes/button.gd" id="7_qvcks"]
+[ext_resource type="PackedScene" uid="uid://dqfkb057sph4e" path="res://Nodes/Scenes/Minigames/NavigationMinigame/NavigatoinMinigame.tscn" id="11_52g04"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hof2x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8whdg"]
+size = Vector2(198, 158)
 
 [node name="Main" type="Node"]
 script = ExtResource("1_loay8")
 
 [node name="GameOver" parent="." instance=ExtResource("1_s38xt")]
+z_index = 10
 
 [node name="LivesCounter" parent="." instance=ExtResource("2_su0ge")]
 
@@ -27,7 +32,7 @@ motion_mode = 1
 [node name="Reactor" parent="." instance=ExtResource("2_2wstb")]
 unique_name_in_owner = true
 position = Vector2(8, 22)
-minigame = ExtResource("6_oissh")
+minigame = ExtResource("6_bq507")
 icon = ExtResource("3_n7ar1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Reactor"]
@@ -45,5 +50,13 @@ offset_right = 468.0
 offset_bottom = -120.0
 icon = ExtResource("6_3s31c")
 script = ExtResource("7_qvcks")
+
+[node name="Engine1" parent="." instance=ExtResource("2_2wstb")]
+unique_name_in_owner = true
+minigame = ExtResource("11_52g04")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Engine1"]
+position = Vector2(-1089, 1402)
+shape = SubResource("RectangleShape2D_8whdg")
 
 [connection signal="pressed" from="Button" to="LivesCounter" method="_on_button_pressed"]
