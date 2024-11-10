@@ -22,7 +22,7 @@ func _physics_process(_delta: float) -> void:
 		animatedSprite.play("walk_down")
 	else:
 		animatedSprite.play("idle")
-	
+
 	if near_minigame and !Global.in_minigame and Input.is_action_just_pressed("Interact"):
 		minigame_instance = minigame_scene.instantiate()
 		Global.camera.add_child(minigame_instance)
