@@ -626,20 +626,9 @@ position = Vector2(3602.5, -17.0003)
 scale = Vector2(5.66255, 2.45416)
 texture = SubResource("AtlasTexture_ius3t")
 
-[node name="Label" type="CharacterBody2D" parent="nonPlayer"]
+[node name="Label" type="Node2D" parent="nonPlayer"]
 scale = Vector2(1.42891, 1.42891)
 script = ExtResource("10_s1b86")
-
-[node name="Label" type="Label" parent="nonPlayer/Label"]
-offset_left = -28.0
-offset_top = -185.0
-offset_right = 254.0
-offset_bottom = -43.0
-theme_override_colors/font_color = Color(0.705459, 0.224686, 0.499184, 1)
-theme_override_colors/font_shadow_color = Color(0.268367, 0.227672, 0.54537, 1)
-theme_override_font_sizes/font_size = 50
-text = "Test"
-metadata/_edit_use_anchors_ = true
 
 [node name="game_time" type="Timer" parent="nonPlayer/Label"]
 wait_time = 20.0
@@ -669,15 +658,15 @@ theme_override_font_sizes/font_size = 200
 text = "Get Ready!"
 metadata/_edit_use_anchors_ = true
 
-[node name="Victory" type="Label" parent="nonPlayer/Label"]
-offset_left = 254.0
-offset_top = 153.0
-offset_right = 1645.0
-offset_bottom = 702.0
-theme_override_colors/font_color = Color(0, 0.937255, 0, 1)
-theme_override_font_sizes/font_size = 200
-text = "Arrived 
-Safely!"
+[node name="Label" type="Label" parent="nonPlayer/Label"]
+offset_left = -28.0
+offset_top = -185.0
+offset_right = 254.0
+offset_bottom = -43.0
+theme_override_colors/font_color = Color(0.705459, 0.224686, 0.499184, 1)
+theme_override_colors/font_shadow_color = Color(0.268367, 0.227672, 0.54537, 1)
+theme_override_font_sizes/font_size = 50
+text = "Test"
 metadata/_edit_use_anchors_ = true
 
 [node name="Timeout" type="Label" parent="nonPlayer/Label"]
@@ -689,9 +678,23 @@ theme_override_font_sizes/font_size = 200
 text = "Time's Up!"
 metadata/_edit_use_anchors_ = true
 
+[node name="Victory" type="Label" parent="nonPlayer/Label"]
+offset_left = 232.0
+offset_top = -20.0
+offset_right = 1623.0
+offset_bottom = 529.0
+theme_override_colors/font_color = Color(0, 0.937255, 0, 1)
+theme_override_font_sizes/font_size = 200
+text = "Arrived 
+Safely!"
+metadata/_edit_use_anchors_ = true
+
 [connection signal="pause" from="Node2D/Ship" to="nonPlayer" method="_on_ship_pause"]
+[connection signal="pause" from="Node2D/Ship" to="nonPlayer/Label" method="_on_ship_pause"]
 [connection signal="restart" from="Node2D/Ship" to="nonPlayer" method="_on_ship_restart"]
+[connection signal="restart" from="Node2D/Ship" to="nonPlayer/Label" method="_on_ship_restart"]
 [connection signal="win" from="Node2D/Ship" to="nonPlayer" method="_on_ship_win"]
+[connection signal="win" from="Node2D/Ship" to="nonPlayer/Label" method="_on_ship_win"]
 [connection signal="area_entered" from="Node2D/Ship/Area2D" to="Node2D/Ship" method="_on_area_2d_area_entered"]
 [connection signal="timeout" from="Node2D/Ship/Timer" to="Node2D/Ship" method="_on_timer_timeout"]
 [connection signal="ready_over" from="nonPlayer/Label" to="Node2D/Ship" method="_on_label_ready_over"]

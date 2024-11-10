@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Node2D
 
 @onready var machine: Machine = get_node("/root/Global").active_game_machine
 
@@ -14,6 +14,8 @@ var time = Timer
 var ready_time =  Timer
 
 signal ready_over
+
+var is_moving = false
 
 func _ready():
 	victory_label = $Victory
@@ -45,18 +47,32 @@ func _process(_delta):
 	
 func update_ready_text():
 	ready_label.text = str(ceil(ready_time.time_left))
+	is_moving = true
 func update_label_text():
 	if time.time_left > 10:
 		label.text = str(ceil(time.time_left))
 	else:
 		label.text = str(snapped(time.time_left, 0.01))
 func _physics_process(_delta: float) -> void:
-	velocity.x = SPEED
-	
-	move_and_slide()
+	if is_moving:
+		position.x += 14
 
 func _on_game_time_timeout() -> void:
-	velocity.x = 0
-	velocity.y = 0
+	is_moving = false
 	timeout_label.set_visible(true)
 	set_physics_process(false)
+
+
+func _on_ship_win() -> void:
+	is_moving = false
+	set_physics_process(false)
+
+func _on_ship_pause() -> void:
+	is_moving = false
+	set_physics_process(false)
+
+
+func _on_ship_restart() -> void:
+	position.x = 0
+	is_moving = true
+	set_physics_process(true)

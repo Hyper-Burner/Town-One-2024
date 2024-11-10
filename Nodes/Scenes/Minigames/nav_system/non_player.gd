@@ -11,6 +11,7 @@ func _ready():
 	label = $Label/Label
 	time = $Label/game_time
 	victory_label = $Label/Victory
+	print(label)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -29,7 +30,9 @@ func _on_ship_pause() -> void:
 	starting = false
 
 
+
 func _on_ship_win() -> void:
+	starting = false
 	set_physics_process(false)
 	time.set_paused(true)
 	label.set_visible(false)
