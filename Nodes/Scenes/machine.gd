@@ -44,13 +44,13 @@ func _on_repaired() -> void:
 func _process(delta: float) -> void:
 	time_to_breakdown -= delta;
 	if(damaged):
-		time_text.text = str(int(time_to_breakdown));
+		time_text.text = str(int(time_to_breakdown), "\n Press 'E' to repair!");
 	if(time_to_breakdown <= 0.0):
 		if(damaged == false):
 			IsDamaged.emit();
 		else:
 			get_node("/root/Main/LivesCounter").lose_life();
-			_reset_time_to_break();
+			Repaired.emit();
 
 func _randomize_time_to_break() -> float:
 	return random_generator.randf_range(min_occurance, max_occurance);

@@ -39,7 +39,7 @@ func _on_ready_time_timeout() -> void:
 	set_physics_process(true)
 	
 
-func _process(_delta):
+func _process(_delta:float):
 	update_label_text()
 	update_ready_text()
 	
@@ -50,6 +50,7 @@ func update_label_text():
 		label.text = str(ceil(time.time_left))
 	else:
 		label.text = str(snapped(time.time_left, 0.01))
+		
 func _physics_process(_delta: float) -> void:
 	velocity.x = SPEED
 	
