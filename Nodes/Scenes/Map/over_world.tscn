@@ -119,4 +119,4 @@ one_way_collision = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ey7yy")
-frame_progress = 0.73405
+frame_progress = 0.0630206

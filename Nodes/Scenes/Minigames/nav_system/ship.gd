@@ -27,7 +27,6 @@ func _physics_process(delta: float) -> void:
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("meteor") or area.is_in_group("borders"):
-		print("bruhhhh")
 		pause.emit()
 		$Timer.start()
 		velocity.x = 0
@@ -35,7 +34,6 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		set_physics_process(false)
 	if area.is_in_group("end"):
 		win.emit()
-		print("You win")
 		velocity.x = 0
 		velocity.y = 0
 		set_physics_process(false)
@@ -49,6 +47,7 @@ func _on_timer_timeout() -> void:
 
 
 func _on_game_time_timeout() -> void:
+	pause.emit()
 	velocity.x = 0
 	velocity.y = 0
 	$Timer.set_paused(true)

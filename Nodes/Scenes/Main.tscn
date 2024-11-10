@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://rvbeg2ssa60"]
+[gd_scene load_steps=29 format=3 uid="uid://rvbeg2ssa60"]
 
 [ext_resource type="PackedScene" uid="uid://bj8jhcos6u8hu" path="res://Nodes/Scenes/Player.tscn" id="1_4kupe"]
 [ext_resource type="Script" path="res://Nodes/Scenes/main.gd" id="1_loay8"]
@@ -9,7 +9,133 @@
 [ext_resource type="PackedScene" uid="uid://dqfkb057sph4e" path="res://Nodes/Scenes/Minigames/Engine/EngineMinigame.tscn" id="6_oissh"]
 [ext_resource type="Texture2D" uid="uid://cywdyjygw58gm" path="res://Assets/Textures/info.svg" id="12_4fv4p"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o7ae1"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1o15a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4chby"]
+region = Rect2(544, 480, 272, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dehkx"]
+region = Rect2(544, 320, 272, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cynm"]
+region = Rect2(816, 320, 272, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bkku4"]
+region = Rect2(1088, 320, 272, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3y36w"]
+region = Rect2(0, 480, 272, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cil1j"]
+region = Rect2(272, 480, 272, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqdcl"]
+region = Rect2(0, 0, 272, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_27a8t"]
+region = Rect2(272, 0, 272, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x8fbq"]
+region = Rect2(544, 0, 272, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jyqwf"]
+region = Rect2(816, 0, 272, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h35u5"]
+region = Rect2(1088, 0, 272, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4altc"]
+region = Rect2(0, 160, 272, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbc7f"]
+region = Rect2(272, 160, 272, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d8l3o"]
+region = Rect2(544, 160, 272, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k3jbt"]
+region = Rect2(816, 160, 272, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5eri3"]
+region = Rect2(1088, 160, 272, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6d6fv"]
+region = Rect2(0, 320, 272, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iu8bd"]
+region = Rect2(272, 320, 272, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lomcw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4chby")
+}],
+"loop": false,
+"name": &"broken",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dehkx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2cynm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bkku4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3y36w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cil1j")
+}],
+"loop": true,
+"name": &"damaged",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqdcl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_27a8t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x8fbq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jyqwf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h35u5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4altc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kbc7f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d8l3o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k3jbt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5eri3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6d6fv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iu8bd")
+}],
+"loop": true,
+"name": &"repaired",
+"speed": 10.0
+}]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_loay8")
@@ -22,22 +148,28 @@ z_index = 10
 
 [node name="LivesCounter" parent="." instance=ExtResource("2_su0ge")]
 
+[node name="OverWorld" parent="." instance=ExtResource("3_hgkqc")]
+position = Vector2(0, 3)
+
 [node name="Player" parent="." instance=ExtResource("1_4kupe")]
 unique_name_in_owner = true
+position = Vector2(-71, -15)
 motion_mode = 1
-
-[node name="OverWorld" parent="." instance=ExtResource("3_hgkqc")]
-z_index = -2
 
 [node name="Engine" parent="." instance=ExtResource("2_2wstb")]
 position = Vector2(-640, 295)
 minigame = ExtResource("6_oissh")
 icon = ExtResource("12_4fv4p")
 min_occurance = 10
-max_occurance = 20
+max_occurance = 1
 time_to_fail = 30
-interact_shape = SubResource("CapsuleShape2D_o7ae1")
-debug_color = Color(0.435294, 0.6, 0.0862745, 0.419608)
+interact_shape = SubResource("CapsuleShape2D_1o15a")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Engine"]
+sprite_frames = SubResource("SpriteFrames_lomcw")
+animation = &"repaired"
+autoplay = "repaired"
+frame_progress = 0.386863
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
