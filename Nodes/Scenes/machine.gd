@@ -8,6 +8,7 @@ class_name Machine
 @export var time_to_fail: int;
 
 @onready var icon_root: Notification = %IconRoot;
+@onready var time_text: Label = %TimeText;
 
 signal IsDamaged;
 signal Repaired;
@@ -31,6 +32,7 @@ func _on_is_damaged() -> void:
 	print("DAMAGED");
 	icon_root.icon.show();
 	damaged = true;
+	time_to_breakdown = time_to_fail;
 
 func _on_repaired() -> void:
 	print("REPAIRED");
@@ -40,15 +42,16 @@ func _on_repaired() -> void:
 
 func _process(delta: float) -> void:
 	time_to_breakdown -= delta;
+	if(damaged):
+		time_text.text = str(int(time_to_breakdown));
 	if(time_to_breakdown <= 0.0):
 		if(damaged == false):
-			IsDamaged.emit()
-			time_to_breakdown = time_to_fail;
+			IsDamaged.emit();
 		else:
 			_reset_time_to_break();
 
 func _get_time_to_break() -> float:
 	return random_generator.randf_range(min_occurance, max_occurance);
 
-func _reset_time_to_break():
+func _reset_time_to_break() -> void:
 	time_to_breakdown = _get_time_to_break();
