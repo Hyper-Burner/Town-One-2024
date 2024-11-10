@@ -1,8 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://c7dtb2c0jcio"]
+[gd_scene load_steps=4 format=3 uid="uid://c7dtb2c0jcio"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jldsg"]
 normal = Vector2(-8.74228e-08, -1)
-distance = -1676.95
+distance = -872.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_becxr"]
+distance = -497.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4x1fu"]
+distance = -474.0
 
 [node name="OverWorld" type="Node2D"]
 
@@ -15,7 +21,7 @@ one_way_collision = true
 
 [node name="Up" type="CollisionShape2D" parent="world_border"]
 rotation = 3.14159
-shape = SubResource("WorldBoundaryShape2D_jldsg")
+shape = SubResource("WorldBoundaryShape2D_becxr")
 one_way_collision = true
 
 [node name="Right" type="CollisionShape2D" parent="world_border"]
@@ -24,11 +30,9 @@ shape = SubResource("WorldBoundaryShape2D_jldsg")
 one_way_collision = true
 
 [node name="Down" type="CollisionShape2D" parent="world_border"]
-shape = SubResource("WorldBoundaryShape2D_jldsg")
+shape = SubResource("WorldBoundaryShape2D_4x1fu")
 one_way_collision = true
 
 [node name="ShipBody" type="StaticBody2D" parent="."]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ShipBody"]
-build_mode = 1
-polygon = PackedVector2Array(-203, -1289, 230, -1295, 507, -927, 498, -277, 1178, -293, 1146, 472, 521, 476, 502, 1084, 1168, 1079, 1144, 1547, 526, 1514, 517, 1284, -532, 1278, -523, 1601, -1260, 1565, -1271, 1054, -537, 1071, -514, 374, -1311, 352, -1272, -269, -521, -280, -495, -981)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShipBody"]

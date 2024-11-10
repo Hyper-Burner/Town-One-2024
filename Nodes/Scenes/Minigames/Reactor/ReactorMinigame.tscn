@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://dpwnmdonrj5ws"]
 
-[ext_resource type="Script" path="res://Nodes/Scenes/ReactorMinigame.gd" id="1_oyhfg"]
+[ext_resource type="Script" path="res://Nodes/Scenes/Minigames/Reactor/ReactorMinigame.gd" id="1_5r75a"]
 [ext_resource type="Texture2D" uid="uid://b0xyws2cyjvgj" path="res://Assets/Textures/ReactorMinigame.png" id="2_hdbew"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_y6nkp"]
@@ -62,7 +62,7 @@ offset_top = -144.0
 offset_right = 147.0
 offset_bottom = 144.0
 texture = SubResource("AtlasTexture_p7cx2")
-script = ExtResource("1_oyhfg")
+script = ExtResource("1_5r75a")
 
 [node name="Circle" type="TextureButton" parent="."]
 layout_mode = 0
