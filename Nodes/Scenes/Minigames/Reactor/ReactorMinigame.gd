@@ -26,6 +26,7 @@ func _on_diamond_pressed() -> void:
 	check_answer(3, answer)
 
 func _on_cover_button_pressed() -> void:
+	print("bruh")
 	$CoverTexture.texture.region = Rect2(493, 449, 238, 389)
 	$CoverButton.queue_free()
 	$StickyNote.queue_free()
