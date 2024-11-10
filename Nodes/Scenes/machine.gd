@@ -57,7 +57,7 @@ func _process(delta: float) -> void:
 			IsDamaged.emit();
 		else:
 			Breakdown.emit();
-			
+
 
 func _randomize_time_to_break() -> float:
 	return random_generator.randf_range(min_occurance, max_occurance);

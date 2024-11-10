@@ -8,14 +8,14 @@ var selected_machine: Machine = null;
 @onready var globals = get_node("/root/Global")
 
 func _physics_process(_delta: float) -> void:
-	
+
 	if Input.is_action_just_pressed("Interact") and selected_machine != null:
 		selected_machine._interact();
 
 	if(!Global.in_minigame):
 		if(Input.is_action_pressed("Left")):
 			animatedSprite.play("walk_left")
-		elif(Input.is_action_pressed("Right")):	
+		elif(Input.is_action_pressed("Right")):
 			animatedSprite.play("walk_right")
 		elif(Input.is_action_pressed("Up")):
 			animatedSprite.play("walk_up")
