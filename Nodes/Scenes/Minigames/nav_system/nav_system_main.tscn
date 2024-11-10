@@ -1,10 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://cck2mkdkkwbf5"]
+[gd_scene load_steps=21 format=3 uid="uid://cck2mkdkkwbf5"]
 
 [ext_resource type="Script" path="res://Nodes/Scenes/Minigames/nav_system/ship.gd" id="1_6o1bn"]
 [ext_resource type="PackedScene" uid="uid://r0b4m75jq8t0" path="res://Nodes/Scenes/Minigames/nav_system/walls.tscn" id="1_obx8t"]
 [ext_resource type="AudioStream" uid="uid://dfthpt45brbrq" path="res://Assets/Audio/mini_nav_thruster.mp3" id="2_1x5uv"]
 [ext_resource type="Texture2D" uid="uid://c2o4uhcw2v8f1" path="res://Assets/Sprites/nav_sprites.png" id="2_cr480"]
 [ext_resource type="Script" path="res://Nodes/Scenes/Minigames/nav_system/non_player.gd" id="2_d7osw"]
+[ext_resource type="AudioStream" uid="uid://dd2hinqqr8373" path="res://Assets/Audio/mini_start.mp3" id="2_l2oa0"]
 [ext_resource type="AudioStream" uid="uid://jgoyty826mua" path="res://Assets/Audio/mini_nav_crash.mp3" id="3_ndiva"]
 [ext_resource type="PackedScene" uid="uid://dwvmb0nkprrdj" path="res://Nodes/Scenes/Minigames/nav_system/meteor.tscn" id="3_van6e"]
 [ext_resource type="PackedScene" uid="uid://x8q3m1x8ho3t" path="res://Nodes/Scenes/Minigames/nav_system/end_portal.tscn" id="4_0vp5p"]
@@ -71,6 +72,9 @@ position = Vector2(4, 0)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_6o1bn")
+
+[node name="StartSound" type="AudioStreamPlayer2D" parent="Node2D/Ship"]
+stream = ExtResource("2_l2oa0")
 
 [node name="ThrusterSound" type="AudioStreamPlayer2D" parent="Node2D/Ship"]
 stream = ExtResource("2_1x5uv")

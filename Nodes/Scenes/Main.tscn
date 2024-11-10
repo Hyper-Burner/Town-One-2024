@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://bj8jhcos6u8hu" path="res://Nodes/Scenes/Player.tscn" id="1_4kupe"]
 [ext_resource type="Script" path="res://Nodes/Scenes/main.gd" id="1_loay8"]
-[ext_resource type="PackedScene" path="res://Nodes/Scenes/game_over.tscn" id="1_s38xt"]
+[ext_resource type="PackedScene" uid="uid://dr3e6fwronjxo" path="res://Nodes/Scenes/game_over.tscn" id="1_s38xt"]
 [ext_resource type="PackedScene" uid="uid://dn0j40jeomkxc" path="res://Nodes/Scenes/Machine.tscn" id="2_2wstb"]
-[ext_resource type="PackedScene" path="res://Nodes/Scenes/lives_counter.tscn" id="2_su0ge"]
+[ext_resource type="PackedScene" uid="uid://bnp04keovej0h" path="res://Nodes/Scenes/lives_counter.tscn" id="2_su0ge"]
 [ext_resource type="PackedScene" uid="uid://c7dtb2c0jcio" path="res://Nodes/Scenes/Map/over_world.tscn" id="3_hgkqc"]
 [ext_resource type="PackedScene" uid="uid://dqfkb057sph4e" path="res://Nodes/Scenes/Minigames/Engine/EngineMinigame.tscn" id="6_oissh"]
 [ext_resource type="PackedScene" uid="uid://dpwnmdonrj5ws" path="res://Nodes/Scenes/Minigames/Reactor/ReactorMinigame.tscn" id="7_nqlvm"]
@@ -295,7 +295,6 @@ position = Vector2(0, 3)
 [node name="Player" parent="." instance=ExtResource("1_4kupe")]
 unique_name_in_owner = true
 position = Vector2(50, 300)
-motion_mode = 1
 
 [node name="Reactor" parent="." instance=ExtResource("2_2wstb")]
 position = Vector2(50, 0)
