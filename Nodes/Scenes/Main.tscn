@@ -1,86 +1,68 @@
-
-[gd_scene load_steps=30 format=3 uid="uid://rvbeg2ssa60"]
+[gd_scene load_steps=29 format=3 uid="uid://rvbeg2ssa60"]
 
 [ext_resource type="PackedScene" uid="uid://bj8jhcos6u8hu" path="res://Nodes/Scenes/Player.tscn" id="1_4kupe"]
 [ext_resource type="Script" path="res://Nodes/Scenes/main.gd" id="1_loay8"]
 [ext_resource type="PackedScene" path="res://Nodes/Scenes/game_over.tscn" id="1_s38xt"]
-[ext_resource type="PackedScene" uid="uid://ur5o0tlurmxs" path="res://Nodes/Scenes/Machine.tscn" id="2_2wstb"]
+[ext_resource type="PackedScene" uid="uid://dn0j40jeomkxc" path="res://Nodes/Scenes/Machine.tscn" id="2_2wstb"]
 [ext_resource type="PackedScene" path="res://Nodes/Scenes/lives_counter.tscn" id="2_su0ge"]
 [ext_resource type="PackedScene" uid="uid://c7dtb2c0jcio" path="res://Nodes/Scenes/Map/over_world.tscn" id="3_hgkqc"]
 [ext_resource type="PackedScene" uid="uid://dqfkb057sph4e" path="res://Nodes/Scenes/Minigames/Engine/EngineMinigame.tscn" id="6_oissh"]
-[ext_resource type="Texture2D" path="res://Assets/Sprites/Engine.png" id="9_biuog"]
 [ext_resource type="Texture2D" uid="uid://cywdyjygw58gm" path="res://Assets/Textures/info.svg" id="12_4fv4p"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1o15a"]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_4chby"]
-atlas = ExtResource("9_biuog")
 region = Rect2(544, 480, 272, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dehkx"]
-atlas = ExtResource("9_biuog")
 region = Rect2(544, 320, 272, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2cynm"]
-atlas = ExtResource("9_biuog")
 region = Rect2(816, 320, 272, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bkku4"]
-atlas = ExtResource("9_biuog")
 region = Rect2(1088, 320, 272, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3y36w"]
-atlas = ExtResource("9_biuog")
 region = Rect2(0, 480, 272, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cil1j"]
-atlas = ExtResource("9_biuog")
 region = Rect2(272, 480, 272, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tqdcl"]
-atlas = ExtResource("9_biuog")
 region = Rect2(0, 0, 272, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_27a8t"]
-atlas = ExtResource("9_biuog")
 region = Rect2(272, 0, 272, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x8fbq"]
-atlas = ExtResource("9_biuog")
 region = Rect2(544, 0, 272, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jyqwf"]
-atlas = ExtResource("9_biuog")
 region = Rect2(816, 0, 272, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h35u5"]
-atlas = ExtResource("9_biuog")
 region = Rect2(1088, 0, 272, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4altc"]
-atlas = ExtResource("9_biuog")
 region = Rect2(0, 160, 272, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kbc7f"]
-atlas = ExtResource("9_biuog")
 region = Rect2(272, 160, 272, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d8l3o"]
-atlas = ExtResource("9_biuog")
 region = Rect2(544, 160, 272, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k3jbt"]
-atlas = ExtResource("9_biuog")
 region = Rect2(816, 160, 272, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5eri3"]
-atlas = ExtResource("9_biuog")
 region = Rect2(1088, 160, 272, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6d6fv"]
-atlas = ExtResource("9_biuog")
 region = Rect2(0, 320, 272, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iu8bd"]
-atlas = ExtResource("9_biuog")
 region = Rect2(272, 320, 272, 160)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lomcw"]
@@ -155,12 +137,6 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a6ion"]
-radius = 62.0
-height = 210.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_nxa1v"]
-
 [node name="Main" type="Node"]
 script = ExtResource("1_loay8")
 
@@ -172,21 +148,22 @@ z_index = 10
 
 [node name="LivesCounter" parent="." instance=ExtResource("2_su0ge")]
 
+[node name="OverWorld" parent="." instance=ExtResource("3_hgkqc")]
+position = Vector2(0, 3)
+
 [node name="Player" parent="." instance=ExtResource("1_4kupe")]
 unique_name_in_owner = true
 position = Vector2(-71, -15)
 motion_mode = 1
-
-[node name="OverWorld" parent="." instance=ExtResource("3_hgkqc")]
-position = Vector2(0, 3)
 
 [node name="Engine" parent="." instance=ExtResource("2_2wstb")]
 position = Vector2(-640, 295)
 minigame = ExtResource("6_oissh")
 icon = ExtResource("12_4fv4p")
 min_occurance = 10
-max_occurance = 20
+max_occurance = 1
 time_to_fail = 30
+interact_shape = SubResource("CapsuleShape2D_1o15a")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Engine"]
 sprite_frames = SubResource("SpriteFrames_lomcw")
@@ -194,14 +171,6 @@ animation = &"repaired"
 autoplay = "repaired"
 frame_progress = 0.386863
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Engine"]
-position = Vector2(-1, 2)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_a6ion")
-debug_color = Color(0.436426, 0.598913, 0.0847095, 0.42)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Machine"]
-shape = SubResource("CircleShape2D_nxa1v")
-debug_color = Color(0.697933, 0.454611, 0.521543, 0.42)
+[node name="Camera2D" type="Camera2D" parent="."]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
