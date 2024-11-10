@@ -8,8 +8,9 @@ var minigame_scene
 var minigame_instance
 
 @onready var animatedSprite = $AnimatedSprite2D
+@onready var globals = get_node("/root/Global")
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if(Input.is_action_pressed("Left")):
 		animatedSprite.play("walk_left")
 	elif(Input.is_action_pressed("Right")):
@@ -32,16 +33,17 @@ func _physics_process(delta: float) -> void:
 	if(!Global.in_minigame):
 		var direction = Input.get_vector("Left", "Right", "Up", "Down")
 		velocity = direction * speed
-
 		move_and_slide()
+
 	if(Global.engine_minigame_counter == 5):
 		Global.in_minigame = false
 		minigame_instance.queue_free()
 		Global.engine_minigame_counter = 0
-	
+
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area is Machine and area.damaged:
 		near_minigame = true
+		globals.active_game_machine = area;
 		minigame_scene = area.get_machine()
 
 func _on_area_2d_area_exited(area: Area2D) -> void:

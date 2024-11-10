@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@onready var machine: Machine = get_node("/root/Global").active_game_machine
 
 const SPEED = 500
 
@@ -30,7 +31,7 @@ func _ready():
 	
 
 func _on_ready_time_timeout() -> void:
-	time.start()
+	time.start(machine.time_to_breakdown);
 	ready_label.set_visible(false)
 	f_ready.set_visible(false)
 	label.set_visible(true)
@@ -38,7 +39,7 @@ func _on_ready_time_timeout() -> void:
 	set_physics_process(true)
 	
 
-func _process(delta):
+func _process(_delta):
 	update_label_text()
 	update_ready_text()
 	
@@ -49,7 +50,7 @@ func update_label_text():
 		label.text = str(ceil(time.time_left))
 	else:
 		label.text = str(snapped(time.time_left, 0.01))
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	velocity.x = SPEED
 	
 	move_and_slide()
@@ -81,3 +82,4 @@ func _on_ship_win() -> void:
 	time.set_paused(true)
 	label.set_visible(false)
 	victory_label.set_visible(true)
+	machine.Repaired.emit();
