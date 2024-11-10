@@ -1,14 +1,14 @@
 [gd_scene load_steps=18 format=3 uid="uid://cck2mkdkkwbf5"]
 
 [ext_resource type="Script" path="res://Nodes/Scenes/Minigames/nav_system/ship.gd" id="1_6o1bn"]
-[ext_resource type="PackedScene" uid="uid://r0b4m75jq8t0" path="res://Nodes/Scenes/Minigames/nav_system/walls.tscn" id="1_obx8t"]
+[ext_resource type="PackedScene" uid="uid://b0b14xtqi53n4" path="res://Nodes/Scenes/Minigames/nav_system/walls.tscn" id="1_obx8t"]
 [ext_resource type="Texture2D" uid="uid://c2o4uhcw2v8f1" path="res://Assets/Sprites/nav_sprites.png" id="2_cr480"]
 [ext_resource type="Script" path="res://Nodes/Scenes/Minigames/nav_system/non_player.gd" id="2_d7osw"]
 [ext_resource type="PackedScene" uid="uid://dwvmb0nkprrdj" path="res://Nodes/Scenes/Minigames/nav_system/meteor.tscn" id="3_van6e"]
 [ext_resource type="PackedScene" uid="uid://x8q3m1x8ho3t" path="res://Nodes/Scenes/Minigames/nav_system/end_portal.tscn" id="4_0vp5p"]
 [ext_resource type="PackedScene" uid="uid://dwox0262wwenm" path="res://Nodes/Scenes/Minigames/nav_system/meteor_2.tscn" id="5_uuxt1"]
 [ext_resource type="PackedScene" uid="uid://bi25w3t6acwtq" path="res://Nodes/Scenes/Minigames/nav_system/meteor_3.tscn" id="6_ja0r2"]
-[ext_resource type="Texture2D" uid="uid://cs35i6qxgeehl" path="res://Assets/Sprites/navigamebg.png" id="7_phmt4"]
+[ext_resource type="Texture2D" uid="uid://btt6cnqcd0671" path="res://Assets/Sprites/navigamebg (1).png" id="7_6vpjv"]
 [ext_resource type="FontFile" uid="uid://nqpb7alp1pny" path="res://Assets/Fonts/Electrolize-Regular.ttf" id="8_4x6h3"]
 [ext_resource type="Script" path="res://Nodes/Scenes/Minigames/nav_system/label.gd" id="10_s1b86"]
 
@@ -54,7 +54,7 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ius3t"]
-atlas = ExtResource("7_phmt4")
+atlas = ExtResource("7_6vpjv")
 region = Rect2(194, 189, 1538, 709)
 
 [node name="Node2D" type="Node2D"]
@@ -64,6 +64,7 @@ position = Vector2(0, 8)
 z_index = 1
 
 [node name="Ship" type="CharacterBody2D" parent="Node2D" groups=["ship"]]
+visible = false
 z_index = 3
 position = Vector2(4, 0)
 collision_layer = 2
@@ -87,6 +88,7 @@ wait_time = 1.5
 one_shot = true
 
 [node name="Label" type="Node2D" parent="Node2D"]
+visible = false
 z_index = 3
 scale = Vector2(0.999998, 0.999998)
 script = ExtResource("10_s1b86")
@@ -150,29 +152,76 @@ script = ExtResource("2_d7osw")
 [node name="Border" type="Node2D" parent="nonPlayer"]
 z_index = 2
 position = Vector2(0, -544)
-scale = Vector2(1, 1)
 
-[node name="bottom_border" parent="nonPlayer/Border" groups=["borders", "meteor", "ship"] instance=ExtResource("1_obx8t")]
-position = Vector2(3961, 1074)
+[node name="top_walls" type="Node2D" parent="nonPlayer/Border" groups=["borders"]]
 
-[node name="top_border" parent="nonPlayer/Border" instance=ExtResource("1_obx8t")]
-position = Vector2(3958, -29)
+[node name="StaticBody2D2" parent="nonPlayer/Border/top_walls" instance=ExtResource("1_obx8t")]
 
-[node name="end_wall" parent="nonPlayer/Border" instance=ExtResource("1_obx8t")]
-position = Vector2(5885, 1645)
-rotation = 1.57103
+[node name="StaticBody2D" parent="nonPlayer/Border/top_walls" groups=["borders"] instance=ExtResource("1_obx8t")]
+position = Vector2(720.172, -0.415617)
+
+[node name="StaticBody2D3" parent="nonPlayer/Border/top_walls" instance=ExtResource("1_obx8t")]
+position = Vector2(1440.34, -0.415618)
+
+[node name="StaticBody2D4" parent="nonPlayer/Border/top_walls" instance=ExtResource("1_obx8t")]
+position = Vector2(2160.52, -0.415618)
+
+[node name="StaticBody2D5" parent="nonPlayer/Border/top_walls" instance=ExtResource("1_obx8t")]
+position = Vector2(2880.69, -0.415618)
+
+[node name="StaticBody2D6" parent="nonPlayer/Border/top_walls" instance=ExtResource("1_obx8t")]
+position = Vector2(3600.86, -0.415619)
+
+[node name="StaticBody2D7" parent="nonPlayer/Border/top_walls" instance=ExtResource("1_obx8t")]
+position = Vector2(4321.03, -0.415619)
+
+[node name="StaticBody2D8" parent="nonPlayer/Border/top_walls" instance=ExtResource("1_obx8t")]
+position = Vector2(5041.2, -0.415619)
+
+[node name="StaticBody2D9" parent="nonPlayer/Border/top_walls" instance=ExtResource("1_obx8t")]
+position = Vector2(5761.37, -0.415619)
+
+[node name="bottom_walls" type="Node2D" parent="nonPlayer/Border" groups=["borders"]]
+
+[node name="StaticBody2D2" parent="nonPlayer/Border/bottom_walls" instance=ExtResource("1_obx8t")]
+position = Vector2(14.2891, 1224.58)
+
+[node name="StaticBody2D" parent="nonPlayer/Border/bottom_walls" groups=["borders"] instance=ExtResource("1_obx8t")]
+position = Vector2(734.461, 1224.16)
+
+[node name="StaticBody2D3" parent="nonPlayer/Border/bottom_walls" instance=ExtResource("1_obx8t")]
+position = Vector2(1454.63, 1224.16)
+
+[node name="StaticBody2D4" parent="nonPlayer/Border/bottom_walls" instance=ExtResource("1_obx8t")]
+position = Vector2(2174.8, 1224.16)
+
+[node name="StaticBody2D5" parent="nonPlayer/Border/bottom_walls" instance=ExtResource("1_obx8t")]
+position = Vector2(2894.98, 1224.16)
+
+[node name="StaticBody2D6" parent="nonPlayer/Border/bottom_walls" instance=ExtResource("1_obx8t")]
+position = Vector2(3615.15, 1224.16)
+
+[node name="StaticBody2D7" parent="nonPlayer/Border/bottom_walls" instance=ExtResource("1_obx8t")]
+position = Vector2(4335.32, 1224.16)
+
+[node name="StaticBody2D8" parent="nonPlayer/Border/bottom_walls" instance=ExtResource("1_obx8t")]
+position = Vector2(5055.49, 1224.16)
+
+[node name="StaticBody2D9" parent="nonPlayer/Border/bottom_walls" instance=ExtResource("1_obx8t")]
+position = Vector2(5775.66, 1224.16)
 
 [node name="Background" type="Sprite2D" parent="nonPlayer"]
+visible = false
 z_index = 1
-position = Vector2(3602.5, -17.0003)
-scale = Vector2(5.66255, 2.45416)
+position = Vector2(2881.81, -17.0003)
+scale = Vector2(6.59973, 2.45416)
 texture = SubResource("AtlasTexture_ius3t")
 
 [node name="end_portal" parent="nonPlayer" groups=["borders", "meteor"] instance=ExtResource("4_0vp5p")]
 light_mask = 2
 visibility_layer = 2
 z_index = 2
-position = Vector2(5247, 31.9996)
+position = Vector2(5891.41, 90.0215)
 collision_layer = 2
 collision_mask = 2
 
@@ -188,526 +237,1083 @@ text = "Arrived
 Safely!"
 metadata/_edit_use_anchors_ = true
 
+[node name="support_art" type="Node2D" parent="nonPlayer"]
+z_index = 2
+
+[node name="beginning" type="Node2D" parent="nonPlayer/support_art"]
+
+[node name="m1" parent="nonPlayer/support_art/beginning" instance=ExtResource("5_uuxt1")]
+position = Vector2(-1253.16, -250.06)
+
+[node name="m3" parent="nonPlayer/support_art/beginning" instance=ExtResource("6_ja0r2")]
+position = Vector2(-965.945, -462.968)
+
+[node name="m2" parent="nonPlayer/support_art/beginning" instance=ExtResource("3_van6e")]
+position = Vector2(-1654.68, 94.3082)
+
+[node name="m4" parent="nonPlayer/support_art/beginning" instance=ExtResource("3_van6e")]
+position = Vector2(-1268.87, 330.079)
+
+[node name="m5" parent="nonPlayer/support_art/beginning" instance=ExtResource("3_van6e")]
+position = Vector2(-1031.67, -77.1613)
+
+[node name="m6" parent="nonPlayer/support_art/beginning" instance=ExtResource("6_ja0r2")]
+position = Vector2(-681.591, 474.399)
+
+[node name="m7" parent="nonPlayer/support_art/beginning" instance=ExtResource("6_ja0r2")]
+position = Vector2(-552.989, -445.821)
+
+[node name="m8" parent="nonPlayer/support_art/beginning" instance=ExtResource("5_uuxt1")]
+position = Vector2(-491.546, 231.484)
+
+[node name="m9" parent="nonPlayer/support_art/beginning" instance=ExtResource("5_uuxt1")]
+position = Vector2(-1856.16, -597.285)
+
+[node name="m10" parent="nonPlayer/support_art/beginning" instance=ExtResource("5_uuxt1")]
+position = Vector2(-1600.38, 527.269)
+
+[node name="under" type="Node2D" parent="nonPlayer/support_art"]
+
+[node name="m1" parent="nonPlayer/support_art/under" instance=ExtResource("3_van6e")]
+position = Vector2(1018.81, 795.904)
+
+[node name="m2" parent="nonPlayer/support_art/under" instance=ExtResource("5_uuxt1")]
+position = Vector2(2164.8, 833.056)
+
+[node name="m3" parent="nonPlayer/support_art/under" instance=ExtResource("6_ja0r2")]
+position = Vector2(1456.06, 755.895)
+
+[node name="m4" parent="nonPlayer/support_art/under" instance=ExtResource("5_uuxt1")]
+position = Vector2(2909.27, 771.613)
+
+[node name="m5" parent="nonPlayer/support_art/under" instance=ExtResource("6_ja0r2")]
+position = Vector2(3123.6, 757.324)
+
+[node name="m6" parent="nonPlayer/support_art/under" instance=ExtResource("3_van6e")]
+position = Vector2(4313.89, 773.042)
+
+[node name="top" type="Node2D" parent="nonPlayer/support_art"]
+
+[node name="m1" parent="nonPlayer/support_art/top" instance=ExtResource("3_van6e")]
+position = Vector2(980.234, -865.921)
+
+[node name="m2" parent="nonPlayer/support_art/top" instance=ExtResource("5_uuxt1")]
+position = Vector2(871.637, -718.743)
+
+[node name="m3" parent="nonPlayer/support_art/top" instance=ExtResource("6_ja0r2")]
+position = Vector2(312.932, -828.769)
+
+[node name="m4" parent="nonPlayer/support_art/top" instance=ExtResource("3_van6e")]
+position = Vector2(1293.17, -774.471)
+
+[node name="m5" parent="nonPlayer/support_art/top" instance=ExtResource("3_van6e")]
+position = Vector2(1896.17, -860.205)
+
+[node name="m6" parent="nonPlayer/support_art/top" instance=ExtResource("5_uuxt1")]
+position = Vector2(2414.86, -767.326)
+
+[node name="m7" parent="nonPlayer/support_art/top" instance=ExtResource("5_uuxt1")]
+position = Vector2(670.16, -714.456)
+
+[node name="m8" parent="nonPlayer/support_art/top" instance=ExtResource("6_ja0r2")]
+position = Vector2(3070.73, -780.186)
+
+[node name="m9" parent="nonPlayer/support_art/top" instance=ExtResource("6_ja0r2")]
+position = Vector2(2774.95, -703.025)
+
+[node name="m10" parent="nonPlayer/support_art/top" instance=ExtResource("3_van6e")]
+position = Vector2(3966.66, -807.336)
+
+[node name="m11" parent="nonPlayer/support_art/top" instance=ExtResource("6_ja0r2")]
+position = Vector2(4578.24, -754.466)
+
+[node name="m12" parent="nonPlayer/support_art/top" instance=ExtResource("3_van6e")]
+position = Vector2(5359.85, -625.864)
+
+[node name="m13" parent="nonPlayer/support_art/top" instance=ExtResource("3_van6e")]
+position = Vector2(6084.31, -691.594)
+
+[node name="end" type="Node2D" parent="nonPlayer/support_art"]
+
+[node name="m1" parent="nonPlayer/support_art/end" instance=ExtResource("3_van6e")]
+position = Vector2(6267.21, 840.2)
+
+[node name="m2" parent="nonPlayer/support_art/end" instance=ExtResource("5_uuxt1")]
+position = Vector2(6903.08, -417.242)
+
+[node name="m3" parent="nonPlayer/support_art/end" instance=ExtResource("6_ja0r2")]
+position = Vector2(7068.83, -680.162)
+
+[node name="m4" parent="nonPlayer/support_art/end" instance=ExtResource("3_van6e")]
+position = Vector2(6871.64, 231.484)
+
+[node name="m5" parent="nonPlayer/support_art/end" instance=ExtResource("3_van6e")]
+position = Vector2(7128.84, 763.039)
+
+[node name="m6" parent="nonPlayer/support_art/end" instance=ExtResource("5_uuxt1")]
+position = Vector2(6571.57, 437.247)
+
+[node name="m7" parent="nonPlayer/support_art/end" instance=ExtResource("3_van6e")]
+position = Vector2(6798.76, -201.477)
+
+[node name="m8" parent="nonPlayer/support_art/end" instance=ExtResource("5_uuxt1")]
+position = Vector2(6498.69, -464.397)
+
+[node name="m9" parent="nonPlayer/support_art/end" instance=ExtResource("6_ja0r2")]
+position = Vector2(6588.71, 57.1565)
+
 [node name="MapHard" type="Node2D" parent="nonPlayer"]
+visible = false
 position = Vector2(-0.000697711, 4.3869e-05)
-scale = Vector2(1, 1)
 
 [node name="m1" type="Node2D" parent="nonPlayer/MapHard"]
 z_index = 2
 position = Vector2(0.000348856, 2.86102e-06)
-scale = Vector2(1, 1)
 
 [node name="StaticBody2D" parent="nonPlayer/MapHard/m1" instance=ExtResource("3_van6e")]
-position = Vector2(905.919, -384.262)
-collision_layer = 2
-collision_mask = 2
-
-[node name="StaticBody2D2" parent="nonPlayer/MapHard/m1" instance=ExtResource("5_uuxt1")]
-light_mask = 2
-visibility_layer = 2
-position = Vector2(1018.92, -497.262)
+position = Vector2(928.781, -426.11)
 collision_layer = 2
 collision_mask = 2
 
 [node name="StaticBody2D3" parent="nonPlayer/MapHard/m1" instance=ExtResource("6_ja0r2")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(984.919, -418.262)
+position = Vector2(1007.78, -460.11)
 collision_layer = 2
 collision_mask = 2
 
 [node name="StaticBody2D4" parent="nonPlayer/MapHard/m1" instance=ExtResource("5_uuxt1")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(948.919, -204.261)
+position = Vector2(971.781, -246.109)
 collision_layer = 2
 collision_mask = 2
 
 [node name="StaticBody2D5" parent="nonPlayer/MapHard/m1" instance=ExtResource("6_ja0r2")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(893.919, -252.262)
+position = Vector2(916.781, -294.11)
 collision_layer = 2
 collision_mask = 2
 
 [node name="StaticBody2D6" parent="nonPlayer/MapHard/m1" instance=ExtResource("3_van6e")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(855.919, -316.262)
+position = Vector2(878.781, -358.11)
 collision_layer = 2
 collision_mask = 2
 
 [node name="StaticBody2D7" parent="nonPlayer/MapHard/m1" instance=ExtResource("3_van6e")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(966.919, -130.261)
+position = Vector2(989.781, -172.109)
 collision_layer = 2
 collision_mask = 2
 
 [node name="m2" type="Node2D" parent="nonPlayer/MapHard"]
 z_index = 2
 position = Vector2(0.000348856, 2.86102e-06)
-scale = Vector2(1, 1)
 
 [node name="StaticBody2D" parent="nonPlayer/MapHard/m2" instance=ExtResource("3_van6e")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(1105.07, 284.469)
+position = Vector2(1122.22, 355.915)
 collision_layer = 2
 collision_mask = 2
 
 [node name="StaticBody2D2" parent="nonPlayer/MapHard/m2" instance=ExtResource("5_uuxt1")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(1218.07, 171.469)
+position = Vector2(1235.22, 242.915)
 collision_layer = 2
 collision_mask = 2
 
 [node name="StaticBody2D3" parent="nonPlayer/MapHard/m2" instance=ExtResource("6_ja0r2")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(1184.07, 250.469)
+position = Vector2(1201.22, 321.915)
 collision_layer = 2
 collision_mask = 2
 
 [node name="StaticBody2D4" parent="nonPlayer/MapHard/m2" instance=ExtResource("5_uuxt1")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(961.065, 497.469)
+position = Vector2(978.213, 568.915)
 collision_layer = 2
 collision_mask = 2
 
 [node name="StaticBody2D5" parent="nonPlayer/MapHard/m2" instance=ExtResource("6_ja0r2")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(1013.07, 423.469)
+position = Vector2(1030.22, 494.915)
 collision_layer = 2
 collision_mask = 2
 
 [node name="StaticBody2D6" parent="nonPlayer/MapHard/m2" instance=ExtResource("3_van6e")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(1055.07, 352.469)
+position = Vector2(1072.22, 423.915)
 collision_layer = 2
 collision_mask = 2
 
 [node name="StaticBody2D7" parent="nonPlayer/MapHard/m2" instance=ExtResource("3_van6e")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(873.065, 525.469)
+position = Vector2(890.213, 596.915)
 collision_layer = 2
 collision_mask = 2
 
 [node name="m3" type="Node2D" parent="nonPlayer/MapHard"]
 z_index = 2
 position = Vector2(0.000348856, 2.86102e-06)
-scale = Vector2(1, 1)
 
 [node name="StaticBody2D" parent="nonPlayer/MapHard/m3" instance=ExtResource("3_van6e")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(1483.49, -351.122)
-collision_layer = 2
-collision_mask = 2
-
-[node name="StaticBody2D2" parent="nonPlayer/MapHard/m3" instance=ExtResource("5_uuxt1")]
-light_mask = 2
-visibility_layer = 2
-position = Vector2(1467.49, -510.122)
+position = Vector2(1509.07, -398.254)
 collision_layer = 2
 collision_mask = 2
 
 [node name="StaticBody2D3" parent="nonPlayer/MapHard/m3" instance=ExtResource("6_ja0r2")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(1470.49, -420.122)
+position = Vector2(1496.07, -467.254)
 collision_layer = 2
 collision_mask = 2
 
 [node name="StaticBody2D4" parent="nonPlayer/MapHard/m3" instance=ExtResource("5_uuxt1")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(1514.49, -173.122)
+position = Vector2(1540.07, -220.254)
 collision_layer = 2
 collision_mask = 2
 
 [node name="StaticBody2D5" parent="nonPlayer/MapHard/m3" instance=ExtResource("6_ja0r2")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(1479.49, -241.122)
+position = Vector2(1505.07, -288.254)
 collision_layer = 2
 collision_mask = 2
 
 [node name="StaticBody2D6" parent="nonPlayer/MapHard/m3" instance=ExtResource("3_van6e")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(1546.49, -290.122)
+position = Vector2(1572.07, -337.254)
 collision_layer = 2
 collision_mask = 2
 
 [node name="StaticBody2D7" parent="nonPlayer/MapHard/m3" instance=ExtResource("3_van6e")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(1510.49, -88.1221)
+position = Vector2(1536.07, -135.255)
 collision_layer = 2
 collision_mask = 2
 
 [node name="m4" type="Node2D" parent="nonPlayer/MapHard"]
 z_index = 2
 position = Vector2(0.000348856, 2.86102e-06)
-scale = Vector2(1, 1)
 
 [node name="StaticBody2D" parent="nonPlayer/MapHard/m4" instance=ExtResource("3_van6e")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(1473.2, 474.515)
+position = Vector2(1641.81, 465.941)
 collision_layer = 2
 collision_mask = 2
 
 [node name="StaticBody2D2" parent="nonPlayer/MapHard/m4" instance=ExtResource("5_uuxt1")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(1586.2, 361.515)
+position = Vector2(1754.81, 352.941)
 collision_layer = 2
 collision_mask = 2
 
 [node name="StaticBody2D3" parent="nonPlayer/MapHard/m4" instance=ExtResource("6_ja0r2")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(1552.2, 440.515)
-collision_layer = 2
-collision_mask = 2
-
-[node name="StaticBody2D4" parent="nonPlayer/MapHard/m4" instance=ExtResource("5_uuxt1")]
-light_mask = 2
-visibility_layer = 2
-position = Vector2(1516.2, 654.515)
+position = Vector2(1720.81, 431.941)
 collision_layer = 2
 collision_mask = 2
 
 [node name="StaticBody2D5" parent="nonPlayer/MapHard/m4" instance=ExtResource("6_ja0r2")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(1461.2, 606.515)
+position = Vector2(1629.81, 597.941)
 collision_layer = 2
 collision_mask = 2
 
 [node name="StaticBody2D6" parent="nonPlayer/MapHard/m4" instance=ExtResource("3_van6e")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(1423.2, 542.515)
-collision_layer = 2
-collision_mask = 2
-
-[node name="StaticBody2D7" parent="nonPlayer/MapHard/m4" instance=ExtResource("3_van6e")]
-light_mask = 2
-visibility_layer = 2
-position = Vector2(1534.2, 728.515)
+position = Vector2(1591.81, 533.941)
 collision_layer = 2
 collision_mask = 2
 
 [node name="m5" type="Node2D" parent="nonPlayer/MapHard"]
 z_index = 2
 position = Vector2(0.000348856, 2.86102e-06)
-scale = Vector2(1, 1)
 
 [node name="StaticBody2D" parent="nonPlayer/MapHard/m5" instance=ExtResource("3_van6e")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(1900.31, 58.5663)
+position = Vector2(2193.23, 24.2724)
 collision_layer = 2
 collision_mask = 2
 
 [node name="StaticBody2D2" parent="nonPlayer/MapHard/m5" instance=ExtResource("5_uuxt1")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(2049.31, -21.4337)
+position = Vector2(2342.23, -55.7276)
 collision_layer = 2
 collision_mask = 2
 
 [node name="StaticBody2D3" parent="nonPlayer/MapHard/m5" instance=ExtResource("6_ja0r2")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(1976.31, 12.5663)
+position = Vector2(2269.23, -21.7276)
 collision_layer = 2
 collision_mask = 2
 
 [node name="StaticBody2D4" parent="nonPlayer/MapHard/m5" instance=ExtResource("5_uuxt1")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(2042.31, 296.567)
+position = Vector2(2335.23, 262.273)
 collision_layer = 2
 collision_mask = 2
 
 [node name="StaticBody2D5" parent="nonPlayer/MapHard/m5" instance=ExtResource("6_ja0r2")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(1930.31, 185.567)
+position = Vector2(2223.23, 151.273)
 collision_layer = 2
 collision_mask = 2
 
 [node name="StaticBody2D6" parent="nonPlayer/MapHard/m5" instance=ExtResource("3_van6e")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(1883.31, 125.566)
+position = Vector2(2176.23, 91.2721)
 collision_layer = 2
 collision_mask = 2
 
 [node name="StaticBody2D7" parent="nonPlayer/MapHard/m5" instance=ExtResource("3_van6e")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(1977.31, 236.567)
+position = Vector2(2270.23, 202.273)
 collision_layer = 2
 collision_mask = 2
 
 [node name="m6" type="Node2D" parent="nonPlayer/MapHard"]
 z_index = 2
 position = Vector2(0.000348856, 2.86102e-06)
-scale = Vector2(1, 1)
 
 [node name="StaticBody2D" parent="nonPlayer/MapHard/m6" instance=ExtResource("3_van6e")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(2617.58, 391.522)
+position = Vector2(2904.8, 374.375)
 collision_layer = 2
 collision_mask = 2
 
 [node name="StaticBody2D2" parent="nonPlayer/MapHard/m6" instance=ExtResource("5_uuxt1")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(2527.58, 401.522)
+position = Vector2(2814.8, 384.375)
 collision_layer = 2
 collision_mask = 2
 
 [node name="StaticBody2D3" parent="nonPlayer/MapHard/m6" instance=ExtResource("6_ja0r2")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(2688.58, 393.522)
+position = Vector2(2975.8, 376.375)
 collision_layer = 2
 collision_mask = 2
 
 [node name="StaticBody2D4" parent="nonPlayer/MapHard/m6" instance=ExtResource("5_uuxt1")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(2462.58, 568.522)
+position = Vector2(2749.8, 551.375)
 collision_layer = 2
 collision_mask = 2
 
 [node name="StaticBody2D5" parent="nonPlayer/MapHard/m6" instance=ExtResource("6_ja0r2")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(2450.58, 487.522)
+position = Vector2(2737.8, 470.375)
 collision_layer = 2
 collision_mask = 2
 
 [node name="StaticBody2D6" parent="nonPlayer/MapHard/m6" instance=ExtResource("3_van6e")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(2450.58, 417.522)
+position = Vector2(2737.8, 400.375)
 collision_layer = 2
 collision_mask = 2
 
 [node name="StaticBody2D7" parent="nonPlayer/MapHard/m6" instance=ExtResource("3_van6e")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(2460.58, 644.522)
+position = Vector2(2747.8, 627.375)
 collision_layer = 2
 collision_mask = 2
 
 [node name="m7" type="Node2D" parent="nonPlayer/MapHard"]
 z_index = 2
 position = Vector2(0.000348856, 2.86102e-06)
-scale = Vector2(1, 1)
 
 [node name="StaticBody2D" parent="nonPlayer/MapHard/m7" instance=ExtResource("3_van6e")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(2261.1, -467.143)
-collision_layer = 2
-collision_mask = 2
-
-[node name="StaticBody2D3" parent="nonPlayer/MapHard/m7" instance=ExtResource("6_ja0r2")]
-light_mask = 2
-visibility_layer = 2
-position = Vector2(2249.1, -528.143)
+position = Vector2(2530.6, -469.541)
 collision_layer = 2
 collision_mask = 2
 
 [node name="StaticBody2D4" parent="nonPlayer/MapHard/m7" instance=ExtResource("5_uuxt1")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(2391.1, -303.143)
+position = Vector2(2660.6, -305.541)
 collision_layer = 2
 collision_mask = 2
 
 [node name="StaticBody2D5" parent="nonPlayer/MapHard/m7" instance=ExtResource("6_ja0r2")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(2336.1, -351.143)
+position = Vector2(2605.6, -353.541)
 collision_layer = 2
 collision_mask = 2
 
 [node name="StaticBody2D6" parent="nonPlayer/MapHard/m7" instance=ExtResource("3_van6e")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(2298.1, -415.143)
+position = Vector2(2567.6, -417.541)
 collision_layer = 2
 collision_mask = 2
 
 [node name="StaticBody2D7" parent="nonPlayer/MapHard/m7" instance=ExtResource("3_van6e")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(2454.1, -311.143)
+position = Vector2(2723.6, -313.541)
 collision_layer = 2
 collision_mask = 2
 
 [node name="m8" type="Node2D" parent="nonPlayer/MapHard"]
 z_index = 2
 position = Vector2(0.000348856, 2.86102e-06)
-scale = Vector2(1, 1)
 
 [node name="StaticBody2D" parent="nonPlayer/MapHard/m8" instance=ExtResource("3_van6e")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(2727.1, -469.143)
-collision_layer = 2
-collision_mask = 2
-
-[node name="StaticBody2D3" parent="nonPlayer/MapHard/m8" instance=ExtResource("6_ja0r2")]
-light_mask = 2
-visibility_layer = 2
-position = Vector2(2806.1, -503.143)
+position = Vector2(2996.6, -471.541)
 collision_layer = 2
 collision_mask = 2
 
 [node name="StaticBody2D4" parent="nonPlayer/MapHard/m8" instance=ExtResource("5_uuxt1")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(2917.84, -28.5782)
+position = Vector2(3093.6, 7.14452)
 collision_layer = 2
 collision_mask = 2
 
 [node name="StaticBody2D5" parent="nonPlayer/MapHard/m8" instance=ExtResource("6_ja0r2")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(2601.1, -364.143)
+position = Vector2(2870.6, -366.541)
 collision_layer = 2
 collision_mask = 2
 
 [node name="StaticBody2D6" parent="nonPlayer/MapHard/m8" instance=ExtResource("3_van6e")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(2677.1, -401.143)
+position = Vector2(2946.6, -403.541)
 collision_layer = 2
 collision_mask = 2
 
 [node name="StaticBody2D7" parent="nonPlayer/MapHard/m8" instance=ExtResource("3_van6e")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(2523.1, -321.143)
+position = Vector2(2792.6, -323.541)
 collision_layer = 2
 collision_mask = 2
 
 [node name="m9" type="Node2D" parent="nonPlayer/MapHard"]
 z_index = 2
 position = Vector2(0.000348856, 2.86102e-06)
-scale = Vector2(1, 1)
 
 [node name="StaticBody2D" parent="nonPlayer/MapHard/m9" instance=ExtResource("3_van6e")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(3554.12, -336.996)
+position = Vector2(3694.15, -303.112)
 collision_layer = 2
 collision_mask = 2
 
 [node name="StaticBody2D3" parent="nonPlayer/MapHard/m9" instance=ExtResource("6_ja0r2")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(3485.12, -503.996)
+position = Vector2(3625.15, -470.112)
 collision_layer = 2
 collision_mask = 2
 
 [node name="StaticBody2D4" parent="nonPlayer/MapHard/m9" instance=ExtResource("5_uuxt1")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(2985.84, 0.421722)
+position = Vector2(3161.6, 36.1444)
 collision_layer = 2
 collision_mask = 2
 
 [node name="StaticBody2D5" parent="nonPlayer/MapHard/m9" instance=ExtResource("6_ja0r2")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(3515.12, -421.996)
+position = Vector2(3655.15, -388.112)
 collision_layer = 2
 collision_mask = 2
 
 [node name="StaticBody2D6" parent="nonPlayer/MapHard/m9" instance=ExtResource("3_van6e")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(3534.12, -270.996)
+position = Vector2(3674.15, -237.112)
 collision_layer = 2
 collision_mask = 2
 
 [node name="StaticBody2D7" parent="nonPlayer/MapHard/m9" instance=ExtResource("3_van6e")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(3052.84, 38.4217)
+position = Vector2(3228.6, 74.1444)
 collision_layer = 2
 collision_mask = 2
 
 [node name="m10" type="Node2D" parent="nonPlayer/MapHard"]
 z_index = 2
 position = Vector2(0.000348856, 2.86102e-06)
-scale = Vector2(1, 1)
 
 [node name="StaticBody2D" parent="nonPlayer/MapHard/m10" instance=ExtResource("3_van6e")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(3731.84, 237.33)
-collision_layer = 2
-collision_mask = 2
-
-[node name="StaticBody2D2" parent="nonPlayer/MapHard/m10" instance=ExtResource("5_uuxt1")]
-light_mask = 2
-visibility_layer = 2
-position = Vector2(3981.84, 196.33)
+position = Vector2(3864.73, 240.187)
 collision_layer = 2
 collision_mask = 2
 
 [node name="StaticBody2D3" parent="nonPlayer/MapHard/m10" instance=ExtResource("6_ja0r2")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(3902.84, 184.33)
+position = Vector2(4035.73, 187.187)
 collision_layer = 2
 collision_mask = 2
 
 [node name="StaticBody2D4" parent="nonPlayer/MapHard/m10" instance=ExtResource("5_uuxt1")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(3591.84, 304.33)
+position = Vector2(3724.73, 307.187)
 collision_layer = 2
 collision_mask = 2
 
 [node name="StaticBody2D5" parent="nonPlayer/MapHard/m10" instance=ExtResource("6_ja0r2")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(3815.84, 215.33)
+position = Vector2(3948.73, 218.187)
 collision_layer = 2
 collision_mask = 2
 
 [node name="StaticBody2D6" parent="nonPlayer/MapHard/m10" instance=ExtResource("3_van6e")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(3665.84, 268.33)
+position = Vector2(3798.73, 271.187)
 collision_layer = 2
 collision_mask = 2
 
 [node name="StaticBody2D7" parent="nonPlayer/MapHard/m10" instance=ExtResource("3_van6e")]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(3520.84, 337.33)
+position = Vector2(3653.73, 340.187)
 collision_layer = 2
 collision_mask = 2
+
+[node name="MapTutorial" type="Node2D" parent="nonPlayer"]
+visible = false
+z_index = 2
+
+[node name="Spike_up" type="Node2D" parent="nonPlayer/MapTutorial"]
+
+[node name="m1" parent="nonPlayer/MapTutorial/Spike_up" instance=ExtResource("3_van6e")]
+position = Vector2(2371.99, 417.242)
+
+[node name="m2" parent="nonPlayer/MapTutorial/Spike_up" instance=ExtResource("5_uuxt1")]
+position = Vector2(2343.42, 587.283)
+
+[node name="m3" parent="nonPlayer/MapTutorial/Spike_up" instance=ExtResource("6_ja0r2")]
+position = Vector2(2360.56, 500.119)
+
+[node name="m4" parent="nonPlayer/MapTutorial/Spike_up" instance=ExtResource("3_van6e")]
+position = Vector2(2376.28, 342.939)
+
+[node name="m5" parent="nonPlayer/MapTutorial/Spike_up" instance=ExtResource("5_uuxt1")]
+position = Vector2(2387.71, 268.635)
+
+[node name="space_to_go_up" type="Label" parent="nonPlayer/MapTutorial/Spike_up"]
+offset_left = 801.62
+offset_top = -158.609
+offset_right = 1611.62
+offset_bottom = 202.391
+theme_override_colors/font_color = Color(1, 0.921569, 0.231373, 1)
+theme_override_colors/font_shadow_color = Color(0.984314, 0.752941, 0.176471, 1)
+theme_override_fonts/font = ExtResource("8_4x6h3")
+theme_override_font_sizes/font_size = 150
+text = "Hold Space
+ To Go Up!"
+horizontal_alignment = 1
+
+[node name="Spike_down" type="Node2D" parent="nonPlayer/MapTutorial"]
+
+[node name="m1" parent="nonPlayer/MapTutorial/Spike_down" instance=ExtResource("3_van6e")]
+position = Vector2(4090.98, -312.932)
+
+[node name="m2" parent="nonPlayer/MapTutorial/Spike_down" instance=ExtResource("5_uuxt1")]
+position = Vector2(4062.4, -142.891)
+
+[node name="m3" parent="nonPlayer/MapTutorial/Spike_down" instance=ExtResource("6_ja0r2")]
+position = Vector2(4079.54, -230.055)
+
+[node name="m4" parent="nonPlayer/MapTutorial/Spike_down" instance=ExtResource("3_van6e")]
+position = Vector2(4095.26, -387.235)
+
+[node name="m5" parent="nonPlayer/MapTutorial/Spike_down" instance=ExtResource("5_uuxt1")]
+position = Vector2(4106.69, -461.539)
+
+[node name="release_to_go_down" type="Label" parent="nonPlayer/MapTutorial/Spike_down"]
+offset_left = 2702.07
+offset_top = -170.041
+offset_right = 3713.07
+offset_bottom = 190.959
+theme_override_colors/font_color = Color(1, 0.921569, 0.231373, 1)
+theme_override_colors/font_shadow_color = Color(0.984314, 0.752941, 0.176471, 1)
+theme_override_fonts/font = ExtResource("8_4x6h3")
+theme_override_font_sizes/font_size = 150
+text = "Release Space
+ To Go Down!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MapEasy" type="Node2D" parent="nonPlayer"]
+visible = false
+z_index = 2
+
+[node name="spike_up" type="Node2D" parent="nonPlayer/MapEasy"]
+
+[node name="m1" parent="nonPlayer/MapEasy/spike_up" instance=ExtResource("3_van6e")]
+position = Vector2(1186, 525.84)
+
+[node name="m2" parent="nonPlayer/MapEasy/spike_up" instance=ExtResource("5_uuxt1")]
+position = Vector2(1217.43, 448.679)
+
+[node name="m3" parent="nonPlayer/MapEasy/spike_up" instance=ExtResource("6_ja0r2")]
+position = Vector2(1177.42, 601.572)
+
+[node name="m4" parent="nonPlayer/MapEasy/spike_up" instance=ExtResource("3_van6e")]
+position = Vector2(1236.01, 372.946)
+
+[node name="m5" parent="nonPlayer/MapEasy/spike_up" instance=ExtResource("3_van6e")]
+position = Vector2(1241.72, 315.79)
+
+[node name="m6" parent="nonPlayer/MapEasy/spike_up" instance=ExtResource("3_van6e")]
+position = Vector2(1227.44, 248.631)
+
+[node name="spike_down" type="Node2D" parent="nonPlayer/MapEasy"]
+
+[node name="m1" parent="nonPlayer/MapEasy/spike_down" instance=ExtResource("3_van6e")]
+position = Vector2(1267.45, -252.918)
+
+[node name="m2" parent="nonPlayer/MapEasy/spike_down" instance=ExtResource("5_uuxt1")]
+position = Vector2(1298.88, -330.079)
+
+[node name="m3" parent="nonPlayer/MapEasy/spike_down" instance=ExtResource("6_ja0r2")]
+position = Vector2(1258.87, -177.185)
+
+[node name="m4" parent="nonPlayer/MapEasy/spike_down" instance=ExtResource("3_van6e")]
+position = Vector2(1317.46, -405.811)
+
+[node name="m5" parent="nonPlayer/MapEasy/spike_down" instance=ExtResource("3_van6e")]
+position = Vector2(1323.17, -462.968)
+
+[node name="spike_down2" type="Node2D" parent="nonPlayer/MapEasy"]
+
+[node name="m1" parent="nonPlayer/MapEasy/spike_down2" instance=ExtResource("3_van6e")]
+position = Vector2(2154.8, -250.06)
+
+[node name="m2" parent="nonPlayer/MapEasy/spike_down2" instance=ExtResource("5_uuxt1")]
+position = Vector2(2186.24, -327.221)
+
+[node name="m3" parent="nonPlayer/MapEasy/spike_down2" instance=ExtResource("6_ja0r2")]
+position = Vector2(2146.23, -174.327)
+
+[node name="m4" parent="nonPlayer/MapEasy/spike_down2" instance=ExtResource("3_van6e")]
+position = Vector2(2204.81, -402.953)
+
+[node name="m5" parent="nonPlayer/MapEasy/spike_down2" instance=ExtResource("3_van6e")]
+position = Vector2(2210.53, -460.11)
+
+[node name="m6" parent="nonPlayer/MapEasy/spike_down2" instance=ExtResource("3_van6e")]
+position = Vector2(2193.38, -108.597)
+
+[node name="m7" parent="nonPlayer/MapEasy/spike_down2" instance=ExtResource("6_ja0r2")]
+position = Vector2(2269.11, -97.166)
+
+[node name="m8" parent="nonPlayer/MapEasy/spike_down2" instance=ExtResource("3_van6e")]
+position = Vector2(2319.12, -35.7228)
+
+[node name="m9" parent="nonPlayer/MapEasy/spike_down2" instance=ExtResource("3_van6e")]
+position = Vector2(2354.85, 27.1493)
+
+[node name="m10" parent="nonPlayer/MapEasy/spike_down2" instance=ExtResource("6_ja0r2")]
+position = Vector2(2357.71, 108.597)
+
+[node name="spike_up2" type="Node2D" parent="nonPlayer/MapEasy"]
+
+[node name="m1" parent="nonPlayer/MapEasy/spike_up2" instance=ExtResource("3_van6e")]
+position = Vector2(2912.12, 592.999)
+
+[node name="m2" parent="nonPlayer/MapEasy/spike_up2" instance=ExtResource("5_uuxt1")]
+position = Vector2(2983.57, 542.987)
+
+[node name="m3" parent="nonPlayer/MapEasy/spike_up2" instance=ExtResource("6_ja0r2")]
+position = Vector2(2847.82, 643.011)
+
+[node name="m4" parent="nonPlayer/MapEasy/spike_up2" instance=ExtResource("3_van6e")]
+position = Vector2(3043.58, 492.975)
+
+[node name="m5" parent="nonPlayer/MapEasy/spike_up2" instance=ExtResource("3_van6e")]
+position = Vector2(3112.17, 447.25)
+
+[node name="m6" parent="nonPlayer/MapEasy/spike_up2" instance=ExtResource("3_van6e")]
+position = Vector2(3169.33, 415.814)
+
+[node name="m7" parent="nonPlayer/MapEasy/spike_up2" instance=ExtResource("3_van6e")]
+position = Vector2(3223.63, 361.515)
+
+[node name="m8" parent="nonPlayer/MapEasy/spike_up2" instance=ExtResource("3_van6e")]
+position = Vector2(3295.07, 325.792)
+
+[node name="m9" parent="nonPlayer/MapEasy/spike_up2" instance=ExtResource("3_van6e")]
+position = Vector2(3353.66, 274.351)
+
+[node name="m10" parent="nonPlayer/MapEasy/spike_up2" instance=ExtResource("5_uuxt1")]
+position = Vector2(3427.96, 221.481)
+
+[node name="spike_mid" type="Node2D" parent="nonPlayer/MapEasy"]
+
+[node name="m1" parent="nonPlayer/MapEasy/spike_mid" instance=ExtResource("3_van6e")]
+position = Vector2(4271.02, -245.773)
+
+[node name="m2" parent="nonPlayer/MapEasy/spike_mid" instance=ExtResource("5_uuxt1")]
+position = Vector2(4130.99, 408.669)
+
+[node name="m3" parent="nonPlayer/MapEasy/spike_mid" instance=ExtResource("6_ja0r2")]
+position = Vector2(4201, 198.619)
+
+[node name="m4" parent="nonPlayer/MapEasy/spike_mid" instance=ExtResource("3_van6e")]
+position = Vector2(4186.71, -338.652)
+
+[node name="m5" parent="nonPlayer/MapEasy/spike_mid" instance=ExtResource("3_van6e")]
+position = Vector2(4318.17, 308.645)
+
+[node name="m6" parent="nonPlayer/MapEasy/spike_mid" instance=ExtResource("3_van6e")]
+position = Vector2(4178.14, -462.968)
+
+[node name="m7" parent="nonPlayer/MapEasy/spike_mid" instance=ExtResource("3_van6e")]
+position = Vector2(4202.43, 557.276)
+
+[node name="m8" parent="nonPlayer/MapEasy/spike_mid" instance=ExtResource("3_van6e")]
+position = Vector2(4529.65, 158.609)
+
+[node name="m9" parent="nonPlayer/MapEasy/spike_mid" instance=ExtResource("3_van6e")]
+position = Vector2(4396.76, -174.327)
+
+[node name="MapMedium1" type="Node2D" parent="nonPlayer"]
+visible = false
+z_index = 2
+
+[node name="UpperRow" type="Node2D" parent="nonPlayer/MapMedium1"]
+
+[node name="m1" parent="nonPlayer/MapMedium1/UpperRow" instance=ExtResource("3_van6e")]
+position = Vector2(943.082, -464.397)
+
+[node name="m2" parent="nonPlayer/MapMedium1/UpperRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(1025.96, -332.937)
+
+[node name="m3" parent="nonPlayer/MapMedium1/UpperRow" instance=ExtResource("6_ja0r2")]
+position = Vector2(983.092, -400.096)
+
+[node name="m4" parent="nonPlayer/MapMedium1/UpperRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(1080.26, -264.349)
+
+[node name="m5" parent="nonPlayer/MapMedium1/UpperRow" instance=ExtResource("3_van6e")]
+position = Vector2(1134.56, -205.763)
+
+[node name="m6" parent="nonPlayer/MapMedium1/UpperRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(1224.58, -190.045)
+
+[node name="m7" parent="nonPlayer/MapMedium1/UpperRow" instance=ExtResource("6_ja0r2")]
+position = Vector2(1314.6, -188.616)
+
+[node name="m8" parent="nonPlayer/MapMedium1/UpperRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(1401.76, -190.045)
+
+[node name="m9" parent="nonPlayer/MapMedium1/UpperRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(1494.64, -191.474)
+
+[node name="m10" parent="nonPlayer/MapMedium1/UpperRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(1578.95, -191.474)
+
+[node name="m11" parent="nonPlayer/MapMedium1/UpperRow" instance=ExtResource("6_ja0r2")]
+position = Vector2(1668.97, -190.045)
+
+[node name="m12" parent="nonPlayer/MapMedium1/UpperRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(1756.13, -191.474)
+
+[node name="m13" parent="nonPlayer/MapMedium1/UpperRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(1849.01, -192.903)
+
+[node name="m14" parent="nonPlayer/MapMedium1/UpperRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(1943.32, -191.474)
+
+[node name="m15" parent="nonPlayer/MapMedium1/UpperRow" instance=ExtResource("6_ja0r2")]
+position = Vector2(2033.34, -190.045)
+
+[node name="m16" parent="nonPlayer/MapMedium1/UpperRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(2120.51, -191.474)
+
+[node name="m17" parent="nonPlayer/MapMedium1/UpperRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(2213.39, -192.903)
+
+[node name="m18" parent="nonPlayer/MapMedium1/UpperRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(2297.69, -184.33)
+
+[node name="m19" parent="nonPlayer/MapMedium1/UpperRow" instance=ExtResource("6_ja0r2")]
+position = Vector2(2387.71, -182.901)
+
+[node name="m20" parent="nonPlayer/MapMedium1/UpperRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(2474.88, -184.33)
+
+[node name="m21" parent="nonPlayer/MapMedium1/UpperRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(2567.76, -185.759)
+
+[node name="m22" parent="nonPlayer/MapMedium1/UpperRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(2647.77, -185.759)
+
+[node name="m23" parent="nonPlayer/MapMedium1/UpperRow" instance=ExtResource("6_ja0r2")]
+position = Vector2(2737.8, -184.33)
+
+[node name="m24" parent="nonPlayer/MapMedium1/UpperRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(2813.53, -168.612)
+
+[node name="m25" parent="nonPlayer/MapMedium1/UpperRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(2906.41, -170.041)
+
+[node name="m26" parent="nonPlayer/MapMedium1/UpperRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(2987.86, -178.614)
+
+[node name="m27" parent="nonPlayer/MapMedium1/UpperRow" instance=ExtResource("6_ja0r2")]
+position = Vector2(3077.88, -177.185)
+
+[node name="m28" parent="nonPlayer/MapMedium1/UpperRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(3165.04, -178.614)
+
+[node name="m29" parent="nonPlayer/MapMedium1/UpperRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(3257.92, -180.043)
+
+[node name="m30" parent="nonPlayer/MapMedium1/UpperRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(3335.08, -160.038)
+
+[node name="m31" parent="nonPlayer/MapMedium1/UpperRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(3427.96, -161.467)
+
+[node name="m32" parent="nonPlayer/MapMedium1/UpperRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(3507.98, -161.467)
+
+[node name="m33" parent="nonPlayer/MapMedium1/UpperRow" instance=ExtResource("6_ja0r2")]
+position = Vector2(3598, -160.038)
+
+[node name="m34" parent="nonPlayer/MapMedium1/UpperRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(3673.73, -144.32)
+
+[node name="m35" parent="nonPlayer/MapMedium1/UpperRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(3766.61, -145.749)
+
+[node name="m36" parent="nonPlayer/MapMedium1/UpperRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(3848.06, -154.323)
+
+[node name="m37" parent="nonPlayer/MapMedium1/UpperRow" instance=ExtResource("6_ja0r2")]
+position = Vector2(3938.08, -152.894)
+
+[node name="m38" parent="nonPlayer/MapMedium1/UpperRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(4025.25, -154.323)
+
+[node name="m39" parent="nonPlayer/MapMedium1/UpperRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(4118.13, -155.751)
+
+[node name="m40" parent="nonPlayer/MapMedium1/UpperRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(4202.43, -147.178)
+
+[node name="m41" parent="nonPlayer/MapMedium1/UpperRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(4283.88, -155.751)
+
+[node name="m42" parent="nonPlayer/MapMedium1/UpperRow" instance=ExtResource("6_ja0r2")]
+position = Vector2(4373.9, -154.323)
+
+[node name="m43" parent="nonPlayer/MapMedium1/UpperRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(4461.06, -155.751)
+
+[node name="m44" parent="nonPlayer/MapMedium1/UpperRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(4553.94, -157.18)
+
+[node name="LowerRow" type="Node2D" parent="nonPlayer/MapMedium1"]
+
+[node name="m6" parent="nonPlayer/MapMedium1/LowerRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(1231.72, 267.207)
+
+[node name="m7" parent="nonPlayer/MapMedium1/LowerRow" instance=ExtResource("6_ja0r2")]
+position = Vector2(1321.74, 268.636)
+
+[node name="m8" parent="nonPlayer/MapMedium1/LowerRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(1408.91, 267.207)
+
+[node name="m9" parent="nonPlayer/MapMedium1/LowerRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(1501.79, 265.778)
+
+[node name="m10" parent="nonPlayer/MapMedium1/LowerRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(1586.09, 265.778)
+
+[node name="m11" parent="nonPlayer/MapMedium1/LowerRow" instance=ExtResource("6_ja0r2")]
+position = Vector2(1676.11, 267.207)
+
+[node name="m12" parent="nonPlayer/MapMedium1/LowerRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(1763.28, 265.778)
+
+[node name="m13" parent="nonPlayer/MapMedium1/LowerRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(1856.16, 264.349)
+
+[node name="m14" parent="nonPlayer/MapMedium1/LowerRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(1950.47, 265.778)
+
+[node name="m15" parent="nonPlayer/MapMedium1/LowerRow" instance=ExtResource("6_ja0r2")]
+position = Vector2(2040.49, 267.207)
+
+[node name="m16" parent="nonPlayer/MapMedium1/LowerRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(2127.65, 265.778)
+
+[node name="m17" parent="nonPlayer/MapMedium1/LowerRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(2220.53, 264.349)
+
+[node name="m18" parent="nonPlayer/MapMedium1/LowerRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(2304.84, 272.922)
+
+[node name="m19" parent="nonPlayer/MapMedium1/LowerRow" instance=ExtResource("6_ja0r2")]
+position = Vector2(2394.86, 274.351)
+
+[node name="m20" parent="nonPlayer/MapMedium1/LowerRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(2482.02, 272.922)
+
+[node name="m21" parent="nonPlayer/MapMedium1/LowerRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(2574.9, 271.493)
+
+[node name="m22" parent="nonPlayer/MapMedium1/LowerRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(2654.92, 271.493)
+
+[node name="m23" parent="nonPlayer/MapMedium1/LowerRow" instance=ExtResource("6_ja0r2")]
+position = Vector2(2744.94, 272.922)
+
+[node name="m24" parent="nonPlayer/MapMedium1/LowerRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(2820.67, 288.64)
+
+[node name="m25" parent="nonPlayer/MapMedium1/LowerRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(2913.55, 287.211)
+
+[node name="m26" parent="nonPlayer/MapMedium1/LowerRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(2995, 278.638)
+
+[node name="m27" parent="nonPlayer/MapMedium1/LowerRow" instance=ExtResource("6_ja0r2")]
+position = Vector2(3085.02, 280.067)
+
+[node name="m28" parent="nonPlayer/MapMedium1/LowerRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(3172.19, 278.638)
+
+[node name="m29" parent="nonPlayer/MapMedium1/LowerRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(3265.06, 277.209)
+
+[node name="m30" parent="nonPlayer/MapMedium1/LowerRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(3342.23, 297.214)
+
+[node name="m31" parent="nonPlayer/MapMedium1/LowerRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(3413.67, 264.349)
+
+[node name="m32" parent="nonPlayer/MapMedium1/LowerRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(3493.69, 264.349)
+
+[node name="m33" parent="nonPlayer/MapMedium1/LowerRow" instance=ExtResource("6_ja0r2")]
+position = Vector2(3583.71, 265.778)
+
+[node name="m34" parent="nonPlayer/MapMedium1/LowerRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(3659.44, 281.496)
+
+[node name="m35" parent="nonPlayer/MapMedium1/LowerRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(3752.32, 280.067)
+
+[node name="m36" parent="nonPlayer/MapMedium1/LowerRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(3833.77, 271.493)
+
+[node name="m37" parent="nonPlayer/MapMedium1/LowerRow" instance=ExtResource("6_ja0r2")]
+position = Vector2(3923.79, 272.922)
+
+[node name="m38" parent="nonPlayer/MapMedium1/LowerRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(4010.96, 271.493)
+
+[node name="m39" parent="nonPlayer/MapMedium1/LowerRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(4103.84, 270.064)
+
+[node name="m40" parent="nonPlayer/MapMedium1/LowerRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(4188.14, 278.638)
+
+[node name="m41" parent="nonPlayer/MapMedium1/LowerRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(4269.59, 270.064)
+
+[node name="m42" parent="nonPlayer/MapMedium1/LowerRow" instance=ExtResource("6_ja0r2")]
+position = Vector2(4359.61, 271.493)
+
+[node name="m43" parent="nonPlayer/MapMedium1/LowerRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(4446.78, 270.064)
+
+[node name="m44" parent="nonPlayer/MapMedium1/LowerRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(4539.65, 268.636)
+
+[node name="m45" parent="nonPlayer/MapMedium1/LowerRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(1163.13, 327.221)
+
+[node name="m46" parent="nonPlayer/MapMedium1/LowerRow" instance=ExtResource("5_uuxt1")]
+position = Vector2(1114.55, 391.522)
+
+[node name="m47" parent="nonPlayer/MapMedium1/LowerRow" instance=ExtResource("6_ja0r2")]
+position = Vector2(1048.82, 458.681)
+
+[node name="m48" parent="nonPlayer/MapMedium1/LowerRow" instance=ExtResource("6_ja0r2")]
+position = Vector2(984.521, 515.837)
+
+[node name="m1" parent="nonPlayer/MapMedium1/LowerRow" instance=ExtResource("3_van6e")]
+position = Vector2(934.509, 581.567)
+
+[node name="random_end" type="Node2D" parent="nonPlayer/MapMedium1"]
+
+[node name="m48" parent="nonPlayer/MapMedium1/random_end" instance=ExtResource("6_ja0r2")]
+position = Vector2(4759.71, -272.922)
+
+[node name="m49" parent="nonPlayer/MapMedium1/random_end" instance=ExtResource("6_ja0r2")]
+position = Vector2(4909.74, -332.937)
+
+[node name="m44" parent="nonPlayer/MapMedium1/random_end" instance=ExtResource("5_uuxt1")]
+position = Vector2(5031.2, -228.626)
+
+[node name="m50" parent="nonPlayer/MapMedium1/random_end" instance=ExtResource("6_ja0r2")]
+position = Vector2(4759.71, 231.484)
+
+[node name="m51" parent="nonPlayer/MapMedium1/random_end" instance=ExtResource("6_ja0r2")]
+position = Vector2(4661.11, 348.655)
+
+[node name="m45" parent="nonPlayer/MapMedium1/random_end" instance=ExtResource("5_uuxt1")]
+position = Vector2(4956.9, 358.657)
 
 [connection signal="pause" from="Node2D/Ship" to="Node2D/Label" method="_on_ship_pause"]
 [connection signal="pause" from="Node2D/Ship" to="nonPlayer" method="_on_ship_pause"]

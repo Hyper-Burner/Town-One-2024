@@ -6,7 +6,14 @@ var starting = false
 var label = Label
 var time = Timer
 var victory_label = Label
+
 var map_hard = Node2D
+var map_tut = Node2D
+var map_easy = Node2D
+var map_med_1 = Node2D
+var map_array = []
+
+var rng = RandomNumberGenerator.new()
 
 func _ready():
 	label = $"../Node2D/Label/Label"
@@ -14,8 +21,22 @@ func _ready():
 	victory_label = $end_portal/Victory
 	victory_label.set_visible(false)
 	
+	map_easy = $MapEasy
 	map_hard = $MapHard
+	map_tut = $MapTutorial
+	map_med_1 = $MapMedium1
+	
+	map_array = [map_easy,map_hard,map_tut,map_med_1]
+	map_hard.set_process_mode(PROCESS_MODE_DISABLED) 
+	map_easy.set_process_mode(PROCESS_MODE_DISABLED) 
+	map_tut.set_process_mode(PROCESS_MODE_DISABLED)
+	map_med_1.set_process_mode(PROCESS_MODE_DISABLED)
 
+	var map_chooser = rng.randi_range(0,3)
+	print(map_chooser)
+	map_array[3].set_process_mode(PROCESS_MODE_INHERIT)
+	map_array[3].set_visible(true)
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if starting:
