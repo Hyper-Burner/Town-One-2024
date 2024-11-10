@@ -1,6 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://c7dtb2c0jcio"]
-
-[ext_resource type="PackedScene" uid="uid://dqfkb057sph4e" path="res://Nodes/Scenes/Minigames/NavigationMinigame/NavigatoinMinigame.tscn" id="1_qnhq2"]
+[gd_scene load_steps=2 format=3 uid="uid://c7dtb2c0jcio"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jldsg"]
 normal = Vector2(-8.74228e-08, -1)
@@ -34,6 +32,3 @@ one_way_collision = true
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ShipBody"]
 build_mode = 1
 polygon = PackedVector2Array(-203, -1289, 230, -1295, 507, -927, 498, -277, 1178, -293, 1146, 472, 521, 476, 502, 1084, 1168, 1079, 1144, 1547, 526, 1514, 517, 1284, -532, 1278, -523, 1601, -1260, 1565, -1271, 1054, -537, 1071, -514, 374, -1311, 352, -1272, -269, -521, -280, -495, -981)
-
-[node name="NavigatoinMinigame" parent="." instance=ExtResource("1_qnhq2")]
-position = Vector2(1, 6)
