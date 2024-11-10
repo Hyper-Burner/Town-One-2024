@@ -1,11 +1,9 @@
 extends CharacterBody2D
-
-
-const SPEED = 500
 const JUMP_VELOCITY = -65
 signal pause
 signal restart
 signal win
+
 
 
 func _ready():
@@ -14,9 +12,8 @@ func _ready():
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * 1.5 * delta
-
+	#if not is_on_floor():
+	velocity += get_gravity() * 1.5 * delta
 	# Handle jump.
 	if Input.is_action_pressed("Fly"):
 		velocity.y += JUMP_VELOCITY
@@ -26,13 +23,11 @@ func _physics_process(delta: float) -> void:
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	velocity.x = SPEED
-	
 	move_and_slide()
-
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("meteor") or area.is_in_group("borders"):
+		print("bruhhhh")
 		pause.emit()
 		$Timer.start()
 		velocity.x = 0

@@ -55,31 +55,8 @@ func _physics_process(_delta: float) -> void:
 	
 	move_and_slide()
 
-
-func _on_ship_pause() -> void:
-	velocity.x = 0
-	velocity.y = 0
-	set_physics_process(false)
-
-
-func _on_ship_restart() -> void:
-	position.x = 0
-	position.y = 0
-	set_physics_process(true)
-
-
 func _on_game_time_timeout() -> void:
 	velocity.x = 0
 	velocity.y = 0
 	timeout_label.set_visible(true)
 	set_physics_process(false)
-
-
-func _on_ship_win() -> void:
-	velocity.x = 0
-	velocity.y = 0
-	set_physics_process(false)
-	time.set_paused(true)
-	label.set_visible(false)
-	victory_label.set_visible(true)
-	machine.Repaired.emit();

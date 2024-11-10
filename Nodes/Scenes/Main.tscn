@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://bj8jhcos6u8hu" path="res://Nodes/Scenes/Player.tscn" id="1_4kupe"]
 [ext_resource type="Script" path="res://Nodes/Scenes/main.gd" id="1_loay8"]
-[ext_resource type="PackedScene" path="res://Nodes/Scenes/game_over.tscn" id="1_s38xt"]
-[ext_resource type="PackedScene" uid="uid://ur5o0tlurmxs" path="res://Nodes/Scenes/Machine.tscn" id="2_2wstb"]
-[ext_resource type="PackedScene" path="res://Nodes/Scenes/lives_counter.tscn" id="2_su0ge"]
+[ext_resource type="PackedScene" uid="uid://dr3e6fwronjxo" path="res://Nodes/Scenes/game_over.tscn" id="1_s38xt"]
+[ext_resource type="PackedScene" uid="uid://dw0xhlussm6id" path="res://Nodes/Scenes/Machine.tscn" id="2_2wstb"]
+[ext_resource type="PackedScene" uid="uid://bnp04keovej0h" path="res://Nodes/Scenes/lives_counter.tscn" id="2_su0ge"]
 [ext_resource type="Script" path="res://Nodes/Scenes/timer.gd" id="2_uks48"]
 [ext_resource type="PackedScene" uid="uid://c7dtb2c0jcio" path="res://Nodes/Scenes/Map/over_world.tscn" id="3_hgkqc"]
 [ext_resource type="Texture2D" uid="uid://dmvg1giijn1xl" path="res://Assets/Textures/warning.svg" id="3_n7ar1"]
@@ -30,17 +30,18 @@ script = ExtResource("1_loay8")
 script = ExtResource("2_uks48")
 
 [node name="GameOver" parent="." instance=ExtResource("1_s38xt")]
+visible = false
 z_index = 10
 
 [node name="LivesCounter" parent="." instance=ExtResource("2_su0ge")]
 
 [node name="Player" parent="." instance=ExtResource("1_4kupe")]
 unique_name_in_owner = true
+position = Vector2(-71, -15)
 motion_mode = 1
 
 [node name="Reactor" parent="." instance=ExtResource("2_2wstb")]
 unique_name_in_owner = true
-position = Vector2(8, 22)
 minigame = ExtResource("6_dxi8j")
 icon = ExtResource("3_n7ar1")
 min_occurance = 5
@@ -77,8 +78,8 @@ debug_color = Color(0.436426, 0.598913, 0.0847095, 0.42)
 position = Vector2(168, 0)
 minigame = ExtResource("12_oba17")
 icon = ExtResource("3_n7ar1")
-min_occurance = 5
-max_occurance = 15
+min_occurance = 1
+max_occurance = 1
 time_to_fail = 30
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Navigation"]
