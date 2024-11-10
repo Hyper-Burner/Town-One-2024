@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dw0xhlussm6id"]
+[gd_scene load_steps=3 format=3 uid="uid://ur5o0tlurmxs"]
 
 [ext_resource type="Script" path="res://Nodes/Scenes/machine.gd" id="1_6uewv"]
 [ext_resource type="PackedScene" uid="uid://bwr5ah1mhh0u5" path="res://Nodes/Scenes/GUI/AlertElement.tscn" id="2_2hsmm"]
@@ -8,3 +8,12 @@ script = ExtResource("1_6uewv")
 
 [node name="IconRoot" parent="." instance=ExtResource("2_2hsmm")]
 unique_name_in_owner = true
+
+[node name="TimeText" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = -32.0
+offset_right = 8.0
+offset_bottom = 23.0
+
+[connection signal="IsDamaged" from="." to="." method="_on_is_damaged"]
+[connection signal="Repaired" from="." to="." method="_on_repaired"]

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwox0262wwenm"]
+
+[ext_resource type="Texture2D" uid="uid://c2o4uhcw2v8f1" path="res://Assets/Sprites/nav_sprites.png" id="1_0oula"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ig2jv"]
+atlas = ExtResource("1_0oula")
+region = Rect2(122, 103, 113, 113)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wwv38"]
+radius = 46.0977
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.875, -1.875)
+scale = Vector2(0.811947, 0.829646)
+texture = SubResource("AtlasTexture_ig2jv")
+
+[node name="Area2D" type="Area2D" parent="." groups=["meteor"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_wwv38")
