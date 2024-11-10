@@ -7,6 +7,16 @@ var answer
 
 func _ready():
 	answer = rng.randi_range(0, 3)
+	print(answer)
+	$CoverTexture.texture.region = Rect2(10, 449, 238, 389)
+	if answer == 0:
+		$StickyNote.texture.region = Rect2(0, 1127, 142, 123)
+	elif answer == 1:
+		$StickyNote.texture.region = Rect2(287, 1127, 142, 123)
+	elif answer == 2:
+		$StickyNote.texture.region = Rect2(144, 1127, 142, 123)
+	else:
+		$StickyNote.texture.region = Rect2(430, 1127, 142, 123)
 
 func check_answer(input):
 	Global.in_minigame = false
