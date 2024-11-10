@@ -6,6 +6,6 @@ func _ready():
 	$StartSound.play()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if(Global.engine_minigame_counter == 5):
 		machine.Repaired.emit();

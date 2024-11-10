@@ -9,7 +9,6 @@ class_name Machine
 
 @onready var icon_root: Notification = %IconRoot;
 @onready var time_text: Label = %TimeText;
-@onready var collision_shape: CollisionShape2D = %CollisionShape;
 
 signal IsDamaged;
 signal Repaired;
