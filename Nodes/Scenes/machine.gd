@@ -64,7 +64,8 @@ func _reset_time_to_break() -> void:
 func _on_breakdown() -> void:
 	get_node("/root/Main/LivesCounter").lose_life();
 	Repaired.emit();
-
+	$AnimatedSprite2D
+	
 func _interact() -> bool:
 	if !Global.in_minigame:
 		_construct();
