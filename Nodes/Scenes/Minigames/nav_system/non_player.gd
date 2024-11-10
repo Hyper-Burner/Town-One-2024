@@ -14,7 +14,7 @@ func _ready():
 	print(label)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if starting:
 		position.x -= SPEED 
 
@@ -28,8 +28,6 @@ func _on_ship_restart() -> void:
 
 func _on_ship_pause() -> void:
 	starting = false
-
-
 
 func _on_ship_win() -> void:
 	starting = false

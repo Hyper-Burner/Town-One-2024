@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dn0j40jeomkxc"]
+[gd_scene load_steps=5 format=3 uid="uid://dn0j40jeomkxc"]
 
 [ext_resource type="Script" path="res://Nodes/Scenes/machine.gd" id="1_6uewv"]
 [ext_resource type="PackedScene" uid="uid://bwr5ah1mhh0u5" path="res://Nodes/Scenes/GUI/AlertElement.tscn" id="2_2hsmm"]
+[ext_resource type="PackedScene" uid="uid://dnvvb7gkjbxna" path="res://Nodes/Scenes/Minigames/Minigame.tscn" id="3_3in0k"]
+[ext_resource type="Script" path="res://Nodes/Scenes/Minigames/minigame.gd" id="4_40hg1"]
 
 [node name="Machine" type="Area2D"]
 script = ExtResource("1_6uewv")
@@ -18,5 +20,10 @@ offset_bottom = 23.0
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
 
+[node name="Minigame" parent="." instance=ExtResource("3_3in0k")]
+script = ExtResource("4_40hg1")
+
+[connection signal="Breakdown" from="." to="." method="_on_breakdown"]
+[connection signal="Breakdown" from="." to="Minigame" method="_on_machine_breakdown"]
 [connection signal="IsDamaged" from="." to="." method="_on_is_damaged"]
 [connection signal="Repaired" from="." to="." method="_on_repaired"]

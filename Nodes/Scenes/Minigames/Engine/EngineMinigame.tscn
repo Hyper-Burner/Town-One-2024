@@ -1,6 +1,7 @@
-[gd_scene load_steps=25 format=3 uid="uid://dqfkb057sph4e"]
+[gd_scene load_steps=26 format=3 uid="uid://dqfkb057sph4e"]
 
 [ext_resource type="Script" path="res://Nodes/Scenes/Minigames/Engine/area_2d.gd" id="1_a4kch"]
+[ext_resource type="Script" path="res://Nodes/Scenes/Minigames/Engine/engine_minigame.gd" id="1_cdquv"]
 [ext_resource type="Script" path="res://Nodes/Scenes/Minigames/Engine/sprite_2d.gd" id="2_wwrc0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6mo1g"]
@@ -58,7 +59,8 @@ size = Vector2(117, 199)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_824f8"]
 
-[node name="NavigatoinMinigame" type="Node2D"]
+[node name="EngineMinigame" type="Node2D"]
+script = ExtResource("1_cdquv")
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(-166, -101)
