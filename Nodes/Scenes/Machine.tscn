@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://ur5o0tlurmxs"]
+[gd_scene load_steps=3 format=3 uid="uid://dn0j40jeomkxc"]
 
 [ext_resource type="Script" path="res://Nodes/Scenes/machine.gd" id="1_6uewv"]
 [ext_resource type="PackedScene" uid="uid://bwr5ah1mhh0u5" path="res://Nodes/Scenes/GUI/AlertElement.tscn" id="2_2hsmm"]
@@ -14,6 +14,9 @@ unique_name_in_owner = true
 offset_left = -32.0
 offset_right = 8.0
 offset_bottom = 23.0
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
 
 [connection signal="IsDamaged" from="." to="." method="_on_is_damaged"]
 [connection signal="Repaired" from="." to="." method="_on_repaired"]

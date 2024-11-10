@@ -19,7 +19,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	pass
-	
+
 
 
 func _on_timer_timeout() -> void:
@@ -28,16 +28,16 @@ func _on_timer_timeout() -> void:
 	#increase the spawn chance
 	if timer % SPAWN_FREQUENCY * 3 == 0:
 		spawn_chance += SPAWN_CHANCE_DELTA
-		
+
 	#roll for a spawn
 	if timer % SPAWN_FREQUENCY == 0:
-		var random_roll = RandomNumberGenerator.new().randf_range(0, 1) 
+		var random_roll = RandomNumberGenerator.new().randf_range(0, 1)
 		if random_roll > spawn_chance:
 			return
-		
+
 		var random_name = inactive_minigames.pick_random()
 		var minigame_class = load("res://Nodes/Scenes/Minigames/"+random_name+"/"+random_name+".tscn")
 		var minigame = minigame_class.instantiate()
-		
+
 		add_child(minigame)
 		inactive_minigames.erase(random_name)
