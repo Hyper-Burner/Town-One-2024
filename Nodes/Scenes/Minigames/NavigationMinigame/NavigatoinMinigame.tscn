@@ -1,31 +1,67 @@
-[gd_scene load_steps=9 format=3 uid="uid://dqfkb057sph4e"]
+[gd_scene load_steps=25 format=3 uid="uid://dqfkb057sph4e"]
 
 [ext_resource type="Script" path="res://Nodes/Scenes/Minigames/NavigationMinigame/area_2d.gd" id="1_a4kch"]
+[ext_resource type="Script" path="res://Nodes/Scenes/Minigames/NavigationMinigame/sprite_2d.gd" id="2_wwrc0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6mo1g"]
 size = Vector2(1, 1)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_pj4ta"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2gbjv"]
+size = Vector2(218, 71)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_2bhou"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mpud7"]
+size = Vector2(90, 95)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_yuwtq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l653g"]
+size = Vector2(51, 47)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_0v8by"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p2q2m"]
+size = Vector2(73, 71)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_2y4tl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jmq88"]
+size = Vector2(52, 116)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_blhta"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o55cg"]
 size = Vector2(333, 139)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_3nb73"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1exb5"]
 size = Vector2(147, 161.5)
 
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_hewm4"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vvngs"]
 size = Vector2(117, 100.5)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_iwelb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5v47i"]
 size = Vector2(186, 160.5)
 
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_v8b0a"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0c4dx"]
 size = Vector2(117, 199)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_824f8"]
 
 [node name="NavigatoinMinigame" type="Node2D"]
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(427, 211)
+position = Vector2(-165.875, -99.625)
 scale = Vector2(450, 300)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
@@ -41,81 +77,159 @@ texture = SubResource("CanvasTexture_pj4ta")
 script = ExtResource("1_a4kch")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pieces/Area2D"]
-position = Vector2(358, 505)
-shape = SubResource("RectangleShape2D_o55cg")
+position = Vector2(-236.875, 191.875)
+shape = SubResource("RectangleShape2D_2gbjv")
 
 [node name="Sprite2D" type="Sprite2D" parent="Pieces/Area2D"]
+position = Vector2(-235.875, 195.375)
+scale = Vector2(322.25, 131)
+texture = SubResource("PlaceholderTexture2D_2bhou")
 
 [node name="Area2D2" type="Area2D" parent="Pieces"]
+script = ExtResource("1_a4kch")
+areaID = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pieces/Area2D2"]
-position = Vector2(881, 192)
-shape = SubResource("RectangleShape2D_1exb5")
+position = Vector2(286.125, -122.125)
+shape = SubResource("RectangleShape2D_mpud7")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Pieces/Area2D2"]
+position = Vector2(286.938, -117.812)
+scale = Vector2(138.375, 150.375)
+texture = SubResource("PlaceholderTexture2D_yuwtq")
 
 [node name="Area2D3" type="Area2D" parent="Pieces"]
+script = ExtResource("1_a4kch")
+areaID = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pieces/Area2D3"]
-position = Vector2(819, 498)
-shape = SubResource("RectangleShape2D_vvngs")
+position = Vector2(225.625, 184.875)
+shape = SubResource("RectangleShape2D_l653g")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Pieces/Area2D3"]
+position = Vector2(226.5, 186.25)
+scale = Vector2(109.25, 90.25)
+texture = SubResource("PlaceholderTexture2D_0v8by")
 
 [node name="Area2D4" type="Area2D" parent="Pieces"]
+script = ExtResource("1_a4kch")
+areaID = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pieces/Area2D4"]
-position = Vector2(634, 502)
-shape = SubResource("RectangleShape2D_5v47i")
+position = Vector2(51.625, 217.875)
+shape = SubResource("RectangleShape2D_p2q2m")
 
 [node name="Sprite2D4" type="Sprite2D" parent="Pieces/Area2D4"]
+position = Vector2(52.25, 217.75)
+scale = Vector2(177.75, 153.25)
+texture = SubResource("PlaceholderTexture2D_2y4tl")
 
 [node name="Area2D5" type="Area2D" parent="Pieces"]
+script = ExtResource("1_a4kch")
+areaID = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pieces/Area2D5"]
-position = Vector2(729, 303)
-shape = SubResource("RectangleShape2D_0c4dx")
+position = Vector2(135.125, -15.625)
+shape = SubResource("RectangleShape2D_jmq88")
 
 [node name="Sprite2D5" type="Sprite2D" parent="Pieces/Area2D5"]
+position = Vector2(136.25, -9)
+scale = Vector2(107.75, 184.75)
+texture = SubResource("PlaceholderTexture2D_blhta")
 
 [node name="CorrectPlacement" type="Node2D" parent="."]
 
 [node name="Area2D" type="Area2D" parent="CorrectPlacement" groups=["Droppable"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CorrectPlacement/Area2D"]
-position = Vector2(368.5, 291.5)
+position = Vector2(-224.375, -19.125)
 shape = SubResource("RectangleShape2D_o55cg")
 
 [node name="Sprite2D" type="Sprite2D" parent="CorrectPlacement/Area2D"]
+visible = false
+position = Vector2(368.5, 292)
+scale = Vector2(333, 138)
+texture = SubResource("PlaceholderTexture2D_3nb73")
+script = ExtResource("2_wwrc0")
 
 [node name="Area2D2" type="Area2D" parent="CorrectPlacement" groups=["Droppable"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CorrectPlacement/Area2D2"]
-position = Vector2(275.5, 141.25)
+position = Vector2(-317.375, -169.375)
 shape = SubResource("RectangleShape2D_1exb5")
 
 [node name="Sprite2D2" type="Sprite2D" parent="CorrectPlacement/Area2D2"]
+visible = false
+position = Vector2(275.5, 142)
+scale = Vector2(147, 162)
+texture = SubResource("PlaceholderTexture2D_hewm4")
+script = ExtResource("2_wwrc0")
+pieceID = 1
 
 [node name="Area2D3" type="Area2D" parent="CorrectPlacement" groups=["Droppable"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CorrectPlacement/Area2D3"]
-position = Vector2(593.5, 310.75)
+position = Vector2(0.625, 0.125)
 shape = SubResource("RectangleShape2D_vvngs")
 
 [node name="Sprite2D3" type="Sprite2D" parent="CorrectPlacement/Area2D3"]
+visible = false
+position = Vector2(593.5, 311)
+scale = Vector2(117, 100)
+texture = SubResource("PlaceholderTexture2D_iwelb")
+script = ExtResource("2_wwrc0")
+pieceID = 2
 
 [node name="Area2D4" type="Area2D" parent="CorrectPlacement" groups=["Droppable"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CorrectPlacement/Area2D4"]
-position = Vector2(442, 141.75)
+position = Vector2(-150.875, -168.875)
 shape = SubResource("RectangleShape2D_5v47i")
 
 [node name="Sprite2D4" type="Sprite2D" parent="CorrectPlacement/Area2D4"]
+visible = false
+position = Vector2(442, 142)
+scale = Vector2(186, 162)
+texture = SubResource("PlaceholderTexture2D_v8b0a")
+script = ExtResource("2_wwrc0")
+pieceID = 3
 
 [node name="Area2D5" type="Area2D" parent="CorrectPlacement" groups=["Droppable"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CorrectPlacement/Area2D5"]
-position = Vector2(593.5, 161)
+position = Vector2(0.625, -149.625)
 shape = SubResource("RectangleShape2D_0c4dx")
 
 [node name="Sprite2D5" type="Sprite2D" parent="CorrectPlacement/Area2D5"]
+visible = false
+position = Vector2(593.125, 161)
+scale = Vector2(117.75, 200)
+texture = SubResource("PlaceholderTexture2D_824f8")
+script = ExtResource("2_wwrc0")
+pieceID = 4
+
+[connection signal="area_entered" from="Pieces/Area2D" to="Pieces/Area2D" method="_on_area_entered"]
+[connection signal="area_exited" from="Pieces/Area2D" to="Pieces/Area2D" method="_on_area_exited"]
+[connection signal="correct_place" from="Pieces/Area2D" to="CorrectPlacement/Area2D/Sprite2D" method="_on_area_2d_correct_place"]
+[connection signal="mouse_entered" from="Pieces/Area2D" to="Pieces/Area2D" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Pieces/Area2D" to="Pieces/Area2D" method="_on_mouse_exited"]
+[connection signal="area_entered" from="Pieces/Area2D2" to="Pieces/Area2D2" method="_on_area_entered"]
+[connection signal="area_exited" from="Pieces/Area2D2" to="Pieces/Area2D2" method="_on_area_exited"]
+[connection signal="correct_place" from="Pieces/Area2D2" to="CorrectPlacement/Area2D2/Sprite2D2" method="_on_area_2d_2_correct_place"]
+[connection signal="mouse_entered" from="Pieces/Area2D2" to="Pieces/Area2D2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Pieces/Area2D2" to="Pieces/Area2D2" method="_on_mouse_exited"]
+[connection signal="area_entered" from="Pieces/Area2D3" to="Pieces/Area2D3" method="_on_area_entered"]
+[connection signal="area_exited" from="Pieces/Area2D3" to="Pieces/Area2D3" method="_on_area_exited"]
+[connection signal="correct_place" from="Pieces/Area2D3" to="CorrectPlacement/Area2D3/Sprite2D3" method="_on_area_2d_3_correct_place"]
+[connection signal="mouse_entered" from="Pieces/Area2D3" to="Pieces/Area2D3" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Pieces/Area2D3" to="Pieces/Area2D3" method="_on_mouse_exited"]
+[connection signal="area_entered" from="Pieces/Area2D4" to="Pieces/Area2D4" method="_on_area_entered"]
+[connection signal="area_exited" from="Pieces/Area2D4" to="Pieces/Area2D4" method="_on_area_exited"]
+[connection signal="correct_place" from="Pieces/Area2D4" to="CorrectPlacement/Area2D4/Sprite2D4" method="_on_area_2d_4_correct_place"]
+[connection signal="mouse_entered" from="Pieces/Area2D4" to="Pieces/Area2D4" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Pieces/Area2D4" to="Pieces/Area2D4" method="_on_mouse_exited"]
+[connection signal="area_entered" from="Pieces/Area2D5" to="Pieces/Area2D5" method="_on_area_entered"]
+[connection signal="area_exited" from="Pieces/Area2D5" to="Pieces/Area2D5" method="_on_area_exited"]
+[connection signal="correct_place" from="Pieces/Area2D5" to="CorrectPlacement/Area2D5/Sprite2D5" method="_on_area_2d_5_correct_place"]
+[connection signal="mouse_entered" from="Pieces/Area2D5" to="Pieces/Area2D5" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Pieces/Area2D5" to="Pieces/Area2D5" method="_on_mouse_exited"]
