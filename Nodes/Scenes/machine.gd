@@ -6,30 +6,26 @@ class_name Machine
 @export var min_occurance: int;
 @export var max_occurance: int;
 @export var time_to_fail: int;
-@export var interact_shape: Shape2D;
-@export var debug_color: Color;
 
 @onready var icon_root: Notification = %IconRoot;
 @onready var time_text: Label = %TimeText;
-@onready var collision_shape: CollisionShape2D = %CollisionShape;
 
 signal IsDamaged;
 signal Repaired;
+signal Breakdown;
 
 var time_to_breakdown: float;
 var random_generator: RandomNumberGenerator;
 var damaged: bool = false;
+var game_instance = null;
 
 func _ready() -> void:
 	icon_root.icon.texture = icon;
 	icon_root.icon.hide();
 	random_generator = RandomNumberGenerator.new();
 	time_to_breakdown = _randomize_time_to_break();
-	collision_shape.debug_color = self.debug_color;
-	collision_shape.shape = interact_shape;
 
-
-func get_machine():
+func get_minigame():
 	return minigame
 
 func _on_is_damaged() -> void:
@@ -45,6 +41,7 @@ func _on_repaired() -> void:
 	time_text.hide();
 	damaged = false;
 	_reset_time_to_break();
+	_deconstruct();
 
 func _process(delta: float) -> void:
 	time_to_breakdown -= delta;
@@ -54,11 +51,36 @@ func _process(delta: float) -> void:
 		if(damaged == false):
 			IsDamaged.emit();
 		else:
-			get_node("/root/Main/LivesCounter").lose_life();
-			Repaired.emit();
+			Breakdown.emit();
+
 
 func _randomize_time_to_break() -> float:
 	return random_generator.randf_range(min_occurance, max_occurance);
 
 func _reset_time_to_break() -> void:
 	time_to_breakdown = _randomize_time_to_break();
+
+func _on_breakdown() -> void:
+	get_node("/root/Main/LivesCounter").lose_life();
+	Repaired.emit();
+	$AnimatedSprite2D
+	
+func _interact() -> bool:
+	if !Global.in_minigame:
+		_construct();
+		return true;
+	else:
+		_deconstruct();
+		return false;
+
+func _construct() -> void:
+	if game_instance == null:
+		game_instance = minigame.instantiate();
+		Global.camera.add_child(game_instance)
+		Global.in_minigame = true
+
+func _deconstruct():
+	if game_instance != null:
+		game_instance.queue_free()
+		Global.in_minigame = false
+		game_instance = null;

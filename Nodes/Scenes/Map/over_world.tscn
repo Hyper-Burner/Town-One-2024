@@ -1,16 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://c7dtb2c0jcio"]
+[gd_scene load_steps=18 format=3 uid="uid://c7dtb2c0jcio"]
 
 [ext_resource type="Texture2D" uid="uid://vcvavq34ajk6" path="res://Assets/Sprites/Map3.png" id="1_ddx0m"]
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jldsg"]
-normal = Vector2(-8.74228e-08, -1)
-distance = -830.0
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_becxr"]
-distance = -448.0
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4x1fu"]
-distance = -444.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1kp3e"]
 atlas = ExtResource("1_ddx0m")
@@ -90,7 +80,27 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jldsg"]
+normal = Vector2(-8.74228e-08, -1)
+distance = -830.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_becxr"]
+distance = -448.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4x1fu"]
+distance = -444.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8oijb"]
+size = Vector2(63.1978, 49.0797)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p3ets"]
+size = Vector2(109.648, 94.5883)
+
 [node name="OverWorld" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ey7yy")
+frame_progress = 0.0630206
 
 [node name="world_border" type="StaticBody2D" parent="."]
 
@@ -115,8 +125,16 @@ one_way_collision = true
 
 [node name="ShipBody" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ShipBody"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ShipBody"]
+build_mode = 1
+polygon = PackedVector2Array(-260, 287, -299, 287, -299, 19, -831, 19, -831, 446, -830, 446, -830, 447, 202, 447, 202, 415, 234, 415, 234, 409, 241, 409, 241, 408, 237, 408, 237, 403, 271, 403, 271, 408, 267, 408, 267, 409, 274, 409, 274, 415, 306, 415, 306, 447, 369, 447, 369, 76, 409, 76, 409, 446, 830, 446, 830, -446, 409, -446, 409, -272, 416, -272, 416, -155, 409, -155, 409, -76, 369, -76, 369, -447, -830, -447, -830, -446, -831, -446, -831, -19, -299, -19, -299, -287, -260, -287)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_ey7yy")
-frame_progress = 0.73405
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShipBody"]
+position = Vector2(-62.5758, -323.509)
+rotation = 0.0763547
+shape = SubResource("RectangleShape2D_8oijb")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ShipBody"]
+position = Vector2(23.9361, -370.374)
+rotation = 0.506153
+shape = SubResource("RectangleShape2D_p3ets")
