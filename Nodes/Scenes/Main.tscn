@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://rvbeg2ssa60"]
+[gd_scene load_steps=19 format=3 uid="uid://rvbeg2ssa60"]
 
 [ext_resource type="PackedScene" uid="uid://bj8jhcos6u8hu" path="res://Nodes/Scenes/Player.tscn" id="1_4kupe"]
 [ext_resource type="Script" path="res://Nodes/Scenes/main.gd" id="1_loay8"]
@@ -20,6 +20,8 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a6ion"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pbaxq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r67x8"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_loay8")
@@ -85,6 +87,18 @@ debug_color = Color(0.450535, 0.0024306, 0.776971, 0.419608)
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Navigation"]
 shape = SubResource("CircleShape2D_pbaxq")
 debug_color = Color(0.450535, 0.0024306, 0.776971, 0.419608)
+
+[node name="Machine" parent="." instance=ExtResource("2_2wstb")]
+position = Vector2(0, -147)
+minigame = ExtResource("6_dxi8j")
+icon = ExtResource("3_n7ar1")
+min_occurance = 35
+max_occurance = 60
+time_to_fail = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Machine"]
+shape = SubResource("CircleShape2D_r67x8")
+debug_color = Color(0, 0, 0, 0.42)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="Button" to="LivesCounter" method="_on_button_pressed"]

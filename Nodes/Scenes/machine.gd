@@ -7,6 +7,7 @@ class_name Machine
 @export var max_occurance: int;
 @export var time_to_fail: int;
 
+
 @onready var icon_root: Notification = %IconRoot;
 @onready var time_text: Label = %TimeText;
 
@@ -15,7 +16,6 @@ signal Repaired;
 
 var time_to_breakdown: float;
 var random_generator: RandomNumberGenerator;
-
 var damaged: bool = false;
 
 func _ready() -> void:

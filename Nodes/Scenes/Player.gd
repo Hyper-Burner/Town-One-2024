@@ -38,7 +38,7 @@ func _physics_process(delta: float) -> void:
 		minigame_instance.queue_free()
 		Global.engine_minigame_counter = 0
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	if area is Machine:
+	if area is Machine and area.damaged:
 		near_minigame = true
 		minigame_scene = area.get_machine()
 
