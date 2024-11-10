@@ -6,8 +6,6 @@ class_name Machine
 @export var min_occurance: int;
 @export var max_occurance: int;
 @export var time_to_fail: int;
-@export var interact_shape: Shape2D;
-@export var debug_color: Color;
 
 @onready var icon_root: Notification = %IconRoot;
 @onready var time_text: Label = %TimeText;
@@ -27,8 +25,6 @@ func _ready() -> void:
 	icon_root.icon.hide();
 	random_generator = RandomNumberGenerator.new();
 	time_to_breakdown = _randomize_time_to_break();
-	collision_shape.debug_color = self.debug_color;
-	collision_shape.shape = interact_shape;
 
 func get_minigame():
 	return minigame
@@ -71,13 +67,17 @@ func _on_breakdown() -> void:
 
 func _interact() -> bool:
 	if !Global.in_minigame:
-		game_instance = minigame.instantiate()
-		Global.camera.add_child(game_instance)
-		Global.in_minigame = true
+		_construct();
 		return true;
 	else:
 		_deconstruct();
 		return false;
+
+func _construct() -> void:
+	if game_instance == null:
+		game_instance = minigame.instantiate();
+		Global.camera.add_child(game_instance)
+		Global.in_minigame = true
 
 func _deconstruct():
 	if game_instance != null:
