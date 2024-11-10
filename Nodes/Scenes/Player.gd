@@ -7,7 +7,7 @@ var in_minigame = false
 var minigame_scene
 var minigame_instance
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if near_minigame and !in_minigame and Input.is_action_just_pressed("Interact"):
 		minigame_instance = minigame_scene.instantiate()
 		$Camera2D.add_child(minigame_instance)
