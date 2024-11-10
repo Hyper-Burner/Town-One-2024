@@ -25,7 +25,7 @@ func _physics_process(_delta: float) -> void:
 	
 	if near_minigame and !Global.in_minigame and Input.is_action_just_pressed("Interact"):
 		minigame_instance = minigame_scene.instantiate()
-		$Camera2D.add_child(minigame_instance)
+		Global.camera.add_child(minigame_instance)
 		Global.in_minigame = true
 	elif Global.in_minigame and Input.is_action_just_pressed("Interact"):
 		minigame_instance.queue_free()
