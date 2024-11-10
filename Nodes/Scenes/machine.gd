@@ -7,7 +7,6 @@ class_name Machine
 @export var max_occurance: int;
 @export var time_to_fail: int;
 
-
 @onready var icon_root: Notification = %IconRoot;
 @onready var time_text: Label = %TimeText;
 
@@ -31,12 +30,14 @@ func get_machine():
 func _on_is_damaged() -> void:
 	print("DAMAGED");
 	icon_root.icon.show();
+	time_text.show();
 	damaged = true;
 	time_to_breakdown = time_to_fail;
 
 func _on_repaired() -> void:
 	print("REPAIRED");
 	icon_root.icon.hide();
+	time_text.hide();
 	damaged = false;
 	_reset_time_to_break();
 

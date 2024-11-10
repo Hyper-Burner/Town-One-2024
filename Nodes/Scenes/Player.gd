@@ -10,7 +10,7 @@ var minigame_instance
 @onready var animatedSprite = $AnimatedSprite2D
 @onready var globals = get_node("/root/Global")
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if(Input.is_action_pressed("Left")):
 		animatedSprite.play("walk_left")
 	elif(Input.is_action_pressed("Right")):
