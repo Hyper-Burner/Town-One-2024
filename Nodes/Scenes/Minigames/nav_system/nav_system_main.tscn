@@ -1,9 +1,12 @@
-[gd_scene load_steps=18 format=3 uid="uid://cck2mkdkkwbf5"]
+[gd_scene load_steps=21 format=3 uid="uid://cck2mkdkkwbf5"]
 
 [ext_resource type="Script" path="res://Nodes/Scenes/Minigames/nav_system/ship.gd" id="1_6o1bn"]
 [ext_resource type="PackedScene" uid="uid://r0b4m75jq8t0" path="res://Nodes/Scenes/Minigames/nav_system/walls.tscn" id="1_obx8t"]
+[ext_resource type="AudioStream" uid="uid://dfthpt45brbrq" path="res://Assets/Audio/mini_nav_thruster.mp3" id="2_1x5uv"]
 [ext_resource type="Texture2D" uid="uid://c2o4uhcw2v8f1" path="res://Assets/Sprites/nav_sprites.png" id="2_cr480"]
 [ext_resource type="Script" path="res://Nodes/Scenes/Minigames/nav_system/non_player.gd" id="2_d7osw"]
+[ext_resource type="AudioStream" uid="uid://dd2hinqqr8373" path="res://Assets/Audio/mini_start.mp3" id="2_l2oa0"]
+[ext_resource type="AudioStream" uid="uid://jgoyty826mua" path="res://Assets/Audio/mini_nav_crash.mp3" id="3_ndiva"]
 [ext_resource type="PackedScene" uid="uid://dwvmb0nkprrdj" path="res://Nodes/Scenes/Minigames/nav_system/meteor.tscn" id="3_van6e"]
 [ext_resource type="PackedScene" uid="uid://x8q3m1x8ho3t" path="res://Nodes/Scenes/Minigames/nav_system/end_portal.tscn" id="4_0vp5p"]
 [ext_resource type="PackedScene" uid="uid://dwox0262wwenm" path="res://Nodes/Scenes/Minigames/nav_system/meteor_2.tscn" id="5_uuxt1"]
@@ -69,6 +72,17 @@ position = Vector2(4, 0)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_6o1bn")
+
+[node name="StartSound" type="AudioStreamPlayer2D" parent="Node2D/Ship"]
+stream = ExtResource("2_l2oa0")
+
+[node name="ThrusterSound" type="AudioStreamPlayer2D" parent="Node2D/Ship"]
+stream = ExtResource("2_1x5uv")
+volume_db = 10.0
+
+[node name="CrashSound" type="AudioStreamPlayer2D" parent="Node2D/Ship"]
+stream = ExtResource("3_ndiva")
+volume_db = -5.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D/Ship"]
 position = Vector2(-7.13007, 13.05)
@@ -150,7 +164,6 @@ script = ExtResource("2_d7osw")
 [node name="Border" type="Node2D" parent="nonPlayer"]
 z_index = 2
 position = Vector2(0, -544)
-scale = Vector2(1, 1)
 
 [node name="bottom_border" parent="nonPlayer/Border" groups=["borders", "meteor", "ship"] instance=ExtResource("1_obx8t")]
 position = Vector2(3961, 1074)
@@ -190,12 +203,10 @@ metadata/_edit_use_anchors_ = true
 
 [node name="MapHard" type="Node2D" parent="nonPlayer"]
 position = Vector2(-0.000697711, 4.3869e-05)
-scale = Vector2(1, 1)
 
 [node name="m1" type="Node2D" parent="nonPlayer/MapHard"]
 z_index = 2
 position = Vector2(0.000348856, 2.86102e-06)
-scale = Vector2(1, 1)
 
 [node name="StaticBody2D" parent="nonPlayer/MapHard/m1" instance=ExtResource("3_van6e")]
 position = Vector2(905.919, -384.262)
@@ -247,7 +258,6 @@ collision_mask = 2
 [node name="m2" type="Node2D" parent="nonPlayer/MapHard"]
 z_index = 2
 position = Vector2(0.000348856, 2.86102e-06)
-scale = Vector2(1, 1)
 
 [node name="StaticBody2D" parent="nonPlayer/MapHard/m2" instance=ExtResource("3_van6e")]
 light_mask = 2
@@ -301,7 +311,6 @@ collision_mask = 2
 [node name="m3" type="Node2D" parent="nonPlayer/MapHard"]
 z_index = 2
 position = Vector2(0.000348856, 2.86102e-06)
-scale = Vector2(1, 1)
 
 [node name="StaticBody2D" parent="nonPlayer/MapHard/m3" instance=ExtResource("3_van6e")]
 light_mask = 2
@@ -355,7 +364,6 @@ collision_mask = 2
 [node name="m4" type="Node2D" parent="nonPlayer/MapHard"]
 z_index = 2
 position = Vector2(0.000348856, 2.86102e-06)
-scale = Vector2(1, 1)
 
 [node name="StaticBody2D" parent="nonPlayer/MapHard/m4" instance=ExtResource("3_van6e")]
 light_mask = 2
@@ -409,7 +417,6 @@ collision_mask = 2
 [node name="m5" type="Node2D" parent="nonPlayer/MapHard"]
 z_index = 2
 position = Vector2(0.000348856, 2.86102e-06)
-scale = Vector2(1, 1)
 
 [node name="StaticBody2D" parent="nonPlayer/MapHard/m5" instance=ExtResource("3_van6e")]
 light_mask = 2
@@ -463,7 +470,6 @@ collision_mask = 2
 [node name="m6" type="Node2D" parent="nonPlayer/MapHard"]
 z_index = 2
 position = Vector2(0.000348856, 2.86102e-06)
-scale = Vector2(1, 1)
 
 [node name="StaticBody2D" parent="nonPlayer/MapHard/m6" instance=ExtResource("3_van6e")]
 light_mask = 2
@@ -517,7 +523,6 @@ collision_mask = 2
 [node name="m7" type="Node2D" parent="nonPlayer/MapHard"]
 z_index = 2
 position = Vector2(0.000348856, 2.86102e-06)
-scale = Vector2(1, 1)
 
 [node name="StaticBody2D" parent="nonPlayer/MapHard/m7" instance=ExtResource("3_van6e")]
 light_mask = 2
@@ -564,7 +569,6 @@ collision_mask = 2
 [node name="m8" type="Node2D" parent="nonPlayer/MapHard"]
 z_index = 2
 position = Vector2(0.000348856, 2.86102e-06)
-scale = Vector2(1, 1)
 
 [node name="StaticBody2D" parent="nonPlayer/MapHard/m8" instance=ExtResource("3_van6e")]
 light_mask = 2
@@ -611,7 +615,6 @@ collision_mask = 2
 [node name="m9" type="Node2D" parent="nonPlayer/MapHard"]
 z_index = 2
 position = Vector2(0.000348856, 2.86102e-06)
-scale = Vector2(1, 1)
 
 [node name="StaticBody2D" parent="nonPlayer/MapHard/m9" instance=ExtResource("3_van6e")]
 light_mask = 2
@@ -658,7 +661,6 @@ collision_mask = 2
 [node name="m10" type="Node2D" parent="nonPlayer/MapHard"]
 z_index = 2
 position = Vector2(0.000348856, 2.86102e-06)
-scale = Vector2(1, 1)
 
 [node name="StaticBody2D" parent="nonPlayer/MapHard/m10" instance=ExtResource("3_van6e")]
 light_mask = 2
