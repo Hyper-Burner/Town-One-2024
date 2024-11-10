@@ -20,6 +20,7 @@ mono_crash.*.json
 !.vscode/extensions.json
 !.vscode/*.code-snippets
 
+Nodes/Scenes/Main.tscn
 # Local History for Visual Studio Code
 .history/
 
