@@ -27,17 +27,6 @@ unique_name_in_owner = true
 position = Vector2(-71, -15)
 motion_mode = 1
 
-[node name="Reactor" parent="." instance=ExtResource("2_2wstb")]
-unique_name_in_owner = true
-minigame = ExtResource("6_dxi8j")
-icon = ExtResource("3_n7ar1")
-min_occurance = 5
-max_occurance = 10
-time_to_fail = 15
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Reactor"]
-shape = SubResource("RectangleShape2D_hof2x")
-
 [node name="OverWorld" parent="." instance=ExtResource("3_hgkqc")]
 position = Vector2(0, 3)
 
@@ -53,13 +42,6 @@ time_to_fail = 30
 shape = SubResource("CapsuleShape2D_a6ion")
 debug_color = Color(0.436426, 0.598913, 0.0847095, 0.42)
 
-[node name="Navigation" parent="." instance=ExtResource("2_2wstb")]
-position = Vector2(168, 0)
-minigame = ExtResource("12_oba17")
-icon = ExtResource("3_n7ar1")
-min_occurance = 1
-max_occurance = 1
-time_to_fail = 30
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Engine/Engine"]
 shape = SubResource("CapsuleShape2D_a6ion")
