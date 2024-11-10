@@ -1,0 +1,96 @@
+[gd_scene load_steps=12 format=3 uid="uid://dpwnmdonrj5ws"]
+
+[ext_resource type="Script" path="res://Nodes/Scenes/ReactorMinigame.gd" id="1_oyhfg"]
+[ext_resource type="Texture2D" uid="uid://cr20346yi2o4d" path="res://Assets/Textures/ReactorMinigame.png" id="2_hdbew"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7cx2"]
+atlas = ExtResource("2_hdbew")
+region = Rect2(0, 839, 294, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bni4q"]
+atlas = ExtResource("2_hdbew")
+region = Rect2(0, 0, 96, 111)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pgcmo"]
+atlas = ExtResource("2_hdbew")
+region = Rect2(96, 0, 96, 111)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8p5q"]
+atlas = ExtResource("2_hdbew")
+region = Rect2(1, 112, 96, 111)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1yt75"]
+atlas = ExtResource("2_hdbew")
+region = Rect2(97, 112, 96, 111)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dthyh"]
+atlas = ExtResource("2_hdbew")
+region = Rect2(0, 224, 96, 111)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdeut"]
+atlas = ExtResource("2_hdbew")
+region = Rect2(96, 224, 96, 111)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d1514"]
+atlas = ExtResource("2_hdbew")
+region = Rect2(0, 336, 96, 111)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmxuh"]
+atlas = ExtResource("2_hdbew")
+region = Rect2(96, 336, 96, 111)
+
+[node name="ReactorMinigame" type="TextureRect"]
+offset_left = -147.0
+offset_top = -144.0
+offset_right = 147.0
+offset_bottom = 144.0
+texture = SubResource("AtlasTexture_p7cx2")
+script = ExtResource("1_oyhfg")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -20.3167
+offset_top = -36.7401
+offset_right = 19.6833
+offset_bottom = -13.7401
+
+[node name="Circle" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 25.0
+offset_right = 134.0
+offset_bottom = 136.0
+texture_normal = SubResource("AtlasTexture_bni4q")
+texture_pressed = SubResource("AtlasTexture_pgcmo")
+
+[node name="Square" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 155.0
+offset_top = 24.0
+offset_right = 251.0
+offset_bottom = 135.0
+texture_normal = SubResource("AtlasTexture_u8p5q")
+texture_pressed = SubResource("AtlasTexture_1yt75")
+
+[node name="Triangle" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 145.0
+offset_right = 135.0
+offset_bottom = 256.0
+texture_normal = SubResource("AtlasTexture_dthyh")
+texture_pressed = SubResource("AtlasTexture_kdeut")
+
+[node name="Diamond" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 154.0
+offset_top = 147.0
+offset_right = 250.0
+offset_bottom = 258.0
+texture_normal = SubResource("AtlasTexture_d1514")
+texture_pressed = SubResource("AtlasTexture_dmxuh")
+
+[connection signal="pressed" from="Circle" to="." method="_on_circle_pressed"]
+[connection signal="pressed" from="Square" to="." method="_on_square_pressed"]
+[connection signal="pressed" from="Triangle" to="." method="_on_triangle_pressed"]
+[connection signal="pressed" from="Diamond" to="." method="_on_diamond_pressed"]
