@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0xyws2cyjvgj"
-path="res://.godot/imported/ReactorMinigame.png-81cab7ef7aaad0bedd88036bcf70b417.ctex"
+uid="uid://fx0typooyg4"
+path="res://.godot/imported/Map.png-01906d54f0ca5258429eba41a33914ec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/ReactorMinigame.png"
-dest_files=["res://.godot/imported/ReactorMinigame.png-81cab7ef7aaad0bedd88036bcf70b417.ctex"]
+source_file="res://Assets/Textures/Map.png"
+dest_files=["res://.godot/imported/Map.png-01906d54f0ca5258429eba41a33914ec.ctex"]
 
 [params]
 
