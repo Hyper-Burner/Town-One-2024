@@ -53,10 +53,19 @@ script = ExtResource("7_qvcks")
 
 [node name="Engine1" parent="." instance=ExtResource("2_2wstb")]
 unique_name_in_owner = true
+position = Vector2(-1061, 1377)
 minigame = ExtResource("11_52g04")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Engine1"]
-position = Vector2(-1089, 1402)
+position = Vector2(8, 6)
+shape = SubResource("RectangleShape2D_8whdg")
+
+[node name="Engine2" parent="." instance=ExtResource("2_2wstb")]
+position = Vector2(839, 1334)
+minigame = ExtResource("11_52g04")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Engine2"]
+position = Vector2(8, 6)
 shape = SubResource("RectangleShape2D_8whdg")
 
 [connection signal="pressed" from="Button" to="LivesCounter" method="_on_button_pressed"]

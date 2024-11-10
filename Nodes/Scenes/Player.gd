@@ -20,7 +20,10 @@ func _physics_process(delta: float) -> void:
 		var direction = Input.get_vector("Left", "Right", "Up", "Down")
 		velocity = direction * speed
 		move_and_slide()
-
+	if(Global.engine_minigame_counter == 5):
+		in_minigame = false
+		minigame_instance.queue_free()
+		Global.engine_minigame_counter = 0
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area is Machine:
 		near_minigame = true

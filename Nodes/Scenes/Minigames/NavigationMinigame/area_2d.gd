@@ -4,6 +4,8 @@ var is_inside_droppable = false
 var draggable = false
 var body_ref
 
+
+
 signal correct_place
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -24,6 +26,7 @@ func _process(delta: float) -> void:
 				correct_place.emit()
 				get_child(1).free()
 				get_child(0).global_position = Vector2(-2000,-2000)
+				Global.engine_minigame_counter += 1
 
 
 func _on_mouse_entered() -> void:
