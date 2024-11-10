@@ -1,15 +1,15 @@
-[gd_scene load_steps=18 format=3 uid="uid://rvbeg2ssa60"]
+[gd_scene load_steps=10 format=3 uid="uid://rvbeg2ssa60"]
 
 [ext_resource type="PackedScene" uid="uid://bj8jhcos6u8hu" path="res://Nodes/Scenes/Player.tscn" id="1_4kupe"]
 [ext_resource type="Script" path="res://Nodes/Scenes/main.gd" id="1_loay8"]
-[ext_resource type="PackedScene" uid="uid://dr3e6fwronjxo" path="res://Nodes/Scenes/game_over.tscn" id="1_s38xt"]
-[ext_resource type="PackedScene" uid="uid://dw0xhlussm6id" path="res://Nodes/Scenes/Machine.tscn" id="2_2wstb"]
-[ext_resource type="PackedScene" uid="uid://bnp04keovej0h" path="res://Nodes/Scenes/lives_counter.tscn" id="2_su0ge"]
+[ext_resource type="PackedScene" path="res://Nodes/Scenes/game_over.tscn" id="1_s38xt"]
+[ext_resource type="PackedScene" uid="uid://dn0j40jeomkxc" path="res://Nodes/Scenes/Machine.tscn" id="2_2wstb"]
+[ext_resource type="PackedScene" path="res://Nodes/Scenes/lives_counter.tscn" id="2_su0ge"]
 [ext_resource type="PackedScene" uid="uid://c7dtb2c0jcio" path="res://Nodes/Scenes/Map/over_world.tscn" id="3_hgkqc"]
 [ext_resource type="PackedScene" uid="uid://dqfkb057sph4e" path="res://Nodes/Scenes/Minigames/Engine/EngineMinigame.tscn" id="6_oissh"]
 [ext_resource type="Texture2D" uid="uid://cywdyjygw58gm" path="res://Assets/Textures/info.svg" id="12_4fv4p"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a6ion"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o7ae1"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_loay8")
@@ -37,14 +37,7 @@ icon = ExtResource("12_4fv4p")
 min_occurance = 10
 max_occurance = 20
 time_to_fail = 30
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Engine"]
-shape = SubResource("CapsuleShape2D_a6ion")
-debug_color = Color(0.436426, 0.598913, 0.0847095, 0.42)
-
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Engine/Engine"]
-shape = SubResource("CapsuleShape2D_a6ion")
-debug_color = Color(0.436426, 0.598913, 0.0847095, 0.42)
+interact_shape = SubResource("CapsuleShape2D_o7ae1")
+debug_color = Color(0.435294, 0.6, 0.0862745, 0.419608)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
