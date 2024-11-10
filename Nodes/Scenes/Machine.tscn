@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Nodes/Scenes/machine.gd" id="1_6uewv"]
 [ext_resource type="PackedScene" uid="uid://bwr5ah1mhh0u5" path="res://Nodes/Scenes/GUI/AlertElement.tscn" id="2_2hsmm"]
-[ext_resource type="PackedScene" uid="uid://dnvvb7gkjbxna" path="res://Nodes/Scenes/Minigames/Minigame.tscn" id="3_3in0k"]
+[ext_resource type="PackedScene" path="res://Nodes/Scenes/Minigames/Minigame.tscn" id="3_3in0k"]
 [ext_resource type="Script" path="res://Nodes/Scenes/Minigames/minigame.gd" id="4_40hg1"]
 
 [node name="Machine" type="Area2D"]

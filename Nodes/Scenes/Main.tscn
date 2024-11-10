@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://rvbeg2ssa60"]
+[gd_scene load_steps=52 format=3 uid="uid://rvbeg2ssa60"]
 
 [ext_resource type="PackedScene" uid="uid://bj8jhcos6u8hu" path="res://Nodes/Scenes/Player.tscn" id="1_4kupe"]
 [ext_resource type="Script" path="res://Nodes/Scenes/main.gd" id="1_loay8"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://dpwnmdonrj5ws" path="res://Nodes/Scenes/Minigames/Reactor/ReactorMinigame.tscn" id="7_nqlvm"]
 [ext_resource type="Texture2D" uid="uid://drwor0yxlwaa4" path="res://Assets/Sprites/Engine.png" id="9_biuog"]
 [ext_resource type="Texture2D" uid="uid://m2ep3sy0xfm5" path="res://Assets/Sprites/Reactor.png" id="10_t10an"]
+[ext_resource type="PackedScene" uid="uid://cck2mkdkkwbf5" path="res://Nodes/Scenes/Minigames/nav_system/nav_system_main.tscn" id="11_1ckrh"]
+[ext_resource type="Texture2D" uid="uid://dmvg1giijn1xl" path="res://Assets/Textures/warning.svg" id="12_75ve5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fhib8"]
 atlas = ExtResource("10_t10an")
@@ -275,8 +277,15 @@ radius = 125.0
 height = 350.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a6ion"]
-radius = 62.0
-height = 210.0
+radius = 55.0
+height = 224.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5l6gg"]
+size = Vector2(346, 117)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ckj2b"]
+radius = 68.0
+height = 346.0
 
 [node name="Main" type="Node"]
 script = ExtResource("1_loay8")
@@ -296,7 +305,6 @@ position = Vector2(0, 3)
 [node name="Player" parent="." instance=ExtResource("1_4kupe")]
 unique_name_in_owner = true
 position = Vector2(50, 300)
-motion_mode = 1
 
 [node name="Reactor" parent="." instance=ExtResource("2_2wstb")]
 position = Vector2(50, 0)
@@ -349,6 +357,7 @@ debug_color = Color(1, 0, 0, 0.419608)
 
 [node name="Engine2" parent="." instance=ExtResource("2_2wstb")]
 position = Vector2(-700, 375)
+minigame = ExtResource("6_oissh")
 min_occurance = 20
 max_occurance = 30
 time_to_fail = 45
@@ -369,6 +378,27 @@ autoplay = "repaired"
 position = Vector2(-1, 2)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_a6ion")
+debug_color = Color(1, 0, 0, 0.419608)
+
+[node name="Machine" parent="." instance=ExtResource("2_2wstb")]
+position = Vector2(586, -375)
+minigame = ExtResource("11_1ckrh")
+icon = ExtResource("12_75ve5")
+min_occurance = 25
+max_occurance = 40
+time_to_fail = 60
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Machine"]
+position = Vector2(71, 101)
+shape = SubResource("RectangleShape2D_5l6gg")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Machine"]
+position = Vector2(24, 21)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Machine/StaticBody2D"]
+position = Vector2(47, -21)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ckj2b")
 debug_color = Color(1, 0, 0, 0.419608)
 
 [node name="Camera2D" type="Camera2D" parent="."]

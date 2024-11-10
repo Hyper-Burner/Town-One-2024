@@ -1,6 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://c7dtb2c0jcio"]
+[gd_scene load_steps=20 format=3 uid="uid://c7dtb2c0jcio"]
 
 [ext_resource type="Texture2D" uid="uid://vcvavq34ajk6" path="res://Assets/Sprites/Map3.png" id="1_ddx0m"]
+[ext_resource type="Texture2D" uid="uid://cs35i6qxgeehl" path="res://Assets/Sprites/navigamebg.png" id="2_acsg5"]
+[ext_resource type="Script" path="res://Nodes/Scenes/Map/sprite_2d.gd" id="3_1j82l"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1kp3e"]
 atlas = ExtResource("1_ddx0m")
@@ -138,3 +140,24 @@ shape = SubResource("RectangleShape2D_8oijb")
 position = Vector2(23.9361, -370.374)
 rotation = 0.506153
 shape = SubResource("RectangleShape2D_p3ets")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(165, -7.62939e-06)
+scale = Vector2(1.55625, 1.80741)
+texture = ExtResource("2_acsg5")
+script = ExtResource("3_1j82l")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(2586, 0)
+scale = Vector2(1.55625, 1.80741)
+texture = ExtResource("2_acsg5")
+script = ExtResource("3_1j82l")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(4983, 0)
+scale = Vector2(1.55625, 1.80741)
+texture = ExtResource("2_acsg5")
+script = ExtResource("3_1j82l")

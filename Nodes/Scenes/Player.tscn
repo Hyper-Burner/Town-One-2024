@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bj8jhcos6u8hu"]
+[gd_scene load_steps=27 format=3 uid="uid://bj8jhcos6u8hu"]
 
 [ext_resource type="Script" path="res://Nodes/Scenes/Player.gd" id="1_m1u4p"]
 [ext_resource type="Texture2D" uid="uid://b1xvks4bg0ey6" path="res://Assets/Sprites/potman-Sheet.png" id="2_pemf4"]
@@ -278,9 +278,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n5hin"]
 size = Vector2(75, 75)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_tg5ex"]
-radius = 15.0
-
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_m1u4p")
@@ -294,13 +291,11 @@ autoplay = "idle"
 scale = Vector2(1.61719, 1.80044)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 19.4397)
+position = Vector2(-2.47343, 17.7734)
 shape = SubResource("RectangleShape2D_n5hin")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 35)
-scale = Vector2(1.61719, 1.80044)
-shape = SubResource("CircleShape2D_tg5ex")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-61, 38, -39, 42, -17, 58, -14, 59, 0, 59, 8, 58, 20, 48, 30, 43, 55, 40, 56, 9, 46, -27, -50, -25, -62, 11)
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
