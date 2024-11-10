@@ -18,8 +18,12 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("Fly"):
 		velocity.y += JUMP_VELOCITY
 		$AnimatedSprite2D.play("flying")
+		if !$ThrusterSound.is_playing():
+			$ThrusterSound.play()
+		
 	else:
 		$AnimatedSprite2D.play("default")
+		$ThrusterSound.stop()
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -31,7 +35,9 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		$Timer.start()
 		velocity.x = 0
 		velocity.y = 0
+		$CrashSound.play()
 		set_physics_process(false)
+		
 	if area.is_in_group("end"):
 		win.emit()
 		velocity.x = 0
