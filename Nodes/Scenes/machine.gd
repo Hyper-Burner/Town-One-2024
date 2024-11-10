@@ -48,6 +48,7 @@ func _process(delta: float) -> void:
 		if(damaged == false):
 			IsDamaged.emit();
 		else:
+			get_node("/root/Main/LivesCounter").lose_life();
 			_reset_time_to_break();
 
 func _get_time_to_break() -> float:
