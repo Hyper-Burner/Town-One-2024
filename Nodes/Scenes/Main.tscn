@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://rvbeg2ssa60"]
+[gd_scene load_steps=16 format=3 uid="uid://rvbeg2ssa60"]
 
 [ext_resource type="PackedScene" uid="uid://bj8jhcos6u8hu" path="res://Nodes/Scenes/Player.tscn" id="1_4kupe"]
 [ext_resource type="Script" path="res://Nodes/Scenes/main.gd" id="1_loay8"]
@@ -8,13 +8,16 @@
 [ext_resource type="PackedScene" uid="uid://c7dtb2c0jcio" path="res://Nodes/Scenes/Map/over_world.tscn" id="3_hgkqc"]
 [ext_resource type="Texture2D" uid="uid://dmvg1giijn1xl" path="res://Assets/Textures/warning.svg" id="3_n7ar1"]
 [ext_resource type="Texture2D" uid="uid://4nn8ua2nuvx2" path="res://icon.svg" id="6_3s31c"]
-[ext_resource type="PackedScene" uid="uid://dqfkb057sph4e" path="res://Nodes/Scenes/Minigames/NavigationMinigame/NavigatoinMinigame.tscn" id="6_oissh"]
+[ext_resource type="PackedScene" uid="uid://dqfkb057sph4e" path="res://Nodes/Scenes/Minigames/Engine/EngineMinigame.tscn" id="6_oissh"]
 [ext_resource type="Script" path="res://Nodes/Scenes/button.gd" id="7_qvcks"]
 [ext_resource type="Texture2D" uid="uid://cywdyjygw58gm" path="res://Assets/Textures/info.svg" id="12_4fv4p"]
+[ext_resource type="PackedScene" uid="uid://cck2mkdkkwbf5" path="res://Nodes/Scenes/Minigames/nav_system/nav_system_main.tscn" id="12_oba17"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hof2x"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a6ion"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pbaxq"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_loay8")
@@ -50,16 +53,28 @@ offset_bottom = -120.0
 icon = ExtResource("6_3s31c")
 script = ExtResource("7_qvcks")
 
-[node name="Navigation" parent="." instance=ExtResource("2_2wstb")]
-position = Vector2(164, -1)
+[node name="Engine" parent="." instance=ExtResource("2_2wstb")]
+position = Vector2(-253, -1)
 minigame = ExtResource("6_oissh")
 icon = ExtResource("12_4fv4p")
 min_occurance = 10
 max_occurance = 20
 time_to_fail = 30
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Navigation"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Engine"]
 shape = SubResource("CapsuleShape2D_a6ion")
 debug_color = Color(0.436426, 0.598913, 0.0847095, 0.42)
+
+[node name="Navigation" parent="." instance=ExtResource("2_2wstb")]
+position = Vector2(168, 0)
+minigame = ExtResource("12_oba17")
+icon = ExtResource("3_n7ar1")
+min_occurance = 5
+max_occurance = 15
+time_to_fail = 30
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Navigation"]
+shape = SubResource("CircleShape2D_pbaxq")
+debug_color = Color(0.450535, 0.0024306, 0.776971, 0.419608)
 
 [connection signal="pressed" from="Button" to="LivesCounter" method="_on_button_pressed"]
