@@ -8,4 +8,5 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if(Global.engine_minigame_counter == 5):
+		$SuccessSound.play()
 		machine.Repaired.emit();

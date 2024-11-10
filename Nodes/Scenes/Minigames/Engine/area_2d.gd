@@ -24,7 +24,7 @@ func _process(_delta: float) -> void:
 		elif Input.is_action_just_released("click"):
 			Global.is_dragging = false
 			if is_inside_droppable:
-				$PlacementSound.play()
+				get_parent().get_node("PlacementSound").play()
 				correct_place.emit()
 				get_child(1).free()
 				get_child(0).global_position = Vector2(-2000,-2000)
