@@ -61,7 +61,7 @@ size = Vector2(117, 199)
 [node name="NavigatoinMinigame" type="Node2D"]
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(-165.875, -99.625)
+position = Vector2(-166, -101)
 scale = Vector2(450, 300)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
@@ -72,6 +72,7 @@ shape = SubResource("RectangleShape2D_6mo1g")
 texture = SubResource("CanvasTexture_pj4ta")
 
 [node name="Pieces" type="Node2D" parent="."]
+position = Vector2(-0.125, -1.375)
 
 [node name="Area2D" type="Area2D" parent="Pieces"]
 script = ExtResource("1_a4kch")
@@ -81,7 +82,7 @@ position = Vector2(-236.875, 191.875)
 shape = SubResource("RectangleShape2D_2gbjv")
 
 [node name="Sprite2D" type="Sprite2D" parent="Pieces/Area2D"]
-position = Vector2(-235.875, 195.375)
+position = Vector2(-211.875, 195.375)
 scale = Vector2(322.25, 131)
 texture = SubResource("PlaceholderTexture2D_2bhou")
 
@@ -103,7 +104,7 @@ script = ExtResource("1_a4kch")
 areaID = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pieces/Area2D3"]
-position = Vector2(225.625, 184.875)
+position = Vector2(226.125, 186.375)
 shape = SubResource("RectangleShape2D_l653g")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Pieces/Area2D3"]
@@ -138,6 +139,7 @@ scale = Vector2(107.75, 184.75)
 texture = SubResource("PlaceholderTexture2D_blhta")
 
 [node name="CorrectPlacement" type="Node2D" parent="."]
+position = Vector2(-0.125, -1.375)
 
 [node name="Area2D" type="Area2D" parent="CorrectPlacement" groups=["Droppable"]]
 
@@ -147,7 +149,7 @@ shape = SubResource("RectangleShape2D_o55cg")
 
 [node name="Sprite2D" type="Sprite2D" parent="CorrectPlacement/Area2D"]
 visible = false
-position = Vector2(368.5, 292)
+position = Vector2(-225.375, -17.625)
 scale = Vector2(333, 138)
 texture = SubResource("PlaceholderTexture2D_3nb73")
 script = ExtResource("2_wwrc0")
@@ -160,7 +162,7 @@ shape = SubResource("RectangleShape2D_1exb5")
 
 [node name="Sprite2D2" type="Sprite2D" parent="CorrectPlacement/Area2D2"]
 visible = false
-position = Vector2(275.5, 142)
+position = Vector2(-318.375, -167.625)
 scale = Vector2(147, 162)
 texture = SubResource("PlaceholderTexture2D_hewm4")
 script = ExtResource("2_wwrc0")
@@ -174,7 +176,7 @@ shape = SubResource("RectangleShape2D_vvngs")
 
 [node name="Sprite2D3" type="Sprite2D" parent="CorrectPlacement/Area2D3"]
 visible = false
-position = Vector2(593.5, 311)
+position = Vector2(-0.374939, 1.375)
 scale = Vector2(117, 100)
 texture = SubResource("PlaceholderTexture2D_iwelb")
 script = ExtResource("2_wwrc0")
@@ -188,7 +190,7 @@ shape = SubResource("RectangleShape2D_5v47i")
 
 [node name="Sprite2D4" type="Sprite2D" parent="CorrectPlacement/Area2D4"]
 visible = false
-position = Vector2(442, 142)
+position = Vector2(-151.875, -167.625)
 scale = Vector2(186, 162)
 texture = SubResource("PlaceholderTexture2D_v8b0a")
 script = ExtResource("2_wwrc0")
@@ -202,7 +204,7 @@ shape = SubResource("RectangleShape2D_0c4dx")
 
 [node name="Sprite2D5" type="Sprite2D" parent="CorrectPlacement/Area2D5"]
 visible = false
-position = Vector2(593.125, 161)
+position = Vector2(-0.75, -148.625)
 scale = Vector2(117.75, 200)
 texture = SubResource("PlaceholderTexture2D_824f8")
 script = ExtResource("2_wwrc0")
