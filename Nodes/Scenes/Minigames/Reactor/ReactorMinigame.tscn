@@ -1,9 +1,7 @@
-[gd_scene load_steps=24 format=3 uid="uid://dpwnmdonrj5ws"]
+[gd_scene load_steps=26 format=3 uid="uid://dpwnmdonrj5ws"]
 
 [ext_resource type="Script" path="res://Nodes/Scenes/Minigames/Reactor/ReactorMinigame.gd" id="1_5r75a"]
 [ext_resource type="Texture2D" uid="uid://gxgedquk121b" path="res://Assets/Sprites/MinigameBordersAndTimer.png" id="1_odt6l"]
-[gd_scene load_steps=26 format=3 uid="uid://dpwnmdonrj5ws"]
-
 [ext_resource type="Script" path="res://Nodes/Scenes/Minigames/Reactor/ReactorMinigame.gd" id="1_5r75a"]
 [ext_resource type="Texture2D" uid="uid://bmghvuwjcjyu0" path="res://Nodes/Scenes/Minigames/Reactor/ReactorMinigame.tres" id="1_a1y66"]
 [ext_resource type="Texture2D" uid="uid://b0xyws2cyjvgj" path="res://Assets/Sprites/ReactorMinigame.png" id="2_hdbew"]

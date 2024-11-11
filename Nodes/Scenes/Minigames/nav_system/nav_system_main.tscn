@@ -1349,16 +1349,16 @@ theme_override_font_sizes/font_size = 50
 text = "Test"
 metadata/_edit_use_anchors_ = true
 
-[connection signal="pause" from="Node2D/Ship" to="Node2D/Label" method="_on_ship_pause"]
 [connection signal="pause" from="Node2D/Ship" to="nonPlayer" method="_on_ship_pause"]
-[connection signal="restart" from="Node2D/Ship" to="Node2D/Label" method="_on_ship_restart"]
+[connection signal="pause" from="Node2D/Ship" to="Node2D/Label" method="_on_ship_pause"]
 [connection signal="restart" from="Node2D/Ship" to="nonPlayer" method="_on_ship_restart"]
-[connection signal="win" from="Node2D/Ship" to="Node2D/Label" method="_on_ship_win"]
+[connection signal="restart" from="Node2D/Ship" to="Node2D/Label" method="_on_ship_restart"]
 [connection signal="win" from="Node2D/Ship" to="nonPlayer" method="_on_ship_win"]
+[connection signal="win" from="Node2D/Ship" to="Node2D/Label" method="_on_ship_win"]
 [connection signal="area_entered" from="Node2D/Ship/Area2D" to="Node2D/Ship" method="_on_area_2d_area_entered"]
 [connection signal="timeout" from="Node2D/Ship/Timer" to="Node2D/Ship" method="_on_timer_timeout"]
-[connection signal="ready_over" from="Node2D/Label" to="Node2D/Ship" method="_on_label_ready_over"]
 [connection signal="ready_over" from="Node2D/Label" to="nonPlayer" method="_on_label_ready_over"]
+[connection signal="ready_over" from="Node2D/Label" to="Node2D/Ship" method="_on_label_ready_over"]
 [connection signal="timeout" from="Node2D/Label/game_time" to="Node2D/Ship" method="_on_game_time_timeout"]
 [connection signal="timeout" from="Node2D/Label/game_time" to="Node2D/Label" method="_on_game_time_timeout"]
 [connection signal="timeout" from="Node2D/Label/ready_time" to="Node2D/Label" method="_on_ready_time_timeout"]
