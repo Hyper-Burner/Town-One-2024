@@ -4,8 +4,6 @@ var is_inside_droppable: bool = false
 var draggable: bool = false
 var body_ref
 
-
-
 signal correct_place
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,7 +15,6 @@ func _process(_delta: float) -> void:
 	if draggable:
 		if Input.is_action_just_pressed("click"):
 			Global.is_dragging = true
-
 		if Input.is_action_pressed("click"):
 			get_child(1).global_position = get_global_mouse_position()
 			get_child(0).global_position = get_global_mouse_position()

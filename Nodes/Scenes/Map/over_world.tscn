@@ -102,6 +102,7 @@ size = Vector2(109.648, 94.5883)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ey7yy")
+autoplay = "default"
 frame_progress = 0.0630206
 
 [node name="world_border" type="StaticBody2D" parent="."]

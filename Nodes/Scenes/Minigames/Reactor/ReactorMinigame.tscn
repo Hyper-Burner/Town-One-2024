@@ -1,9 +1,7 @@
-[gd_scene load_steps=26 format=3 uid="uid://dpwnmdonrj5ws"]
+[gd_scene load_steps=23 format=3 uid="uid://dpwnmdonrj5ws"]
 
 [ext_resource type="Script" path="res://Nodes/Scenes/Minigames/Reactor/ReactorMinigame.gd" id="1_5r75a"]
-[ext_resource type="Texture2D" uid="uid://gxgedquk121b" path="res://Assets/Sprites/MinigameBordersAndTimer.png" id="1_odt6l"]
-[ext_resource type="Script" path="res://Nodes/Scenes/Minigames/Reactor/ReactorMinigame.gd" id="1_5r75a"]
-[ext_resource type="Texture2D" uid="uid://bmghvuwjcjyu0" path="res://Nodes/Scenes/Minigames/Reactor/ReactorMinigame.tres" id="1_a1y66"]
+[ext_resource type="Texture2D" path="res://Nodes/Scenes/Minigames/Reactor/ReactorMinigame.tres" id="1_a1y66"]
 [ext_resource type="Texture2D" uid="uid://b0xyws2cyjvgj" path="res://Assets/Sprites/ReactorMinigame.png" id="2_hdbew"]
 [ext_resource type="Texture2D" uid="uid://c5e34oyn3lc8f" path="res://Assets/Textures/ReactorMinigameBackground.png" id="2_vvqbe"]
 [ext_resource type="AudioStream" uid="uid://c3h0qky1kb8wl" path="res://Assets/Audio/mini_reactor_button.mp3" id="6_ypni5"]
@@ -67,6 +65,7 @@ atlas = ExtResource("2_hdbew")
 region = Rect2(0, 1127, 142, 123)
 
 [node name="Border" type="TextureRect"]
+z_index = 2
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

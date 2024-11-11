@@ -10,6 +10,8 @@ class_name Machine
 @onready var icon_root: Notification = %IconRoot;
 @onready var time_text: Label = %TimeText;
 
+@onready var animatedsprite = $AnimatedSprite2D
+
 signal IsDamaged;
 signal Repaired;
 signal Breakdown;
@@ -29,7 +31,6 @@ func get_minigame():
 	return minigame
 
 func _on_is_damaged() -> void:
-	print("DAMAGED");
 	icon_root.icon.show();
 	time_text.show();
 	damaged = true;
@@ -37,6 +38,7 @@ func _on_is_damaged() -> void:
 
 func _on_repaired() -> void:
 	print("REPAIRED");
+	$AnimatedSprite2D.play("repaired")
 	icon_root.icon.hide();
 	time_text.hide();
 	damaged = false;
@@ -44,14 +46,18 @@ func _on_repaired() -> void:
 	_deconstruct();
 
 func _process(delta: float) -> void:
+	print(animatedsprite)
 	time_to_breakdown -= delta;
 	if(damaged):
 		time_text.text = str(int(time_to_breakdown), "\n Press 'E' to repair!");
 	if(time_to_breakdown <= 0.0):
 		if(damaged == false):
-			$AlertSound.play()
+			#$AlertSound.play()
+			animatedsprite.play("damaged")
+			
 			IsDamaged.emit();
 		else:
+			animatedsprite.play("broken")
 			Breakdown.emit();
 
 

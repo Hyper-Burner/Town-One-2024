@@ -46,9 +46,10 @@ region = Rect2(645, 1080, 203, 132)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3tkwc"]
 atlas = ExtResource("2_mq10v")
-region = Rect2(848, 1080, 172, 179)
+region = Rect2(848, 1080, 172, 178)
 
 [node name="EngineMinigame" type="Node2D"]
+z_index = 2
 script = ExtResource("1_cdquv")
 
 [node name="SuccessSound" type="AudioStreamPlayer2D" parent="."]
@@ -79,7 +80,7 @@ position = Vector2(-0.125, -1.375)
 stream = ExtResource("2_0d0qu")
 
 [node name="Area2D" type="Area2D" parent="Pieces"]
-position = Vector2(-225.875, 326.375)
+position = Vector2(59.125, 91.375)
 script = ExtResource("1_a4kch")
 
 [node name="Sprite2D" type="Sprite2D" parent="Pieces/Area2D"]
@@ -89,19 +90,19 @@ texture = SubResource("AtlasTexture_fqe31")
 shape = SubResource("RectangleShape2D_o55cg")
 
 [node name="Area2D2" type="Area2D" parent="Pieces"]
+z_index = 2
+position = Vector2(508.125, -95.625)
 script = ExtResource("1_a4kch")
 areaID = 1
 
 [node name="Sprite2D2" type="Sprite2D" parent="Pieces/Area2D2"]
-position = Vector2(415.125, -128.625)
 texture = SubResource("AtlasTexture_58asb")
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="Pieces/Area2D2"]
-position = Vector2(286.125, -122.125)
-polygon = PackedVector2Array(7, 19.5, 7, 143.5, 288, 143.5, 288, -156.5, -30, -156.5, -30, 19.5)
+polygon = PackedVector2Array(-122, 26, -159, 26, -159, -150, 159, -150, 159, 150, -122, 150)
 
 [node name="Area2D3" type="Area2D" parent="Pieces"]
-position = Vector2(416.125, 127.375)
+position = Vector2(162.125, -328.625)
 script = ExtResource("1_a4kch")
 areaID = 2
 
@@ -113,7 +114,7 @@ position = Vector2(0.125, -0.125)
 shape = SubResource("RectangleShape2D_l653g")
 
 [node name="Area2D4" type="Area2D" parent="Pieces"]
-position = Vector2(23.125, 305.375)
+position = Vector2(508.125, 180.375)
 script = ExtResource("1_a4kch")
 areaID = 3
 
@@ -124,6 +125,7 @@ texture = SubResource("AtlasTexture_mwq75")
 polygon = PackedVector2Array(-35.875, -37.625, 102.125, -37.625, 102.125, 14.375, -41.875, 14.375, -41.875, 66.375, -101.875, 66.375, -101.875, 49.375, -60.875, -3.625, -60.875, -4.625, -101.875, -61.625, -101.875, -66.625, -35.875, -66.625)
 
 [node name="Area2D5" type="Area2D" parent="Pieces"]
+position = Vector2(-5.875, -238.625)
 script = ExtResource("1_a4kch")
 areaID = 4
 
@@ -131,6 +133,7 @@ areaID = 4
 texture = SubResource("AtlasTexture_3tkwc")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pieces/Area2D5"]
+position = Vector2(0.125, 0.375)
 polygon = PackedVector2Array(21.125, -89.625, -83.875, -57.625, -85.875, 53.375, 18.125, 89.375, 19.125, 89.375, 86.125, 1.375, 86.125, -0.625, 22.125, -89.625)
 
 [node name="CorrectPlacement" type="Node2D" parent="."]
@@ -138,17 +141,21 @@ position = Vector2(-0.125, -1.375)
 
 [node name="Area2D" type="Area2D" parent="CorrectPlacement" groups=["Droppable"]]
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CorrectPlacement/Area2D"]
+position = Vector2(-470.5, 94.5)
+shape = SubResource("RectangleShape2D_o55cg")
+
 [node name="Sprite2D" type="Sprite2D" parent="CorrectPlacement/Area2D"]
 visible = false
 position = Vector2(-470.5, 94.5)
 texture = SubResource("AtlasTexture_fqe31")
 script = ExtResource("2_wwrc0")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CorrectPlacement/Area2D"]
-position = Vector2(-470.5, 94.5)
-shape = SubResource("RectangleShape2D_o55cg")
-
 [node name="Area2D2" type="Area2D" parent="CorrectPlacement" groups=["Droppable"]]
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="CorrectPlacement/Area2D2"]
+position = Vector2(-389, -82)
+polygon = PackedVector2Array(7, 19.5, 7, 143.5, 288, 143.5, 288, -156.5, -30, -156.5, -30, 19.5)
 
 [node name="Sprite2D2" type="Sprite2D" parent="CorrectPlacement/Area2D2"]
 visible = false
@@ -157,11 +164,11 @@ texture = SubResource("AtlasTexture_58asb")
 script = ExtResource("2_wwrc0")
 pieceID = 1
 
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="CorrectPlacement/Area2D2"]
-position = Vector2(-389, -82)
-polygon = PackedVector2Array(7, 19.5, 7, 143.5, 288, 143.5, 288, -156.5, -30, -156.5, -30, 19.5)
-
 [node name="Area2D3" type="Area2D" parent="CorrectPlacement" groups=["Droppable"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CorrectPlacement/Area2D3"]
+position = Vector2(-486, -145)
+shape = SubResource("RectangleShape2D_l653g")
 
 [node name="Sprite2D3" type="Sprite2D" parent="CorrectPlacement/Area2D3"]
 visible = false
@@ -170,11 +177,11 @@ texture = SubResource("AtlasTexture_q4b3r")
 script = ExtResource("2_wwrc0")
 pieceID = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CorrectPlacement/Area2D3"]
-position = Vector2(-486, -145)
-shape = SubResource("RectangleShape2D_l653g")
-
 [node name="Area2D4" type="Area2D" parent="CorrectPlacement" groups=["Droppable"]]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CorrectPlacement/Area2D4"]
+position = Vector2(-517.5, -76.5)
+polygon = PackedVector2Array(-35.875, -37.625, 102.125, -37.625, 102.125, 14.375, -41.875, 14.375, -41.875, 66.375, -101.875, 66.375, -101.875, 49.375, -60.875, -3.625, -60.875, -4.625, -101.875, -61.625, -101.875, -66.625, -35.875, -66.625)
 
 [node name="Sprite2D4" type="Sprite2D" parent="CorrectPlacement/Area2D4"]
 visible = false
@@ -183,11 +190,11 @@ texture = SubResource("AtlasTexture_mwq75")
 script = ExtResource("2_wwrc0")
 pieceID = 3
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CorrectPlacement/Area2D4"]
-position = Vector2(-517.5, -76.5)
-polygon = PackedVector2Array(-35.875, -37.625, 102.125, -37.625, 102.125, 14.375, -41.875, 14.375, -41.875, 66.375, -101.875, 66.375, -101.875, 49.375, -60.875, -3.625, -60.875, -4.625, -101.875, -61.625, -101.875, -66.625, -35.875, -66.625)
-
 [node name="Area2D5" type="Area2D" parent="CorrectPlacement" groups=["Droppable"]]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CorrectPlacement/Area2D5"]
+position = Vector2(-657, -81)
+polygon = PackedVector2Array(21.125, -89.625, -83.875, -57.625, -85.875, 53.375, 18.125, 89.375, 19.125, 89.375, 86.125, 1.375, 86.125, -0.625, 22.125, -89.625)
 
 [node name="Sprite2D5" type="Sprite2D" parent="CorrectPlacement/Area2D5"]
 visible = false
@@ -195,10 +202,6 @@ position = Vector2(-657, -81)
 texture = SubResource("AtlasTexture_3tkwc")
 script = ExtResource("2_wwrc0")
 pieceID = 4
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CorrectPlacement/Area2D5"]
-position = Vector2(-657, -81)
-polygon = PackedVector2Array(21.125, -89.625, -83.875, -57.625, -85.875, 53.375, 18.125, 89.375, 19.125, 89.375, 86.125, 1.375, 86.125, -0.625, 22.125, -89.625)
 
 [connection signal="area_entered" from="Pieces/Area2D" to="Pieces/Area2D" method="_on_area_entered"]
 [connection signal="area_exited" from="Pieces/Area2D" to="Pieces/Area2D" method="_on_area_exited"]

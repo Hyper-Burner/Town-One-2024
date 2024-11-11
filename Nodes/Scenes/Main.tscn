@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://rvbeg2ssa60"]
+[gd_scene load_steps=76 format=3 uid="uid://rvbeg2ssa60"]
 
 [ext_resource type="PackedScene" uid="uid://bj8jhcos6u8hu" path="res://Nodes/Scenes/Player.tscn" id="1_4kupe"]
 [ext_resource type="Script" path="res://Nodes/Scenes/main.gd" id="1_loay8"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://m2ep3sy0xfm5" path="res://Assets/Sprites/Reactor.png" id="10_t10an"]
 [ext_resource type="PackedScene" uid="uid://cck2mkdkkwbf5" path="res://Nodes/Scenes/Minigames/nav_system/nav_system_main.tscn" id="11_1ckrh"]
 [ext_resource type="Texture2D" uid="uid://dmvg1giijn1xl" path="res://Assets/Textures/warning.svg" id="12_75ve5"]
+[ext_resource type="Texture2D" uid="uid://c54hirgfwge36" path="res://Assets/Sprites/Navigation_System.png" id="13_0wc7a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fhib8"]
 atlas = ExtResource("10_t10an")
@@ -283,6 +284,178 @@ height = 224.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5l6gg"]
 size = Vector2(346, 117)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_fbvig"]
+atlas = ExtResource("13_0wc7a")
+region = Rect2(0, 512, 352, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1qlxo"]
+atlas = ExtResource("13_0wc7a")
+region = Rect2(352, 512, 352, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64ow4"]
+atlas = ExtResource("13_0wc7a")
+region = Rect2(1056, 512, 352, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_48jtg"]
+atlas = ExtResource("13_0wc7a")
+region = Rect2(1408, 512, 352, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_it1d7"]
+atlas = ExtResource("13_0wc7a")
+region = Rect2(1760, 512, 352, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b78nh"]
+atlas = ExtResource("13_0wc7a")
+region = Rect2(2112, 512, 352, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g7b6f"]
+atlas = ExtResource("13_0wc7a")
+region = Rect2(0, 256, 352, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k044c"]
+atlas = ExtResource("13_0wc7a")
+region = Rect2(352, 256, 352, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhfwi"]
+atlas = ExtResource("13_0wc7a")
+region = Rect2(704, 256, 352, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1jo1v"]
+atlas = ExtResource("13_0wc7a")
+region = Rect2(1056, 256, 352, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k74ur"]
+atlas = ExtResource("13_0wc7a")
+region = Rect2(1408, 256, 352, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_auhn1"]
+atlas = ExtResource("13_0wc7a")
+region = Rect2(1760, 256, 352, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1oqr"]
+atlas = ExtResource("13_0wc7a")
+region = Rect2(2112, 256, 352, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x7nbs"]
+atlas = ExtResource("13_0wc7a")
+region = Rect2(2464, 256, 352, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8dn74"]
+atlas = ExtResource("13_0wc7a")
+region = Rect2(0, 0, 352, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e75wp"]
+atlas = ExtResource("13_0wc7a")
+region = Rect2(352, 0, 352, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3hgey"]
+atlas = ExtResource("13_0wc7a")
+region = Rect2(704, 0, 352, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6s44g"]
+atlas = ExtResource("13_0wc7a")
+region = Rect2(1056, 0, 352, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_of5hv"]
+atlas = ExtResource("13_0wc7a")
+region = Rect2(1408, 0, 352, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_skqyu"]
+atlas = ExtResource("13_0wc7a")
+region = Rect2(1760, 0, 352, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j36hl"]
+atlas = ExtResource("13_0wc7a")
+region = Rect2(2112, 0, 352, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t3mqy"]
+atlas = ExtResource("13_0wc7a")
+region = Rect2(2464, 0, 352, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nwcmh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fbvig")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1qlxo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_64ow4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_48jtg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_it1d7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b78nh")
+}],
+"loop": true,
+"name": &"broken",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g7b6f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k044c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qhfwi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1jo1v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k74ur")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_auhn1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n1oqr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x7nbs")
+}],
+"loop": true,
+"name": &"damaged",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8dn74")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e75wp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3hgey")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6s44g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_of5hv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_skqyu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j36hl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t3mqy")
+}],
+"loop": true,
+"name": &"repaired",
+"speed": 10.0
+}]
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ckj2b"]
 radius = 68.0
 height = 346.0
@@ -304,6 +477,7 @@ position = Vector2(0, 3)
 
 [node name="Player" parent="." instance=ExtResource("1_4kupe")]
 unique_name_in_owner = true
+z_index = 1
 position = Vector2(50, 300)
 
 [node name="Reactor" parent="." instance=ExtResource("2_2wstb")]
@@ -331,7 +505,7 @@ shape = SubResource("CircleShape2D_i3wms")
 debug_color = Color(1, 0, 0, 0.419608)
 
 [node name="Engine1" parent="." instance=ExtResource("2_2wstb")]
-position = Vector2(-700, -375)
+position = Vector2(-690, -365)
 minigame = ExtResource("6_oissh")
 min_occurance = 20
 max_occurance = 30
@@ -356,10 +530,10 @@ shape = SubResource("CapsuleShape2D_a6ion")
 debug_color = Color(1, 0, 0, 0.419608)
 
 [node name="Engine2" parent="." instance=ExtResource("2_2wstb")]
-position = Vector2(-700, 375)
+position = Vector2(-656, 357)
 minigame = ExtResource("6_oissh")
-min_occurance = 20
-max_occurance = 30
+min_occurance = 1
+max_occurance = 1
 time_to_fail = 45
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Engine2"]
@@ -367,7 +541,7 @@ position = Vector2(-1, 2)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_tceqh")
 
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Engine2"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Engine2"]
 sprite_frames = SubResource("SpriteFrames_bnf5d")
 animation = &"repaired"
 autoplay = "repaired"
@@ -380,7 +554,7 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_a6ion")
 debug_color = Color(1, 0, 0, 0.419608)
 
-[node name="Machine" parent="." instance=ExtResource("2_2wstb")]
+[node name="Navigator" parent="." instance=ExtResource("2_2wstb")]
 position = Vector2(586, -375)
 minigame = ExtResource("11_1ckrh")
 icon = ExtResource("12_75ve5")
@@ -388,15 +562,21 @@ min_occurance = 1
 max_occurance = 1
 time_to_fail = 100
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Machine"]
-position = Vector2(71, 101)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Navigator"]
+position = Vector2(73, 167)
 shape = SubResource("RectangleShape2D_5l6gg")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Machine"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Navigator"]
+position = Vector2(80, 24)
+sprite_frames = SubResource("SpriteFrames_nwcmh")
+animation = &"repaired"
+autoplay = "repaired"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Navigator"]
 position = Vector2(24, 21)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Machine/StaticBody2D"]
-position = Vector2(47, -21)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Navigator/StaticBody2D"]
+position = Vector2(51, 69)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_ckj2b")
 debug_color = Color(1, 0, 0, 0.419608)
