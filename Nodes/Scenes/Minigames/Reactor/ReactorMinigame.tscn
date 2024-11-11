@@ -2,20 +2,21 @@
 
 [ext_resource type="Script" path="res://Nodes/Scenes/Minigames/Reactor/ReactorMinigame.gd" id="1_5r75a"]
 [ext_resource type="Texture2D" uid="uid://gxgedquk121b" path="res://Assets/Sprites/MinigameBordersAndTimer.png" id="1_odt6l"]
+[gd_scene load_steps=26 format=3 uid="uid://dpwnmdonrj5ws"]
+
+[ext_resource type="Script" path="res://Nodes/Scenes/Minigames/Reactor/ReactorMinigame.gd" id="1_5r75a"]
+[ext_resource type="Texture2D" uid="uid://bmghvuwjcjyu0" path="res://Nodes/Scenes/Minigames/Reactor/ReactorMinigame.tres" id="1_a1y66"]
 [ext_resource type="Texture2D" uid="uid://b0xyws2cyjvgj" path="res://Assets/Sprites/ReactorMinigame.png" id="2_hdbew"]
 [ext_resource type="Texture2D" uid="uid://c5e34oyn3lc8f" path="res://Assets/Textures/ReactorMinigameBackground.png" id="2_vvqbe"]
 [ext_resource type="AudioStream" uid="uid://c3h0qky1kb8wl" path="res://Assets/Audio/mini_reactor_button.mp3" id="6_ypni5"]
 [ext_resource type="AudioStream" uid="uid://cqt8jiaett5oo" path="res://Assets/Audio/mini_reactor_cover.mp3" id="7_77spj"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_l4mod"]
-atlas = ExtResource("1_odt6l")
-region = Rect2(0.006, 0, 1678, 942)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nt0e1"]
 atlas = ExtResource("2_vvqbe")
 region = Rect2(182, 185, 1558, 715)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_y6nkp"]
+load_path = "res://.godot/imported/ReactorMinigame.png-81cab7ef7aaad0bedd88036bcf70b417.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p7cx2"]
 atlas = SubResource("CompressedTexture2D_y6nkp")
@@ -79,7 +80,7 @@ offset_right = 839.0
 offset_bottom = 471.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("AtlasTexture_l4mod")
+texture = ExtResource("1_a1y66")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1

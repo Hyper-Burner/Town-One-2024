@@ -23,10 +23,8 @@ func check_answer(input):
 	if input == answer:
 		#$SuccessSound.play()
 		machine.Repaired.emit()
-		queue_free()
 	else:
-		get_node("/root/Main/LivesCounter").lose_life()
-	queue_free()
+		$FailSound.play()
 
 func _on_circle_pressed() -> void:
 	$ButtonSound.play()

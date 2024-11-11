@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://bmghvuwjcjyu0"]
+
+[ext_resource type="Texture2D" uid="uid://gxgedquk121b" path="res://Assets/Sprites/MinigameBordersAndTimer.png" id="1_21pxy"]
+
+[resource]
+atlas = ExtResource("1_21pxy")
+region = Rect2(0.006, 0, 1678, 942)
