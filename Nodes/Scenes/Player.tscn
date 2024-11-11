@@ -1,7 +1,9 @@
-[gd_scene load_steps=28 format=3 uid="uid://bj8jhcos6u8hu"]
+[gd_scene load_steps=30 format=3 uid="uid://bj8jhcos6u8hu"]
 
 [ext_resource type="Script" path="res://Nodes/Scenes/Player.gd" id="1_m1u4p"]
 [ext_resource type="Texture2D" uid="uid://b1xvks4bg0ey6" path="res://Assets/Sprites/potman-Sheet.png" id="2_pemf4"]
+[ext_resource type="AudioStream" uid="uid://c8bg4x4v3byf" path="res://Assets/Audio/mini_start2.mp3" id="2_v5mrx"]
+[ext_resource type="AudioStream" uid="uid://ifqmeq6aaacw" path="res://Assets/Audio/mini_close.mp3" id="3_1xbk2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7e636"]
 atlas = ExtResource("2_pemf4")
@@ -284,6 +286,12 @@ radius = 15.0
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_m1u4p")
+
+[node name="StartSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_v5mrx")
+
+[node name="CloseSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_1xbk2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_iiljm")

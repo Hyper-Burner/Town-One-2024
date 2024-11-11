@@ -1,9 +1,8 @@
-[gd_scene load_steps=29 format=3 uid="uid://dqfkb057sph4e"]
+[gd_scene load_steps=28 format=3 uid="uid://dqfkb057sph4e"]
 
 [ext_resource type="Script" path="res://Nodes/Scenes/Minigames/Engine/area_2d.gd" id="1_a4kch"]
 [ext_resource type="Script" path="res://Nodes/Scenes/Minigames/Engine/engine_minigame.gd" id="1_cdquv"]
 [ext_resource type="AudioStream" uid="uid://1s6dun0qsaq8" path="res://Assets/Audio/mini_engine_drop1.mp3" id="2_0d0qu"]
-[ext_resource type="AudioStream" uid="uid://dd2hinqqr8373" path="res://Assets/Audio/mini_start.mp3" id="2_4ei27"]
 [ext_resource type="Script" path="res://Nodes/Scenes/Minigames/Engine/sprite_2d.gd" id="2_wwrc0"]
 [ext_resource type="AudioStream" uid="uid://cmu6v77xeguxw" path="res://Assets/Audio/mini_reactor_success.mp3" id="3_vw4sm"]
 
@@ -44,9 +43,6 @@ region = Rect2(848, 1080, 172, 179)
 
 [node name="EngineMinigame" type="Node2D"]
 script = ExtResource("1_cdquv")
-
-[node name="StartSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_4ei27")
 
 [node name="SuccessSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_vw4sm")
