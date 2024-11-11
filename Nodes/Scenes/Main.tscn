@@ -384,9 +384,9 @@ debug_color = Color(1, 0, 0, 0.419608)
 position = Vector2(586, -375)
 minigame = ExtResource("11_1ckrh")
 icon = ExtResource("12_75ve5")
-min_occurance = 25
-max_occurance = 40
-time_to_fail = 60
+min_occurance = 1
+max_occurance = 1
+time_to_fail = 100
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Machine"]
 position = Vector2(71, 101)
