@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dpwnmdonrj5ws"]
+[gd_scene load_steps=24 format=3 uid="uid://dpwnmdonrj5ws"]
 
 [ext_resource type="Script" path="res://Nodes/Scenes/Minigames/Reactor/ReactorMinigame.gd" id="1_5r75a"]
 [ext_resource type="Texture2D" path="res://Nodes/Scenes/Minigames/Reactor/ReactorMinigame.tres" id="1_a1y66"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c5e34oyn3lc8f" path="res://Assets/Textures/ReactorMinigameBackground.png" id="2_vvqbe"]
 [ext_resource type="AudioStream" uid="uid://c3h0qky1kb8wl" path="res://Assets/Audio/mini_reactor_button.mp3" id="6_ypni5"]
 [ext_resource type="AudioStream" uid="uid://cqt8jiaett5oo" path="res://Assets/Audio/mini_reactor_cover.mp3" id="7_77spj"]
+[ext_resource type="AudioStream" uid="uid://caa2snfp71eo8" path="res://Assets/Audio/mini_reactor_fail.mp3" id="7_ajclo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nt0e1"]
 atlas = ExtResource("2_vvqbe")
@@ -179,6 +180,10 @@ offset_right = 213.0
 offset_bottom = 184.5
 mouse_filter = 2
 texture = SubResource("AtlasTexture_nfiy7")
+
+[node name="FailSound" type="AudioStreamPlayer2D" parent="ReactorMinigame"]
+position = Vector2(-692, -296)
+stream = ExtResource("7_ajclo")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0

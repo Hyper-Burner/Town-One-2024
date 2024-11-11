@@ -19,9 +19,9 @@ func _ready():
 		$StickyNote.texture.region = Rect2(430, 1127, 142, 123)
 
 func check_answer(input):
-	Global.in_minigame = false
 	if input == answer:
 		#$SuccessSound.play()
+		Global.in_minigame = false
 		machine.Repaired.emit()
 	else:
 		$FailSound.play()

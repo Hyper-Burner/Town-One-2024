@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://cnhclraam17k2"]
+[gd_scene load_steps=6 format=3 uid="uid://cpvvge30clxux"]
 
 [ext_resource type="Texture2D" uid="uid://cbghoddp5p0kj" path="res://Assets/Textures/titlescreenbg.png" id="1_cl55t"]
+[ext_resource type="Script" path="res://Nodes/Scenes/title_screen.gd" id="1_u75qi"]
 [ext_resource type="Texture2D" uid="uid://cbttcvvud4pdu" path="res://Assets/Textures/titlescreenlogo.png" id="2_0fm8o"]
 [ext_resource type="FontFile" uid="uid://nqpb7alp1pny" path="res://Assets/Fonts/Electrolize-Regular.ttf" id="3_o3hyr"]
 [ext_resource type="Script" path="res://Nodes/Scenes/button.gd" id="4_cangb"]
 
 [node name="TitleScreen" type="Control"]
+z_index = 10
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,6 +16,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource("1_u75qi")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -65,4 +68,4 @@ theme_override_font_sizes/font_size = 100
 text = "Play"
 script = ExtResource("4_cangb")
 
-[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://bsw46u8d7aspn"]
+[gd_scene load_steps=2 format=3 uid="uid://bnp04keovej0h"]
 
 [ext_resource type="Script" path="res://Nodes/Scenes/lives_counter.gd" id="1_86tsj"]
 
-[node name="LivesCounter" type="Node"]
+[node name="LivesCounter" type="Control"]
+z_index = 9
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_86tsj")
 
 [node name="Label" type="Label" parent="."]

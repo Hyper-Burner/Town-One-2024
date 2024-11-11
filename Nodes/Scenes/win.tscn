@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxig4xrs31n3r"]
+[gd_scene load_steps=3 format=3 uid="uid://cic5wbib3lnkm"]
 
 [ext_resource type="Texture2D" uid="uid://cyvp3uxqnq3h4" path="res://Assets/Textures/winscreen.png" id="1_qvqtp"]
 [ext_resource type="FontFile" uid="uid://nqpb7alp1pny" path="res://Assets/Fonts/Electrolize-Regular.ttf" id="1_ydlha"]
@@ -22,18 +22,18 @@ grow_vertical = 2
 texture = ExtResource("1_qvqtp")
 
 [node name="Label" type="Label" parent="."]
+z_index = 10
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -840.0
-offset_top = 435.0
-offset_right = 807.0
-offset_bottom = 530.0
+anchor_bottom = 1.0
+offset_left = -823.5
+offset_top = -77.0
+offset_right = 823.5
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_ydlha")
 theme_override_font_sizes/font_size = 64
