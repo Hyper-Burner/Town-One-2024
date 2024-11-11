@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://bnp04keovej0h"]
+[gd_scene load_steps=2 format=3 uid="uid://bsw46u8d7aspn"]
 
 [ext_resource type="Script" path="res://Nodes/Scenes/lives_counter.gd" id="1_86tsj"]
 

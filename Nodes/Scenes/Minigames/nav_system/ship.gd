@@ -47,7 +47,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 
 func _on_timer_timeout() -> void:
 	restart.emit()
-	position.x = 0
+	position.x = -400
 	position.y = 0
 	set_physics_process(true)
 
