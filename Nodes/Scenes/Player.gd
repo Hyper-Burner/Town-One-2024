@@ -10,6 +10,10 @@ var selected_machine: Machine = null;
 func _physics_process(_delta: float) -> void:
 
 	if Input.is_action_just_pressed("Interact") and selected_machine != null:
+		if Global.in_minigame:
+			$CloseSound.play()
+		else:
+			$StartSound.play()
 		selected_machine._interact();
 
 	if(!Global.in_minigame):

@@ -49,6 +49,7 @@ func _process(delta: float) -> void:
 		time_text.text = str(int(time_to_breakdown), "\n Press 'E' to repair!");
 	if(time_to_breakdown <= 0.0):
 		if(damaged == false):
+			$AlertSound.play()
 			IsDamaged.emit();
 		else:
 			Breakdown.emit();
@@ -62,8 +63,8 @@ func _reset_time_to_break() -> void:
 
 func _on_breakdown() -> void:
 	get_node("/root/Main/LivesCounter").lose_life();
-	Repaired.emit();
-	$AnimatedSprite2D
+	$FailSound.play()
+	Repaired.emit()
 	
 func _interact() -> bool:
 	if !Global.in_minigame:

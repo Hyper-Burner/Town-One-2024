@@ -1,12 +1,9 @@
-[gd_scene load_steps=27 format=3 uid="uid://dpwnmdonrj5ws"]
+[gd_scene load_steps=24 format=3 uid="uid://dpwnmdonrj5ws"]
 
 [ext_resource type="Script" path="res://Nodes/Scenes/Minigames/Reactor/ReactorMinigame.gd" id="1_5r75a"]
-[ext_resource type="Texture2D" uid="uid://gxgedquk121b" path="res://Assets/Textures/MinigameBordersAndTimer.png" id="1_odt6l"]
+[ext_resource type="Texture2D" uid="uid://gxgedquk121b" path="res://Assets/Sprites/MinigameBordersAndTimer.png" id="1_odt6l"]
 [ext_resource type="Texture2D" uid="uid://b0xyws2cyjvgj" path="res://Assets/Sprites/ReactorMinigame.png" id="2_hdbew"]
 [ext_resource type="Texture2D" uid="uid://c5e34oyn3lc8f" path="res://Assets/Textures/ReactorMinigameBackground.png" id="2_vvqbe"]
-[ext_resource type="AudioStream" uid="uid://dd2hinqqr8373" path="res://Assets/Audio/mini_start.mp3" id="4_j7s47"]
-[ext_resource type="AudioStream" uid="uid://cmu6v77xeguxw" path="res://Assets/Audio/mini_reactor_success.mp3" id="4_u2061"]
-[ext_resource type="AudioStream" uid="uid://caa2snfp71eo8" path="res://Assets/Audio/mini_reactor_fail.mp3" id="5_yxxn3"]
 [ext_resource type="AudioStream" uid="uid://c3h0qky1kb8wl" path="res://Assets/Audio/mini_reactor_button.mp3" id="6_ypni5"]
 [ext_resource type="AudioStream" uid="uid://cqt8jiaett5oo" path="res://Assets/Audio/mini_reactor_cover.mp3" id="7_77spj"]
 
@@ -114,15 +111,6 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AtlasTexture_p7cx2")
 script = ExtResource("1_5r75a")
-
-[node name="StartSound" type="AudioStreamPlayer2D" parent="ReactorMinigame"]
-stream = ExtResource("4_j7s47")
-
-[node name="SuccessSound" type="AudioStreamPlayer" parent="ReactorMinigame"]
-stream = ExtResource("4_u2061")
-
-[node name="FailSound" type="AudioStreamPlayer" parent="ReactorMinigame"]
-stream = ExtResource("5_yxxn3")
 
 [node name="ButtonSound" type="AudioStreamPlayer" parent="ReactorMinigame"]
 stream = ExtResource("6_ypni5")

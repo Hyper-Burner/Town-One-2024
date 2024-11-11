@@ -7,7 +7,6 @@ signal win
 
 
 func _ready():
-	$StartSound.play()
 	set_physics_process(false)
 	
 

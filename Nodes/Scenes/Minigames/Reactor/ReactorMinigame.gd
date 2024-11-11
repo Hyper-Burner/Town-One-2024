@@ -6,7 +6,6 @@ var rng = RandomNumberGenerator.new()
 var answer
 
 func _ready():
-	$StartSound.play()
 	answer = rng.randi_range(0, 3)
 	print(answer)
 	$CoverTexture.texture.region = Rect2(10, 449, 238, 389)
@@ -22,11 +21,10 @@ func _ready():
 func check_answer(input):
 	Global.in_minigame = false
 	if input == answer:
+		#$SuccessSound.play()
 		machine.Repaired.emit()
-		$SuccessSound.play()
 		queue_free()
 	else:
-		$FailSound.play()
 		get_node("/root/Main/LivesCounter").lose_life()
 	queue_free()
 
