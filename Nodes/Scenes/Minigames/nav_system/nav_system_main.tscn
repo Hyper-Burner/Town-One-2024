@@ -1,11 +1,11 @@
-[gd_scene load_steps=21 format=3 uid="uid://cck2mkdkkwbf5"]
+[gd_scene load_steps=22 format=3 uid="uid://cck2mkdkkwbf5"]
 
 [ext_resource type="Script" path="res://Nodes/Scenes/Minigames/nav_system/ship.gd" id="1_6o1bn"]
 [ext_resource type="PackedScene" uid="uid://r0b4m75jq8t0" path="res://Nodes/Scenes/Minigames/nav_system/walls.tscn" id="1_obx8t"]
 [ext_resource type="AudioStream" uid="uid://dfthpt45brbrq" path="res://Assets/Audio/mini_nav_thruster.mp3" id="2_1x5uv"]
 [ext_resource type="Texture2D" uid="uid://c2o4uhcw2v8f1" path="res://Assets/Sprites/nav_sprites.png" id="2_cr480"]
 [ext_resource type="Script" path="res://Nodes/Scenes/Minigames/nav_system/non_player.gd" id="2_d7osw"]
-[ext_resource type="AudioStream" uid="uid://cmu6v77xeguxw" path="res://Assets/Audio/mini_reactor_success.mp3" id="2_ngjo2"]
+[ext_resource type="AudioStream" uid="uid://dd2hinqqr8373" path="res://Assets/Audio/mini_start.mp3" id="2_l2oa0"]
 [ext_resource type="AudioStream" uid="uid://jgoyty826mua" path="res://Assets/Audio/mini_nav_crash.mp3" id="3_ndiva"]
 [ext_resource type="PackedScene" uid="uid://dwvmb0nkprrdj" path="res://Nodes/Scenes/Minigames/nav_system/meteor.tscn" id="3_van6e"]
 [ext_resource type="PackedScene" uid="uid://x8q3m1x8ho3t" path="res://Nodes/Scenes/Minigames/nav_system/end_portal.tscn" id="4_0vp5p"]
@@ -14,6 +14,11 @@
 [ext_resource type="Texture2D" uid="uid://btt6cnqcd0671" path="res://Assets/Sprites/navigamebg (1).png" id="7_6vpjv"]
 [ext_resource type="FontFile" uid="uid://nqpb7alp1pny" path="res://Assets/Fonts/Electrolize-Regular.ttf" id="8_4x6h3"]
 [ext_resource type="Script" path="res://Nodes/Scenes/Minigames/nav_system/label.gd" id="10_s1b86"]
+[ext_resource type="Texture2D" uid="uid://gxgedquk121b" path="res://Assets/Sprites/MinigameBordersAndTimer.png" id="15_yduoy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ius3t"]
+atlas = ExtResource("7_6vpjv")
+region = Rect2(194, 189, 1538, 709)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bepgk"]
 atlas = ExtResource("2_cr480")
@@ -56,111 +61,30 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ius3t"]
-atlas = ExtResource("7_6vpjv")
-region = Rect2(194, 189, 1538, 709)
-
 [node name="Node2D" type="Node2D"]
-position = Vector2(0, 8)
+position = Vector2(-780, -510)
 
-[node name="Node2D" type="Node2D" parent="."]
-z_index = 1
-
-[node name="Ship" type="CharacterBody2D" parent="Node2D" groups=["ship"]]
-visible = false
-z_index = 3
-position = Vector2(4, 0)
-collision_layer = 2
-collision_mask = 2
-script = ExtResource("1_6o1bn")
-
-[node name="SuccessSound" type="AudioStreamPlayer2D" parent="Node2D/Ship"]
-stream = ExtResource("2_ngjo2")
-
-[node name="ThrusterSound" type="AudioStreamPlayer2D" parent="Node2D/Ship"]
-stream = ExtResource("2_1x5uv")
-volume_db = 10.0
-
-[node name="CrashSound" type="AudioStreamPlayer2D" parent="Node2D/Ship"]
-stream = ExtResource("3_ndiva")
-volume_db = -5.0
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D/Ship"]
-position = Vector2(-7.13007, 13.05)
-scale = Vector2(1.09214, 0.980208)
-sprite_frames = SubResource("SpriteFrames_dul5v")
-
-[node name="Area2D" type="Area2D" parent="Node2D/Ship" groups=["ship"]]
-position = Vector2(-6.26013, 2.09998)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node2D/Ship/Area2D"]
-polygon = PackedVector2Array(-46, 3, -35, -9, -26, -11, -22, -29, -13, -33, -7, -35, 8, -36, 13, -34, 16, -31, 20, -27, 23, -22, 26, -16, 27, -13, 31, -12, 34, -9, 38, -5, 42, -1, 45, 2, 45, 12, 38, 19, 32, 24, 22, 26, 17, 34, -15, 34, -21, 27, -31, 24, -41, 20, -45, 15, -47, 10)
-
-[node name="Timer" type="Timer" parent="Node2D/Ship"]
-process_callback = 0
-wait_time = 1.5
-one_shot = true
-
-[node name="Label" type="Node2D" parent="Node2D"]
-visible = false
-z_index = 3
-scale = Vector2(0.999998, 0.999998)
-script = ExtResource("10_s1b86")
-
-[node name="game_time" type="Timer" parent="Node2D/Label"]
-wait_time = 20.0
-one_shot = true
-
-[node name="ready_time" type="Timer" parent="Node2D/Label"]
-wait_time = 3.0
-one_shot = true
-
-[node name="get_ready" type="Label" parent="Node2D/Label"]
-offset_left = -126.0
-offset_top = -178.0
-offset_right = 1330.0
-offset_bottom = 504.0
-theme_override_colors/font_color = Color(0.850465, 0, 0.219399, 1)
-theme_override_fonts/font = ExtResource("8_4x6h3")
-theme_override_font_sizes/font_size = 500
-text = "3"
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+offset_right = 1558.0
+offset_bottom = 715.0
+scale = Vector2(1.00006, 1.00852)
+stretch = true
 metadata/_edit_use_anchors_ = true
 
-[node name="flavor_get_ready" type="Label" parent="Node2D/Label"]
-offset_left = -519.0
-offset_top = -286.0
-offset_right = 518.0
-offset_bottom = -13.0
-theme_override_colors/font_color = Color(0.85098, 0, 0.219608, 1)
-theme_override_fonts/font = ExtResource("8_4x6h3")
-theme_override_font_sizes/font_size = 200
-text = "Get Ready!"
-metadata/_edit_use_anchors_ = true
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1558, 715)
+size_2d_override_stretch = true
+render_target_update_mode = 4
 
-[node name="Label" type="Label" parent="Node2D/Label"]
-offset_left = -40.0001
-offset_top = -459.001
-offset_right = 242.0
-offset_bottom = -317.001
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("8_4x6h3")
-theme_override_font_sizes/font_size = 50
-text = "Test"
-metadata/_edit_use_anchors_ = true
-
-[node name="Timeout" type="Label" parent="Node2D/Label"]
-offset_left = -479.001
-offset_top = -644.001
-offset_right = 522.999
-offset_bottom = -371.001
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("8_4x6h3")
-theme_override_font_sizes/font_size = 200
-text = "Time's Up!"
-metadata/_edit_use_anchors_ = true
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(901, 473)
+texture = ExtResource("15_yduoy")
 
 [node name="nonPlayer" type="Node2D" parent="."]
-scale = Vector2(0.699833, 0.699833)
+position = Vector2(1514, 831)
+scale = Vector2(0.58, 0.58)
 script = ExtResource("2_d7osw")
 
 [node name="Border" type="Node2D" parent="nonPlayer"]
@@ -225,7 +149,6 @@ position = Vector2(5055.49, 1224.16)
 position = Vector2(5775.66, 1224.16)
 
 [node name="Background" type="Sprite2D" parent="nonPlayer"]
-visible = false
 z_index = 1
 position = Vector2(2881.81, -17.0003)
 scale = Vector2(6.59973, 2.45416)
@@ -1328,6 +1251,103 @@ position = Vector2(4661.11, 348.655)
 
 [node name="m45" parent="nonPlayer/MapMedium1/random_end" instance=ExtResource("5_uuxt1")]
 position = Vector2(4956.9, 358.657)
+
+[node name="Node2D" type="Node2D" parent="."]
+z_index = 1
+position = Vector2(1253, 858)
+
+[node name="Ship" type="CharacterBody2D" parent="Node2D" groups=["ship"]]
+z_index = 3
+position = Vector2(4, 0)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_6o1bn")
+
+[node name="StartSound" type="AudioStreamPlayer2D" parent="Node2D/Ship"]
+stream = ExtResource("2_l2oa0")
+
+[node name="ThrusterSound" type="AudioStreamPlayer2D" parent="Node2D/Ship"]
+stream = ExtResource("2_1x5uv")
+volume_db = 10.0
+
+[node name="CrashSound" type="AudioStreamPlayer2D" parent="Node2D/Ship"]
+stream = ExtResource("3_ndiva")
+volume_db = -5.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D/Ship"]
+position = Vector2(-7.13007, 13.05)
+scale = Vector2(1.09214, 0.980208)
+sprite_frames = SubResource("SpriteFrames_dul5v")
+
+[node name="Area2D" type="Area2D" parent="Node2D/Ship" groups=["ship"]]
+position = Vector2(-6.26013, 2.09998)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node2D/Ship/Area2D"]
+polygon = PackedVector2Array(-46, 3, -35, -9, -26, -11, -22, -29, -13, -33, -7, -35, 8, -36, 13, -34, 16, -31, 20, -27, 23, -22, 26, -16, 27, -13, 31, -12, 34, -9, 38, -5, 42, -1, 45, 2, 45, 12, 38, 19, 32, 24, 22, 26, 17, 34, -15, 34, -21, 27, -31, 24, -41, 20, -45, 15, -47, 10)
+
+[node name="Timer" type="Timer" parent="Node2D/Ship"]
+process_callback = 0
+wait_time = 1.5
+one_shot = true
+
+[node name="Label" type="Node2D" parent="Node2D"]
+z_index = 3
+position = Vector2(112, 184)
+scale = Vector2(0.999998, 0.999998)
+script = ExtResource("10_s1b86")
+
+[node name="game_time" type="Timer" parent="Node2D/Label"]
+wait_time = 20.0
+one_shot = true
+
+[node name="ready_time" type="Timer" parent="Node2D/Label"]
+wait_time = 3.0
+one_shot = true
+
+[node name="get_ready" type="Label" parent="Node2D/Label"]
+offset_left = 60.0001
+offset_top = -214.0
+offset_right = 1516.0
+offset_bottom = 468.0
+theme_override_colors/font_color = Color(0.850465, 0, 0.219399, 1)
+theme_override_fonts/font = ExtResource("8_4x6h3")
+theme_override_font_sizes/font_size = 350
+text = "3"
+metadata/_edit_use_anchors_ = true
+
+[node name="flavor_get_ready" type="Label" parent="Node2D/Label"]
+offset_left = -198.0
+offset_top = -303.001
+offset_right = 839.0
+offset_bottom = -30.0006
+theme_override_colors/font_color = Color(0.85098, 0, 0.219608, 1)
+theme_override_fonts/font = ExtResource("8_4x6h3")
+theme_override_font_sizes/font_size = 150
+text = "Get Ready!"
+metadata/_edit_use_anchors_ = true
+
+[node name="Timeout" type="Label" parent="Node2D/Label"]
+offset_left = -353.001
+offset_top = -513.001
+offset_right = 648.999
+offset_bottom = -240.001
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_4x6h3")
+theme_override_font_sizes/font_size = 200
+text = "Time's Up!"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Node2D/Label"]
+z_index = 3
+offset_left = 153.0
+offset_top = -626.001
+offset_right = 435.0
+offset_bottom = -484.001
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_4x6h3")
+theme_override_font_sizes/font_size = 50
+text = "Test"
+metadata/_edit_use_anchors_ = true
 
 [connection signal="pause" from="Node2D/Ship" to="Node2D/Label" method="_on_ship_pause"]
 [connection signal="pause" from="Node2D/Ship" to="nonPlayer" method="_on_ship_pause"]
