@@ -7,8 +7,8 @@ atlas = ExtResource("1_g53yf")
 region = Rect2(3.24533, 219.995, 464.037, 365.421)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kcymd"]
-radius = 267.0
-height = 1082.0
+radius = 360.0
+height = 1198.0
 
 [node name="end_portal" type="StaticBody2D"]
 position = Vector2(1762, 567)
