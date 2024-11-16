@@ -3,6 +3,7 @@ extends Node
 var gamepackage
 func _start() -> void:
 	$TitleScreen.visible = true
+	$Timer.start()
 func _on_timer_timeout() -> void:
 	Global.you_win = true
 	Global.playing = false

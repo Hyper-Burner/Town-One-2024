@@ -4,6 +4,7 @@ extends Node2D
 
 func _ready():
 	Global.engine_minigame_counter = 0
+	Global.is_dragging = false
 	#$StartSound.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

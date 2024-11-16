@@ -1,5 +1,5 @@
 extends Node2D
-var speed = 5
+var speed = 7
 @onready var machine: Machine = get_node("/root/Global").active_game_machine
 @onready var play_tutorial = get_node("/root/Global").play_nav_tutorial
 var starting = false

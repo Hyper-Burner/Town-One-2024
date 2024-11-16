@@ -496,9 +496,9 @@ debug_color = Color(1, 0, 0, 0.419608)
 [node name="Engine1" parent="." instance=ExtResource("4_hm8uu")]
 position = Vector2(-690, -365)
 minigame = ExtResource("7_8vk2a")
-min_occurance = 10
-max_occurance = 15
-time_to_fail = 20
+min_occurance = 15
+max_occurance = 20
+time_to_fail = 25
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Engine1"]
 sprite_frames = SubResource("SpriteFrames_bnf5d")
@@ -521,9 +521,9 @@ debug_color = Color(1, 0, 0, 0.419608)
 [node name="Engine2" parent="." instance=ExtResource("4_hm8uu")]
 position = Vector2(-656, 357)
 minigame = ExtResource("7_8vk2a")
-min_occurance = 5
+min_occurance = 10
 max_occurance = 15
-time_to_fail = 20
+time_to_fail = 25
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Engine2"]
 position = Vector2(-1, 2)
@@ -547,9 +547,9 @@ debug_color = Color(1, 0, 0, 0.419608)
 position = Vector2(586, -375)
 minigame = ExtResource("9_kw57a")
 icon = ExtResource("10_oetwq")
-min_occurance = 15
-max_occurance = 25
-time_to_fail = 25
+min_occurance = 25
+max_occurance = 35
+time_to_fail = 40
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Navigator"]
 position = Vector2(73, 167)
